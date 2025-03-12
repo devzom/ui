@@ -50,7 +50,7 @@
       <UColorModeButton class="hidden lg:inline-flex" />
 
       <UButton
-        to="https://github.com/nuxt/ui/tree/dev"
+        to="https://github.com/nuxt/ui/tree/v2"
         target="_blank"
         icon="i-simple-icons-github"
         aria-label="GitHub"

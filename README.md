@@ -57,7 +57,7 @@ Follow the docs to [Set up your local development environment](https://ui.nuxt.c
 
 ## License
 
-Licensed under the [MIT license](https://github.com/nuxt/ui/blob/dev/LICENSE.md).
+Licensed under the [MIT license](https://github.com/nuxt/ui/blob/v2/LICENSE.md).
 
 <!-- Badges -->
 [npm-version-src]: https://img.shields.io/npm/v/@nuxt/ui/latest.svg?style=flat&colorA=18181B&colorB=28CF8D

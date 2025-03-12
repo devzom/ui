@@ -3,7 +3,7 @@ description: Collect and validate form data.
 links:
   - label: GitHub
     icon: i-simple-icons-github
-    to: https://github.com/nuxt/ui/blob/dev/src/runtime/components/forms/Form.vue
+    to: https://github.com/nuxt/ui/blob/v2/src/runtime/components/forms/Form.vue
 ---
 
 ## Usage
@@ -190,7 +190,7 @@ hiddenCode: true
 ---
 ::
 
-::callout{icon="i-simple-icons-github" to="https://github.com/nuxt/ui/blob/dev/docs/components/content/examples/FormExampleElements.vue" target="_blank"}
+::callout{icon="i-simple-icons-github" to="https://github.com/nuxt/ui/blob/v2/docs/components/content/examples/FormExampleElements.vue" target="_blank"}
 Take a look at the component!
 ::
 

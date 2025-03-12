@@ -814,7 +814,7 @@ const surround = [{
 const md = `
 ## Edge
 
-To use the latest updates pushed on the [\`dev\`](https://github.com/nuxt/ui/tree/dev) branch, you can use \`@nuxt/ui-edge\`.
+To use the latest updates pushed on the [\`dev\`](https://github.com/nuxt/ui/tree/v2) branch, you can use \`@nuxt/ui-edge\`.
 `
 
 const toc = [{
