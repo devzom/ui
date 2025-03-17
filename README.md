@@ -27,7 +27,22 @@ Read more on [ui2.nuxt.com](https://ui2.nuxt.com)
 ## Installation
 
 ```bash
-npx nuxi@latest module add ui
+# npm
+npm install @nuxt/ui@2
+# yarn
+yarn add @nuxt/ui@2
+# pnpm
+pnpm add @nuxt/ui@2
+# bun
+bun add @nuxt/ui@2
+```
+
+Next, register the `@nuxt/ui` module in your `nuxt.config.ts`:
+
+```ts
+export default defineNuxtConfig({
+  modules: ['@nuxt/ui']
+})
 ```
 
 ## Documentation
