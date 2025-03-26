@@ -16,6 +16,6 @@
     "zod": "^3.24.2"
   },
   "devDependencies": {
-    "@compodium/nuxt": "https://pkg.pr.new/romhml/compodium/@compodium/nuxt@185ece2"
+    "@compodium/nuxt": "https://pkg.pr.new/romhml/compodium/@compodium/nuxt@18f083d"
   }
 }
