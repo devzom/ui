@@ -324,8 +324,8 @@ importers:
         version: 3.24.2
     devDependencies:
       '@compodium/nuxt':
-        specifier: https://pkg.pr.new/romhml/compodium/@compodium/nuxt@eefc5d8
-        version: https://pkg.pr.new/romhml/compodium/@compodium/nuxt@eefc5d8(magicast@0.3.5)(typescript@5.6.3)(vite@6.2.3(@types/node@22.13.12)(jiti@2.4.2)(lightningcss@1.29.2)(terser@5.39.0)(yaml@2.7.0))(vue@3.5.13(typescript@5.6.3))
+        specifier: 0.1.0-beta.8
+        version: 0.1.0-beta.8(magicast@0.3.5)(typescript@5.6.3)(vite@6.2.3(@types/node@22.13.12)(jiti@2.4.2)(lightningcss@1.29.2)(terser@5.39.0)(yaml@2.7.0))(vue@3.5.13(typescript@5.6.3))
 
   playground-vue:
     dependencies:
@@ -556,6 +556,15 @@ packages:
   '@cloudflare/workers-types@4.20250321.0':
     resolution: {integrity: sha512-jPwtZJC7tVFOwFazuwq96be8haTnY9qik8hJ+oLFi50d9LTWPPrnrNHC4OxZmJTEcPIAy0y1WFZHe8C/b7xFXQ==}
 
+  '@compodium/core@0.1.0-beta.8':
+    resolution: {integrity: sha512-sfb2ZLZz13J8stwV8AA/OdUisgUa5DVf/2Plsh1wOEHtacpup+QNxKyK9gyPggKQtfX8a1qCliqZC5NDm82Rfw==}
+    peerDependencies:
+      vite: '>=6'
+      vue: '>=3'
+    peerDependenciesMeta:
+      vite:
+        optional: true
+
   '@compodium/core@https://pkg.pr.new/romhml/compodium/@compodium/core@18f083d1431d5d84f9d251ce996e186877e4ea5b':
     resolution: {tarball: https://pkg.pr.new/romhml/compodium/@compodium/core@18f083d1431d5d84f9d251ce996e186877e4ea5b}
     version: 0.0.0-18f083d1431d5d84f9d251ce996e186877e4ea5b
@@ -566,23 +575,20 @@ packages:
       vite:
         optional: true
 
-  '@compodium/core@https://pkg.pr.new/romhml/compodium/@compodium/core@eefc5d8fcee1b89fd0c89ab3f06bf351d04852cc':
-    resolution: {tarball: https://pkg.pr.new/romhml/compodium/@compodium/core@eefc5d8fcee1b89fd0c89ab3f06bf351d04852cc}
-    version: 0.0.0-eefc5d8fcee1b89fd0c89ab3f06bf351d04852cc
-    peerDependencies:
-      vite: '>=6'
-      vue: '>=3'
-    peerDependenciesMeta:
-      vite:
-        optional: true
+  '@compodium/examples@0.1.0-beta.8':
+    resolution: {integrity: sha512-AnYvdjIAFf9ULQTgAOXx44ky5bL4tzuxnZy7sKdsinALKChXJ92HAtHHdwdp0LWnUCrCXfNRGYEcI8yIK9uGVg==}
 
   '@compodium/examples@https://pkg.pr.new/romhml/compodium/@compodium/examples@18f083d1431d5d84f9d251ce996e186877e4ea5b':
     resolution: {tarball: https://pkg.pr.new/romhml/compodium/@compodium/examples@18f083d1431d5d84f9d251ce996e186877e4ea5b}
     version: 0.0.0-18f083d1431d5d84f9d251ce996e186877e4ea5b
 
-  '@compodium/examples@https://pkg.pr.new/romhml/compodium/@compodium/examples@eefc5d8fcee1b89fd0c89ab3f06bf351d04852cc':
-    resolution: {tarball: https://pkg.pr.new/romhml/compodium/@compodium/examples@eefc5d8fcee1b89fd0c89ab3f06bf351d04852cc}
-    version: 0.0.0-eefc5d8fcee1b89fd0c89ab3f06bf351d04852cc
+  '@compodium/meta@0.1.0-beta.8':
+    resolution: {integrity: sha512-9E8pG0maJSxdFsaFnM3MFBACR6dF4faLTmKNzrOfv9jnh28RYhnyGXPYwyqiIUDZNz7Xoa9Yb6A5Nf32Y1C5MQ==}
+    peerDependencies:
+      typescript: 5.6.3
+    peerDependenciesMeta:
+      typescript:
+        optional: true
 
   '@compodium/meta@https://pkg.pr.new/romhml/compodium/@compodium/meta@18f083d1431d5d84f9d251ce996e186877e4ea5b':
     resolution: {tarball: https://pkg.pr.new/romhml/compodium/@compodium/meta@18f083d1431d5d84f9d251ce996e186877e4ea5b}
@@ -593,18 +599,8 @@ packages:
       typescript:
         optional: true
 
-  '@compodium/meta@https://pkg.pr.new/romhml/compodium/@compodium/meta@eefc5d8fcee1b89fd0c89ab3f06bf351d04852cc':
-    resolution: {tarball: https://pkg.pr.new/romhml/compodium/@compodium/meta@eefc5d8fcee1b89fd0c89ab3f06bf351d04852cc}
-    version: 0.0.0-eefc5d8fcee1b89fd0c89ab3f06bf351d04852cc
-    peerDependencies:
-      typescript: 5.6.3
-    peerDependenciesMeta:
-      typescript:
-        optional: true
-
-  '@compodium/nuxt@https://pkg.pr.new/romhml/compodium/@compodium/nuxt@eefc5d8':
-    resolution: {tarball: https://pkg.pr.new/romhml/compodium/@compodium/nuxt@eefc5d8}
-    version: 0.0.0-eefc5d8fcee1b89fd0c89ab3f06bf351d04852cc
+  '@compodium/nuxt@0.1.0-beta.8':
+    resolution: {integrity: sha512-paK9oXV/GOsFY9doTprFoJfQ2+snODj8Wq/d9bciBZwsLgVBt7qtqv26SiqJsdg0Z8EcFjjhmJxIRlybsWl6qw==}
 
   '@compodium/vue@https://pkg.pr.new/romhml/compodium/@compodium/vue@18f083d':
     resolution: {tarball: https://pkg.pr.new/romhml/compodium/@compodium/vue@18f083d}
@@ -1672,6 +1668,11 @@ packages:
 
   '@nuxt/devtools-kit@2.3.1':
     resolution: {integrity: sha512-sggap7UTV0823cZk1buCEdd3KG+dMo73DpBuN+zHFC8UG3PfSKDlbVmQGb0TegxWTXG6BwItNQo8gd+pZzf/MA==}
+    peerDependencies:
+      vite: '>=6.0'
+
+  '@nuxt/devtools-kit@2.3.2':
+    resolution: {integrity: sha512-K0citnz9bSecPCLl4jGfE5I5St+E9XtDmOvYqq3ranGZGZ2Mvs5RwgUkaOrn4rulvUmBGBl7Exwh5YX9PONrEQ==}
     peerDependencies:
       vite: '>=6.0'
 
@@ -7585,6 +7586,27 @@ snapshots:
 
   '@cloudflare/workers-types@4.20250321.0': {}
 
+  '@compodium/core@0.1.0-beta.8(typescript@5.6.3)(vite@6.2.3(@types/node@22.13.12)(jiti@2.4.2)(lightningcss@1.29.2)(terser@5.39.0)(yaml@2.7.0))(vue@3.5.13(typescript@5.6.3))':
+    dependencies:
+      '@compodium/examples': 0.1.0-beta.8
+      '@compodium/meta': 0.1.0-beta.8(typescript@5.6.3)
+      '@vueuse/core': 13.0.0(vue@3.5.13(typescript@5.6.3))
+      chokidar: 3.6.0
+      hookable: 5.5.3
+      pathe: 2.0.3
+      scule: 1.3.0
+      sirv: 3.0.1
+      tinyglobby: 0.2.12
+      ufo: 1.5.4
+      unplugin: 2.2.2
+      unplugin-ast: 0.14.4
+      vue: 3.5.13(typescript@5.6.3)
+      zod: 3.24.2
+    optionalDependencies:
+      vite: 6.2.3(@types/node@22.13.12)(jiti@2.4.2)(lightningcss@1.29.2)(terser@5.39.0)(yaml@2.7.0)
+    transitivePeerDependencies:
+      - typescript
+
   '@compodium/core@https://pkg.pr.new/romhml/compodium/@compodium/core@18f083d1431d5d84f9d251ce996e186877e4ea5b(typescript@5.6.3)(vite@6.2.3(@types/node@22.13.12)(jiti@2.4.2)(lightningcss@1.29.2)(terser@5.39.0)(yaml@2.7.0))(vue@3.5.13(typescript@5.6.3))':
     dependencies:
       '@compodium/examples': https://pkg.pr.new/romhml/compodium/@compodium/examples@18f083d1431d5d84f9d251ce996e186877e4ea5b
@@ -7606,36 +7628,25 @@ snapshots:
     transitivePeerDependencies:
       - typescript
 
-  '@compodium/core@https://pkg.pr.new/romhml/compodium/@compodium/core@eefc5d8fcee1b89fd0c89ab3f06bf351d04852cc(typescript@5.6.3)(vite@6.2.3(@types/node@22.13.12)(jiti@2.4.2)(lightningcss@1.29.2)(terser@5.39.0)(yaml@2.7.0))(vue@3.5.13(typescript@5.6.3))':
+  '@compodium/examples@0.1.0-beta.8':
     dependencies:
-      '@compodium/examples': https://pkg.pr.new/romhml/compodium/@compodium/examples@eefc5d8fcee1b89fd0c89ab3f06bf351d04852cc
-      '@compodium/meta': https://pkg.pr.new/romhml/compodium/@compodium/meta@eefc5d8fcee1b89fd0c89ab3f06bf351d04852cc(typescript@5.6.3)
-      '@vueuse/core': 13.0.0(vue@3.5.13(typescript@5.6.3))
-      chokidar: 3.6.0
-      hookable: 5.5.3
       pathe: 2.0.3
       scule: 1.3.0
-      sirv: 3.0.1
-      tinyglobby: 0.2.12
-      ufo: 1.5.4
-      unplugin: 2.2.2
-      unplugin-ast: 0.14.4
-      vue: 3.5.13(typescript@5.6.3)
-      zod: 3.24.2
-    optionalDependencies:
-      vite: 6.2.3(@types/node@22.13.12)(jiti@2.4.2)(lightningcss@1.29.2)(terser@5.39.0)(yaml@2.7.0)
-    transitivePeerDependencies:
-      - typescript
 
   '@compodium/examples@https://pkg.pr.new/romhml/compodium/@compodium/examples@18f083d1431d5d84f9d251ce996e186877e4ea5b':
     dependencies:
       pathe: 2.0.3
       scule: 1.3.0
 
-  '@compodium/examples@https://pkg.pr.new/romhml/compodium/@compodium/examples@eefc5d8fcee1b89fd0c89ab3f06bf351d04852cc':
+  '@compodium/meta@0.1.0-beta.8(typescript@5.6.3)':
     dependencies:
+      '@volar/typescript': 2.4.12
+      '@vue/language-core': 2.2.8(typescript@5.6.3)
       pathe: 2.0.3
-      scule: 1.3.0
+      vue-component-meta: 2.2.8(typescript@5.6.3)
+      vue-component-type-helpers: 2.2.8
+    optionalDependencies:
+      typescript: 5.6.3
 
   '@compodium/meta@https://pkg.pr.new/romhml/compodium/@compodium/meta@18f083d1431d5d84f9d251ce996e186877e4ea5b(typescript@5.6.3)':
     dependencies:
@@ -7647,20 +7658,10 @@ snapshots:
     optionalDependencies:
       typescript: 5.6.3
 
-  '@compodium/meta@https://pkg.pr.new/romhml/compodium/@compodium/meta@eefc5d8fcee1b89fd0c89ab3f06bf351d04852cc(typescript@5.6.3)':
+  '@compodium/nuxt@0.1.0-beta.8(magicast@0.3.5)(typescript@5.6.3)(vite@6.2.3(@types/node@22.13.12)(jiti@2.4.2)(lightningcss@1.29.2)(terser@5.39.0)(yaml@2.7.0))(vue@3.5.13(typescript@5.6.3))':
     dependencies:
-      '@volar/typescript': 2.4.12
-      '@vue/language-core': 2.2.8(typescript@5.6.3)
-      pathe: 2.0.3
-      vue-component-meta: 2.2.8(typescript@5.6.3)
-      vue-component-type-helpers: 2.2.8
-    optionalDependencies:
-      typescript: 5.6.3
-
-  '@compodium/nuxt@https://pkg.pr.new/romhml/compodium/@compodium/nuxt@eefc5d8(magicast@0.3.5)(typescript@5.6.3)(vite@6.2.3(@types/node@22.13.12)(jiti@2.4.2)(lightningcss@1.29.2)(terser@5.39.0)(yaml@2.7.0))(vue@3.5.13(typescript@5.6.3))':
-    dependencies:
-      '@compodium/core': https://pkg.pr.new/romhml/compodium/@compodium/core@eefc5d8fcee1b89fd0c89ab3f06bf351d04852cc(typescript@5.6.3)(vite@6.2.3(@types/node@22.13.12)(jiti@2.4.2)(lightningcss@1.29.2)(terser@5.39.0)(yaml@2.7.0))(vue@3.5.13(typescript@5.6.3))
-      '@nuxt/devtools-kit': 2.3.1(magicast@0.3.5)(vite@6.2.3(@types/node@22.13.12)(jiti@2.4.2)(lightningcss@1.29.2)(terser@5.39.0)(yaml@2.7.0))
+      '@compodium/core': 0.1.0-beta.8(typescript@5.6.3)(vite@6.2.3(@types/node@22.13.12)(jiti@2.4.2)(lightningcss@1.29.2)(terser@5.39.0)(yaml@2.7.0))(vue@3.5.13(typescript@5.6.3))
+      '@nuxt/devtools-kit': 2.3.2(magicast@0.3.5)(vite@6.2.3(@types/node@22.13.12)(jiti@2.4.2)(lightningcss@1.29.2)(terser@5.39.0)(yaml@2.7.0))
       '@nuxt/kit': 3.16.1(magicast@0.3.5)
       consola: 3.4.2
       defu: 6.1.4
@@ -8523,6 +8524,15 @@ snapshots:
   '@nuxt/devalue@2.0.2': {}
 
   '@nuxt/devtools-kit@2.3.1(magicast@0.3.5)(vite@6.2.3(@types/node@22.13.12)(jiti@2.4.2)(lightningcss@1.29.2)(terser@5.39.0)(yaml@2.7.0))':
+    dependencies:
+      '@nuxt/kit': 3.16.1(magicast@0.3.5)
+      '@nuxt/schema': 3.16.1
+      execa: 8.0.1
+      vite: 6.2.3(@types/node@22.13.12)(jiti@2.4.2)(lightningcss@1.29.2)(terser@5.39.0)(yaml@2.7.0)
+    transitivePeerDependencies:
+      - magicast
+
+  '@nuxt/devtools-kit@2.3.2(magicast@0.3.5)(vite@6.2.3(@types/node@22.13.12)(jiti@2.4.2)(lightningcss@1.29.2)(terser@5.39.0)(yaml@2.7.0))':
     dependencies:
       '@nuxt/kit': 3.16.1(magicast@0.3.5)
       '@nuxt/schema': 3.16.1
