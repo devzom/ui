@@ -1,4 +1,10 @@
 packages:
-  - "./"
-  - "docs"
-  - "playground"
+  - ./
+  - docs
+  - playground
+
+ignoredBuiltDependencies:
+  - '@parcel/watcher'
+  - esbuild
+  - sharp
+  - vue-demi
