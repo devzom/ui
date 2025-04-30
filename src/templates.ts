@@ -1,6 +1,5 @@
-import { fileURLToPath } from 'node:url'
 import { kebabCase } from 'scule'
-import { addTemplate, addTypeTemplate } from '@nuxt/kit'
+import { addTemplate, addTypeTemplate, updateTemplates } from '@nuxt/kit'
 import type { Nuxt, NuxtTemplate, NuxtTypeTemplate } from '@nuxt/schema'
 import type { Resolver } from '@nuxt/kit'
 import type { ModuleOptions } from './module'
@@ -50,20 +49,6 @@ export function getTemplates(options: ModuleOptions, uiConfig: Record<string, an
           })
         }
 
-        // For local development, import directly from theme
-        const isUiDev = true
-        if (isUiDev) {
-          const templatePath = fileURLToPath(new URL(`./theme/${kebabCase(component)}`, import.meta.url))
-          return [
-            `import template from ${JSON.stringify(templatePath)}`,
-            ...generateVariantDeclarations(variants),
-            `const result = typeof template === 'function' ? (template as Function)(${JSON.stringify(options, null, 2)}) : template`,
-            `const theme = ${json}`,
-            `export default result as typeof theme`
-          ].join('\n\n')
-        }
-
-        // For production build
         return [
           ...generateVariantDeclarations(variants),
           `export default ${json}`
@@ -197,12 +182,35 @@ export {}
 
 export function addTemplates(options: ModuleOptions, nuxt: Nuxt, resolve: Resolver['resolve']) {
   const templates = getTemplates(options, nuxt.options.appConfig.ui)
+
   for (const template of templates) {
     if (template.filename!.endsWith('.d.ts')) {
       addTypeTemplate(template as NuxtTypeTemplate)
     } else {
       addTemplate(template)
     }
+  }
+
+  // For local module development, watch changes in themes
+  const isUiDev = true
+  if (isUiDev) {
+    nuxt.options.watch.push(resolve('./theme'))
+
+    nuxt.hook('builder:watch', async (event, path) => {
+      await updateTemplates({
+        filter: (template) => {
+          if (template.filename.startsWith('ui/') && template.filename !== 'ui/index.ts') {
+            const templatePath = template.filename.replace(/^ui/, 'src/theme')
+
+            if (path.endsWith(templatePath)) {
+              console.log(`[nuxt-ui] template ${templatePath} changed`)
+              return true
+            }
+          }
+          return false
+        }
+      })
+    })
   }
 
   nuxt.hook('prepare:types', ({ references }) => {
