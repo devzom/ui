@@ -22,16 +22,24 @@ useSeoMeta({
 </script>
 
 <template>
-  <UContainer v-if="page">
-    <UPageHero
-      :title="page.title"
-      :description="page.description"
-      orientation="horizontal"
-    />
+  <div v-if="page" class="relative">
+    <UPageHero :links="page.links" :ui="{ container: 'relative' }">
+      <LazyStarsBg />
 
-    <UPageBody>
+      <div aria-hidden="true" class="hidden lg:block absolute z-[-1] border-x border-default inset-0 mx-4 sm:mx-6 lg:mx-8" />
+
+      <template #title>
+        <MDC :value="page.title" unwrap="p" cache-key="pro-templates-hero-title" />
+      </template>
+
+      <template #description>
+        <MDC :value="page.description" unwrap="p" cache-key="pro-templates-hero-description" />
+      </template>
+    </UPageHero>
+
+    <UPageBody class="mt-0 lg:border-t border-default">
       <UContainer>
-        <UBlogPosts class="mb-12 md:grid-cols-2 lg:grid-cols-3">
+        <UBlogPosts orientation="vertical" class="!gap-0">
           <UBlogPost
             v-for="(article, index) in posts"
             :key="article.path"
@@ -46,12 +54,11 @@ useSeoMeta({
             }"
             :authors="article.authors?.map(author => ({ ...author, avatar: { ...author.avatar, alt: `${author.name} avatar` } }))"
             :badge="{ label: article.category, color: 'primary', variant: 'subtle' }"
-            :variant="index === 0 ? 'outline' : 'subtle'"
-            :orientation="index === 0 ? 'horizontal' : 'vertical'"
-            :class="[index === 0 && 'col-span-full']"
+            orientation="horizontal"
+            class="ring-0 border border-t-0 border-default rounded-none"
           />
         </UBlogPosts>
       </UContainer>
     </UPageBody>
-  </UContainer>
+  </div>
 </template>
