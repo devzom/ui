@@ -60,7 +60,7 @@ useSeoMeta({
               orientation="horizontal"
               class="ring-0 border group-first:border-t-0 group-last:border-b-0 border-default rounded-none"
             />
-            <div class="h-6 bg-muted/50 group-last:hidden border-x border-default" />
+            <div class="h-6 bg-muted/20 group-last:hidden border-x border-default" />
           </div>
         </UBlogPosts>
       </UContainer>
