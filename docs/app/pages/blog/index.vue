@@ -6,12 +6,14 @@ const { data: posts } = await useAsyncData('blogs', () =>
   queryCollection('blog').order('date', 'DESC').all()
 )
 
+const title = page.seo?.title || page.title
+const description = page.seo?.description || page.description
+
 useSeoMeta({
-  titleTemplate: `%s`,
-  title: page.title,
-  description: page.description,
-  ogTitle: `${page.title}`,
-  ogDescription: page.description
+  title,
+  description,
+  ogTitle: title,
+  ogDescription: description
 })
 
 /* defineOgImageComponent('Docs', {
