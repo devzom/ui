@@ -170,6 +170,36 @@ slots:
 :u-input{placeholder="Enter your email" class="w-full"}
 ::
 
+## Examples
+
+### With error animation
+
+You can animate the `error` slot by using the `ui` prop.
+
+::component-example
+---
+collapse: true
+name: 'form-field-error-animation-example'
+---
+::
+
+::tip
+You can also configure this globally in your `app.config.ts`:
+
+```ts
+export default defineAppConfig({
+  ui: {
+    formField: {
+      slots: {
+        error: 'data-[state=open]:animate-[fade-in_200ms_ease-out] data-[state=closed]:animate-[fade-out_200ms_ease-in]'
+      }
+    }
+  }
+})
+```
+
+::
+
 ## API
 
 ### Props

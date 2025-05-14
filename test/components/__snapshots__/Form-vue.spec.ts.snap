@@ -12,6 +12,7 @@ exports[`Form > custom validation works > with error 1`] = `
         <!--v-if-->
         <!--v-if-->
       </div>
+      <!---->
       <!--v-if-->
     </div>
   </div>
@@ -25,7 +26,8 @@ exports[`Form > custom validation works > with error 1`] = `
         <!--v-if-->
         <!--v-if-->
       </div>
-      <div id="v-1-error" class="mt-2 text-error">Must be at least 8 characters</div>
+      <div id="v-1-error" data-state="open" class="mt-2 text-error">Must be at least 8 characters</div>
+      <!--v-if-->
     </div>
   </div>
 </form>"
@@ -43,6 +45,7 @@ exports[`Form > custom validation works > without error 1`] = `
         <!--v-if-->
         <!--v-if-->
       </div>
+      <!---->
       <!--v-if-->
     </div>
   </div>
@@ -56,6 +59,7 @@ exports[`Form > custom validation works > without error 1`] = `
         <!--v-if-->
         <!--v-if-->
       </div>
+      <!---->
       <!--v-if-->
     </div>
   </div>
@@ -74,6 +78,7 @@ exports[`Form > joi validation works > with error 1`] = `
         <!--v-if-->
         <!--v-if-->
       </div>
+      <!---->
       <!--v-if-->
     </div>
   </div>
@@ -87,7 +92,8 @@ exports[`Form > joi validation works > with error 1`] = `
         <!--v-if-->
         <!--v-if-->
       </div>
-      <div id="v-1-error" class="mt-2 text-error">Must be at least 8 characters</div>
+      <div id="v-1-error" data-state="open" class="mt-2 text-error">Must be at least 8 characters</div>
+      <!--v-if-->
     </div>
   </div>
 </form>"
@@ -105,6 +111,7 @@ exports[`Form > joi validation works > without error 1`] = `
         <!--v-if-->
         <!--v-if-->
       </div>
+      <!---->
       <!--v-if-->
     </div>
   </div>
@@ -118,6 +125,7 @@ exports[`Form > joi validation works > without error 1`] = `
         <!--v-if-->
         <!--v-if-->
       </div>
+      <!---->
       <!--v-if-->
     </div>
   </div>
@@ -140,6 +148,7 @@ exports[`Form > superstruct validation works > with error 1`] = `
         <!--v-if-->
         <!--v-if-->
       </div>
+      <!---->
       <!--v-if-->
     </div>
   </div>
@@ -153,7 +162,8 @@ exports[`Form > superstruct validation works > with error 1`] = `
         <!--v-if-->
         <!--v-if-->
       </div>
-      <div id="v-1-error" class="mt-2 text-error">Must be at least 8 characters</div>
+      <div id="v-1-error" data-state="open" class="mt-2 text-error">Must be at least 8 characters</div>
+      <!--v-if-->
     </div>
   </div>
 </form>"
@@ -171,6 +181,7 @@ exports[`Form > superstruct validation works > without error 1`] = `
         <!--v-if-->
         <!--v-if-->
       </div>
+      <!---->
       <!--v-if-->
     </div>
   </div>
@@ -184,6 +195,7 @@ exports[`Form > superstruct validation works > without error 1`] = `
         <!--v-if-->
         <!--v-if-->
       </div>
+      <!---->
       <!--v-if-->
     </div>
   </div>
@@ -202,6 +214,7 @@ exports[`Form > valibot validation works > with error 1`] = `
         <!--v-if-->
         <!--v-if-->
       </div>
+      <!---->
       <!--v-if-->
     </div>
   </div>
@@ -215,7 +228,8 @@ exports[`Form > valibot validation works > with error 1`] = `
         <!--v-if-->
         <!--v-if-->
       </div>
-      <div id="v-1-error" class="mt-2 text-error">Must be at least 8 characters</div>
+      <div id="v-1-error" data-state="open" class="mt-2 text-error">Must be at least 8 characters</div>
+      <!--v-if-->
     </div>
   </div>
 </form>"
@@ -233,6 +247,7 @@ exports[`Form > valibot validation works > without error 1`] = `
         <!--v-if-->
         <!--v-if-->
       </div>
+      <!---->
       <!--v-if-->
     </div>
   </div>
@@ -246,6 +261,7 @@ exports[`Form > valibot validation works > without error 1`] = `
         <!--v-if-->
         <!--v-if-->
       </div>
+      <!---->
       <!--v-if-->
     </div>
   </div>
@@ -264,6 +280,7 @@ exports[`Form > yup validation works > with error 1`] = `
         <!--v-if-->
         <!--v-if-->
       </div>
+      <!---->
       <!--v-if-->
     </div>
   </div>
@@ -277,7 +294,8 @@ exports[`Form > yup validation works > with error 1`] = `
         <!--v-if-->
         <!--v-if-->
       </div>
-      <div id="v-1-error" class="mt-2 text-error">Must be at least 8 characters</div>
+      <div id="v-1-error" data-state="open" class="mt-2 text-error">Must be at least 8 characters</div>
+      <!--v-if-->
     </div>
   </div>
 </form>"
@@ -295,6 +313,7 @@ exports[`Form > yup validation works > without error 1`] = `
         <!--v-if-->
         <!--v-if-->
       </div>
+      <!---->
       <!--v-if-->
     </div>
   </div>
@@ -308,6 +327,7 @@ exports[`Form > yup validation works > without error 1`] = `
         <!--v-if-->
         <!--v-if-->
       </div>
+      <!---->
       <!--v-if-->
     </div>
   </div>
@@ -326,6 +346,7 @@ exports[`Form > zod validation works > with error 1`] = `
         <!--v-if-->
         <!--v-if-->
       </div>
+      <!---->
       <!--v-if-->
     </div>
   </div>
@@ -339,7 +360,8 @@ exports[`Form > zod validation works > with error 1`] = `
         <!--v-if-->
         <!--v-if-->
       </div>
-      <div id="v-1-error" class="mt-2 text-error">Must be at least 8 characters</div>
+      <div id="v-1-error" data-state="open" class="mt-2 text-error">Must be at least 8 characters</div>
+      <!--v-if-->
     </div>
   </div>
 </form>"
@@ -357,6 +379,7 @@ exports[`Form > zod validation works > without error 1`] = `
         <!--v-if-->
         <!--v-if-->
       </div>
+      <!---->
       <!--v-if-->
     </div>
   </div>
@@ -370,6 +393,7 @@ exports[`Form > zod validation works > without error 1`] = `
         <!--v-if-->
         <!--v-if-->
       </div>
+      <!---->
       <!--v-if-->
     </div>
   </div>

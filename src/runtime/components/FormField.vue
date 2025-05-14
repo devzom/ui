@@ -48,7 +48,7 @@ export interface FormFieldSlots {
 
 <script setup lang="ts">
 import { computed, ref, inject, provide, type Ref, useId } from 'vue'
-import { Primitive, Label } from 'reka-ui'
+import { Primitive, Presence, Label } from 'reka-ui'
 import { useAppConfig } from '#imports'
 import { formFieldInjectionKey, inputIdInjectionKey } from '../composables/useFormField'
 import { tv } from '../utils/tv'
@@ -67,6 +67,8 @@ const ui = computed(() => tv({ extend: tv(theme), ...(appConfig.ui?.formField ||
 const formErrors = inject<Ref<FormError[]> | null>('form-errors', null)
 
 const error = computed(() => props.error || formErrors?.value?.find(error => error.name && (error.name === props.name || (props.errorPattern && error.name.match(props.errorPattern))))?.message)
+
+const hasError = computed(() => !!(typeof error.value === 'string' && error.value) || !!slots.error)
 
 const id = ref(useId())
 // Copies id's initial value to bind aria-attributes such as aria-describedby.
@@ -115,12 +117,15 @@ provide(formFieldInjectionKey, computed(() => ({
     <div :class="[(label || !!slots.label || description || !!slots.description) && ui.container({ class: props.ui?.container })]">
       <slot :error="error" />
 
-      <div v-if="(typeof error === 'string' && error) || !!slots.error" :id="`${ariaId}-error`" :class="ui.error({ class: props.ui?.error })">
-        <slot name="error" :error="error">
-          {{ error }}
-        </slot>
-      </div>
-      <div v-else-if="help || !!slots.help" :class="ui.help({ class: props.ui?.help })">
+      <Presence v-slot="{ present }" :present="hasError">
+        <div :id="`${ariaId}-error`" :data-state="present ? 'open' : 'closed'" :class="ui.error({ class: props.ui?.error })">
+          <slot name="error" :error="error">
+            {{ error }}
+          </slot>
+        </div>
+      </Presence>
+
+      <div v-if="!hasError && (help || !!slots.help)" :class="ui.help({ class: props.ui?.help })">
         <slot name="help" :help="help">
           {{ help }}
         </slot>
