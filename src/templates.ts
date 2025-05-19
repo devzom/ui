@@ -167,6 +167,7 @@ type AppConfigUI = {
   tv?: typeof defaultConfig
   csp?: {
     nonce?: string
+    scriptNonce?: string
   }
 } & TVConfig<typeof ui>
 

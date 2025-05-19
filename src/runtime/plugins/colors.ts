@@ -24,7 +24,7 @@ export default defineNuxtPlugin(() => {
   const nuxtApp = useNuxtApp()
 
   const nonce = computed(() => appConfig.ui?.csp?.nonce)
-
+  const scriptNonce = computed(() => appConfig.ui?.csp?.scriptNonce)
   const root = computed(() => {
     const { neutral, ...colors } = appConfig.ui.colors
 
@@ -65,7 +65,7 @@ export default defineNuxtPlugin(() => {
 
     headData.script = [{
       innerHTML: 'document.head.removeChild(document.querySelector(\'[data-nuxt-ui-colors]\'))',
-      ...(nonce.value ? { nonce: nonce.value } : {})
+      ...(scriptNonce.value ? { nonce: scriptNonce.value } : {})
     }]
   }
 
