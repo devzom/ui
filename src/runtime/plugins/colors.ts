@@ -42,6 +42,7 @@ export default defineNuxtPlugin(() => {
   })
 
   // Head
+  console.log('head nonce', nonce.value)
   const headData: UseHeadInput = {
     style: [{
       innerHTML: () => root.value,
@@ -58,6 +59,7 @@ export default defineNuxtPlugin(() => {
     style.innerHTML = root.value
     style.setAttribute('data-nuxt-ui-colors', '')
 
+    console.log('SPA nonce', nonce.value)
     if (nonce.value) {
       style.setAttribute('nonce', nonce.value)
     }
