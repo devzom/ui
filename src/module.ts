@@ -29,6 +29,13 @@ export interface ModuleOptions {
   colorMode?: boolean
 
   /**
+   * Configure Content Security Policy for Nuxt UI
+   * @defaultValue `false`
+   * @link https://ui.nuxt.com/getting-started/installation/nuxt#csp
+   */
+  csp?: boolean
+
+  /**
    * Customize how the theme is generated
    * @link https://ui.nuxt.com/getting-started/theme
    */
