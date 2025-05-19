@@ -47,7 +47,7 @@ export default defineNuxtPlugin(() => {
       innerHTML: () => root.value,
       tagPriority: -2,
       id: 'nuxt-ui-colors',
-      nonce: 'DKR5TndW9fEw7YgZtM9Fvw==' // ...(nonce.value ? { nonce: nonce.value } : {})
+      ...(nonce.value ? { nonce: nonce.value } : {})
     }]
   }
 
@@ -59,7 +59,7 @@ export default defineNuxtPlugin(() => {
     style.setAttribute('data-nuxt-ui-colors', '')
 
     if (nonce.value) {
-      style.setAttribute('nonce', 'DKR5TndW9fEw7YgZtM9Fvw==') // nonce.value)
+      style.setAttribute('nonce', nonce.value)
     }
     document.head.appendChild(style)
 
