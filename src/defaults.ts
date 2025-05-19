@@ -14,7 +14,7 @@ export const getDefaultUiConfig = (colors?: string[]) => ({
   }, [...(colors || []), 'neutral' as any]),
   icons,
   csp: {
-    nonce: false
+    nonce: ''
   }
 })
 
@@ -27,7 +27,7 @@ export const defaultOptions = {
     transitions: true
   },
   csp: {
-    nonce: false
+    nonce: ''
   }
 }
 
