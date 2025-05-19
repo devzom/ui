@@ -165,6 +165,9 @@ type AppConfigUI = {
   }
   icons?: Partial<typeof icons>
   tv?: typeof defaultConfig
+  csp?: {
+    nonce?: string
+  }
 } & TVConfig<typeof ui>
 
 declare module '@nuxt/schema' {

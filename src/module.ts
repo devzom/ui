@@ -86,6 +86,7 @@ export default defineNuxtModule<ModuleOptions>({
     nuxt.options.alias['#ui'] = resolve('./runtime')
 
     nuxt.options.appConfig.ui = defu(nuxt.options.appConfig.ui || {}, getDefaultUiConfig(options.theme.colors))
+    nuxt.options.appConfig.ui.csp = defu(nuxt.options.appConfig.ui.csp || {}, options.csp)
 
     // Isolate root node from portaled components
     nuxt.options.app.rootAttrs = nuxt.options.app.rootAttrs || {}

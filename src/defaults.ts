@@ -12,7 +12,10 @@ export const getDefaultUiConfig = (colors?: string[]) => ({
     error: 'red',
     neutral: 'slate'
   }, [...(colors || []), 'neutral' as any]),
-  icons
+  icons,
+  csp: {
+    nonce: false
+  }
 })
 
 export const defaultOptions = {

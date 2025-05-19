@@ -23,6 +23,8 @@ export default defineNuxtPlugin(() => {
   const appConfig = useAppConfig()
   const nuxtApp = useNuxtApp()
 
+  const nonce = computed(() => (appConfig.ui as any)?.csp?.nonce as string | undefined)
+
   const root = computed(() => {
     const { neutral, ...colors } = appConfig.ui.colors
 
@@ -44,7 +46,8 @@ export default defineNuxtPlugin(() => {
     style: [{
       innerHTML: () => root.value,
       tagPriority: -2,
-      id: 'nuxt-ui-colors'
+      id: 'nuxt-ui-colors',
+      ...(nonce.value ? { nonce: nonce.value } : {})
     }]
   }
 
@@ -54,6 +57,10 @@ export default defineNuxtPlugin(() => {
 
     style.innerHTML = root.value
     style.setAttribute('data-nuxt-ui-colors', '')
+
+    if (nonce.value) {
+      style.setAttribute('nonce', nonce.value)
+    }
     document.head.appendChild(style)
 
     headData.script = [{
