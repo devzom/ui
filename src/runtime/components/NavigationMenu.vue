@@ -3,7 +3,7 @@
 import type { NavigationMenuRootProps, NavigationMenuRootEmits, NavigationMenuContentProps, NavigationMenuContentEmits, AccordionRootProps } from 'reka-ui'
 import type { AppConfig } from '@nuxt/schema'
 import theme from '#build/ui/navigation-menu'
-import type { AvatarProps, BadgeProps, LinkProps, PopoverProps, TooltipProps } from '../types'
+import type { AvatarProps, BadgeProps, ChipProps, LinkProps, PopoverProps, TooltipProps } from '../types'
 import type { ArrayOrNested, DynamicSlots, MergeTypes, NestedItem, EmitsToProps, ComponentConfig } from '../types/utils'
 
 type NavigationMenu = ComponentConfig<typeof theme, AppConfig, 'navigationMenu'>
@@ -57,6 +57,11 @@ export interface NavigationMenuItem extends Omit<LinkProps, 'type' | 'raw' | 'cu
   defaultOpen?: boolean
   open?: boolean
   onSelect?(e: Event): void
+  /**
+   * Display a chip on the item when the menu is collapsed with the children list.
+   * @defaultValue false
+   */
+  chip?: boolean | ChipProps
   class?: any
   ui?: Pick<NavigationMenu['slots'], 'item' | 'linkLeadingAvatarSize' | 'linkLeadingAvatar' | 'linkLeadingIcon' | 'linkLabel' | 'linkLabelExternalIcon' | 'linkTrailing' | 'linkTrailingBadgeSize' | 'linkTrailingBadge' | 'linkTrailingIcon' | 'label' | 'link' | 'content' | 'childList' | 'childLabel' | 'childItem' | 'childLink' | 'childLinkIcon' | 'childLinkWrapper' | 'childLinkLabel' | 'childLinkLabelExternalIcon' | 'childLinkDescription'>
   [key: string]: any
@@ -137,6 +142,11 @@ export interface NavigationMenuProps<T extends ArrayOrNested<NavigationMenuItem>
    * @defaultValue 'label'
    */
   labelKey?: keyof NestedItem<T>
+  /**
+   * Display a chip on the item when the menu is collapsed with the children list.
+   * @defaultValue false
+   */
+  chip?: boolean | ChipProps
   class?: any
   ui?: NavigationMenu['slots']
 }
@@ -208,6 +218,7 @@ const accordionProps = useForwardPropsEmits(reactivePick(props, 'collapsible', '
 const contentProps = toRef(() => props.content)
 const tooltipProps = toRef(() => defu(typeof props.tooltip === 'boolean' ? {} : props.tooltip, { delayDuration: 0, content: { side: 'right' } }) as TooltipProps)
 const popoverProps = toRef(() => defu(typeof props.popover === 'boolean' ? {} : props.popover, { mode: 'hover', content: { side: 'right', align: 'start', alignOffset: 2 } }) as PopoverProps)
+const chipProps = toRef(() => defu(typeof props.chip === 'boolean' ? {} : props.chip, { size: 'md', color: 'primary' }) as ChipProps)
 
 const [DefineLinkTemplate, ReuseLinkTemplate] = createReusableTemplate<{ item: NavigationMenuItem, index: number, active?: boolean }>()
 const [DefineItemTemplate, ReuseItemTemplate] = createReusableTemplate<{ item: NavigationMenuItem, index: number, level?: number }>({
@@ -252,6 +263,17 @@ function getAccordionDefaultValue(list: NavigationMenuItem[]) {
   const indexes = findItemsWithDefaultOpen(list)
 
   return props.type === 'single' ? indexes[0] : indexes
+}
+
+function getChipProps(item: NavigationMenuItem) {
+  const itemChip = item.chip !== undefined ? item.chip : props.chip
+  if (itemChip === false) return null
+
+  const baseProps = typeof itemChip === 'boolean' ? {} : itemChip
+  return defu(baseProps, chipProps.value, {
+    text: item.children?.length?.toString() || '0',
+    show: (item.children?.length || 0) > 0
+  })
 }
 </script>
 
@@ -309,7 +331,12 @@ function getAccordionDefaultValue(list: NavigationMenuItem[]) {
           :disabled="item.disabled"
           @select="item.onSelect"
         >
-          <UPopover v-if="orientation === 'vertical' && collapsed && item.children?.length && (!!props.popover || !!item.popover)" v-bind="{ ...popoverProps, ...(typeof item.popover === 'boolean' ? {} : item.popover || {}) }" :ui="{ content: ui.content({ class: [props.ui?.content, item.ui?.content] }) }">
+          <UChip v-if="orientation === 'vertical' && collapsed && item.children?.length && getChipProps(item)" v-bind="getChipProps(item)">
+            <ULinkBase v-bind="slotProps" :class="ui.link({ class: [props.ui?.link, item.ui?.link, item.class], active: active || item.active, disabled: !!item.disabled, level: level > 0 })">
+              <ReuseLinkTemplate :item="item" :active="active || item.active" :index="index" />
+            </ULinkBase>
+          </UChip>
+          <UPopover v-else-if="orientation === 'vertical' && collapsed && item.children?.length && (!!props.popover || !!item.popover)" v-bind="{ ...popoverProps, ...(typeof item.popover === 'boolean' ? {} : item.popover || {}) }" :ui="{ content: ui.content({ class: [props.ui?.content, item.ui?.content] }) }">
             <ULinkBase v-bind="slotProps" :class="ui.link({ class: [props.ui?.link, item.ui?.link, item.class], active: active || item.active, disabled: !!item.disabled, level: level > 0 })">
               <ReuseLinkTemplate :item="item" :active="active || item.active" :index="index" />
             </ULinkBase>
