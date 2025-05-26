@@ -264,17 +264,6 @@ function getAccordionDefaultValue(list: NavigationMenuItem[]) {
 
   return props.type === 'single' ? indexes[0] : indexes
 }
-
-function getChipProps(item: NavigationMenuItem) {
-  const itemChip = item.chip !== undefined ? item.chip : props.chip
-  if (itemChip === false) return null
-
-  const baseProps = typeof itemChip === 'boolean' ? {} : itemChip
-  return defu(baseProps, chipProps.value, {
-    text: item.children?.length?.toString() || '0',
-    show: (item.children?.length || 0) > 0
-  })
-}
 </script>
 
 <template>
@@ -331,7 +320,7 @@ function getChipProps(item: NavigationMenuItem) {
           :disabled="item.disabled"
           @select="item.onSelect"
         >
-          <UChip v-if="orientation === 'vertical' && collapsed && item.children?.length && getChipProps(item)" v-bind="getChipProps(item)">
+          <UChip v-if="orientation === 'vertical' && collapsed && item.children?.length && item.chip" v-bind="typeof item.chip === 'boolean' ? {} : item.chip">
             <ULinkBase v-bind="slotProps" :class="ui.link({ class: [props.ui?.link, item.ui?.link, item.class], active: active || item.active, disabled: !!item.disabled, level: level > 0 })">
               <ReuseLinkTemplate :item="item" :active="active || item.active" :index="index" />
             </ULinkBase>
