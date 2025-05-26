@@ -218,7 +218,6 @@ const accordionProps = useForwardPropsEmits(reactivePick(props, 'collapsible', '
 const contentProps = toRef(() => props.content)
 const tooltipProps = toRef(() => defu(typeof props.tooltip === 'boolean' ? {} : props.tooltip, { delayDuration: 0, content: { side: 'right' } }) as TooltipProps)
 const popoverProps = toRef(() => defu(typeof props.popover === 'boolean' ? {} : props.popover, { mode: 'hover', content: { side: 'right', align: 'start', alignOffset: 2 } }) as PopoverProps)
-const chipProps = toRef(() => defu(typeof props.chip === 'boolean' ? {} : props.chip, { size: 'md', color: 'primary' }) as ChipProps)
 
 const [DefineLinkTemplate, ReuseLinkTemplate] = createReusableTemplate<{ item: NavigationMenuItem, index: number, active?: boolean }>()
 const [DefineItemTemplate, ReuseItemTemplate] = createReusableTemplate<{ item: NavigationMenuItem, index: number, level?: number }>({
