@@ -20,12 +20,31 @@ const selectedFilter = ref('all')
 const searchQuery = ref('')
 
 const availableFilters = computed(() => {
-  return [
-    { key: 'all', label: 'ALL', count: posts.value?.length || 0 },
-    { key: 'release', label: 'NEW RELEASES', count: posts.value?.filter(p => p.category?.toLowerCase() === 'release').length || 0 },
-    { key: 'tutorial', label: 'TUTORIALS', count: posts.value?.filter(p => p.category?.toLowerCase() === 'tutorial').length || 0 },
-    { key: 'improvement', label: 'IMPROVEMENTS', count: posts.value?.filter(p => p.category?.toLowerCase() === 'improvement').length || 0 }
+  if (!posts.value?.length) return [{ key: 'all', label: 'ALL', count: 0 }]
+
+  const postsData = posts.value
+  const categories = new Set(postsData.map(post => post.category?.toLowerCase()).filter(Boolean))
+
+  const filters = [
+    { key: 'all', label: 'ALL', count: postsData.length }
   ]
+
+  categories.forEach((category) => {
+    const count = postsData.filter(p => p.category?.toLowerCase() === category).length
+    const label = category.replace(/\b\w/g, l => l.toUpperCase()).replace(/([a-z])([A-Z])/g, '$1 $2')
+
+    filters.push({
+      key: category,
+      label: label,
+      count
+    })
+  })
+
+  return filters.sort((a, b) => {
+    if (a.key === 'all') return -1
+    if (b.key === 'all') return 1
+    return b.count - a.count
+  })
 })
 
 const filteredPosts = computed(() => {
@@ -128,22 +147,17 @@ const getCategoryIcon = (category: string) => {
                 <UInput
                   v-model="searchQuery"
                   placeholder="Search posts..."
+                  icon="i-lucide-search"
                   class="w-full sm:w-64"
-                  size="sm"
                   :ui="{
                     base: 'rounded-none'
                   }"
-                >
-                  <template #leading>
-                    <UIcon name="i-lucide-search" class="w-4 h-4 text-muted" />
-                  </template>
-                </UInput>
+                  />
               </div>
 
               <UButton
                 variant="ghost"
-                size="sm"
-                class="rounded-none text-xs sm:text-sm whitespace-nowrap"
+                class="rounded-none whitespace-nowrap"
                 icon="i-lucide-external-link"
                 label="Follow @nuxt_js on X"
                 to="https://x.com/nuxt_js"
