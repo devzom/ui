@@ -18,8 +18,8 @@ authors:
     avatar:
       src: https://github.com/hugorcd.png
     to: https://x.com/hugorcd__
-date: 2025-03-12T10:00:00.000Z
-category: Release
+date: 2025-03-12T09:00:00.000Z
+category: improvement
 ---
 
 We are thrilled to announce the release of Nuxt UI v3, a complete redesign of our UI library that brings significant improvements in accessibility, performance, and developer experience. This major update represents over 1500 commits of hard work, collaboration, and innovation from our team and the community.
