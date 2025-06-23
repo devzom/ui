@@ -76,7 +76,7 @@ const getCategoryIcon = (category: string) => {
 
 <template>
   <div v-if="page" class="relative grid grid-rows-[auto_auto_1fr] min-h-[calc(100vh-150px)]">
-    <UPageHero :links="page.links" :ui="{ container: 'relative' }">
+    <UPageHero :links="page.links" :ui="{ container: 'relative py-10 sm:py-16 lg:py-24' }">
       <LazyStarsBg />
 
       <div aria-hidden="true" class="absolute z-[-1] border-x border-default inset-0 mx-4 sm:mx-6 lg:mx-8" />
