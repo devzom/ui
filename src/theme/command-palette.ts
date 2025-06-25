@@ -6,6 +6,7 @@ export default (options: Required<ModuleOptions>) => ({
     input: '[&>input]:h-12',
     close: '',
     back: 'p-0',
+    inputTrailingIcon: 'shrink-0 size-5 text-dimmed',
     content: 'relative overflow-hidden flex flex-col',
     viewport: 'relative divide-y divide-default scroll-py-1 overflow-y-auto flex-1 focus:outline-none',
     group: 'p-1 isolate',

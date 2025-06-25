@@ -116,6 +116,11 @@ export interface CommandPaletteProps<G extends CommandPaletteGroup<T> = CommandP
    * @IconifyIcon
    */
   backIcon?: string
+  /**
+   * Display a trailing icon in the input.
+   * @IconifyIcon
+   */
+  inputTrailingIcon?: string
   groups?: G[]
   /**
    * Options for [useFuse](https://vueuse.org/integrations/useFuse).
@@ -149,6 +154,7 @@ export type CommandPaletteSlots<G extends CommandPaletteGroup<T> = CommandPalett
   'empty'(props: { searchTerm?: string }): any
   'back'(props: { ui: { [K in keyof Required<CommandPalette['slots']>]: (props?: Record<string, any>) => string } }): any
   'close'(props: { ui: { [K in keyof Required<CommandPalette['slots']>]: (props?: Record<string, any>) => string } }): any
+  'input-trailing'(props: { ui: { [K in keyof Required<CommandPalette['slots']>]: (props?: Record<string, any>) => string } }): any
   'item': SlotProps<T>
   'item-leading': SlotProps<T>
   'item-label': SlotProps<T>
@@ -353,7 +359,15 @@ function onSelect(e: Event, item: T) {
           </slot>
         </template>
 
-        <template v-if="close || !!slots.close" #trailing>
+        <template v-if="inputTrailingIcon || !!slots['input-trailing'] || close || !!slots.close" #trailing>
+          <slot name="input-trailing" :ui="ui">
+            <UIcon
+              v-if="inputTrailingIcon"
+              :name="inputTrailingIcon"
+              class="shrink-0 size-5 text-dimmed"
+            />
+          </slot>
+
           <slot name="close" :ui="ui">
             <UButton
               v-if="close"
