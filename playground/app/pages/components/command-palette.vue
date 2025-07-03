@@ -157,6 +157,7 @@ defineShortcuts({
       v-model="selected"
       v-model:search-term="searchTerm"
       :loading="status === 'pending'"
+      trailing-icon="i-lucide-settings"
       :groups="groups"
       :fuse="{
         fuseOptions: {

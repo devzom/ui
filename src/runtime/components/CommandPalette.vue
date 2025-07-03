@@ -80,7 +80,7 @@ export interface CommandPaletteProps<G extends CommandPaletteGroup<T> = CommandP
    * @defaultValue appConfig.ui.icons.chevronRight
    * @IconifyIcon
    */
-  trailingIcon?: string
+  itemTrailingIcon?: string
   /**
    * The placeholder text for the input.
    * @defaultValue t('commandPalette.placeholder')
@@ -91,6 +91,12 @@ export interface CommandPaletteProps<G extends CommandPaletteGroup<T> = CommandP
    * @defaultValue true
    */
   autofocus?: boolean
+  /**
+   * The icon displayed in the input.
+   * @defaultValue appConfig.ui.icons.search
+   * @IconifyIcon
+   */
+  trailingIcon?: string
   /**
    * Display a close button in the input (useful when inside a Modal for example).
    * `{ size: 'md', color: 'neutral', variant: 'ghost' }`{lang="ts-type"}
@@ -116,11 +122,6 @@ export interface CommandPaletteProps<G extends CommandPaletteGroup<T> = CommandP
    * @IconifyIcon
    */
   backIcon?: string
-  /**
-   * Display a trailing icon in the input.
-   * @IconifyIcon
-   */
-  inputTrailingIcon?: string
   groups?: G[]
   /**
    * Options for [useFuse](https://vueuse.org/integrations/useFuse).
@@ -153,8 +154,9 @@ type SlotProps<T> = (props: { item: T, index: number }) => any
 export type CommandPaletteSlots<G extends CommandPaletteGroup<T> = CommandPaletteGroup<any>, T extends CommandPaletteItem = CommandPaletteItem> = {
   'empty'(props: { searchTerm?: string }): any
   'back'(props: { ui: { [K in keyof Required<CommandPalette['slots']>]: (props?: Record<string, any>) => string } }): any
+  'trailing'(props: { ui: { [K in keyof Required<CommandPalette['slots']>]: (props?: Record<string, any>) => string } }): any
+  'actions'(props: { ui: { [K in keyof Required<CommandPalette['slots']>]: (props?: Record<string, any>) => string } }): any
   'close'(props: { ui: { [K in keyof Required<CommandPalette['slots']>]: (props?: Record<string, any>) => string } }): any
-  'input-trailing'(props: { ui: { [K in keyof Required<CommandPalette['slots']>]: (props?: Record<string, any>) => string } }): any
   'item': SlotProps<T>
   'item-leading': SlotProps<T>
   'item-label': SlotProps<T>
@@ -342,6 +344,7 @@ function onSelect(e: Event, item: T) {
         :autofocus="autofocus"
         v-bind="inputProps"
         :icon="icon || appConfig.ui.icons.search"
+        :trailing-icon="trailingIcon"
         :class="ui.input({ class: props.ui?.input })"
         @keydown.backspace="onBackspace"
       >
@@ -359,15 +362,11 @@ function onSelect(e: Event, item: T) {
           </slot>
         </template>
 
-        <template v-if="inputTrailingIcon || !!slots['input-trailing'] || close || !!slots.close" #trailing>
-          <slot name="input-trailing" :ui="ui">
-            <UIcon
-              v-if="inputTrailingIcon"
-              :name="inputTrailingIcon"
-              class="shrink-0 size-5 text-dimmed"
-            />
+        <template v-if="trailingIcon || !!slots.trailing || close || !!slots.close || !!slots.actions" #trailing>
+          <slot name="trailing" :ui="ui">
+            <UIcon v-if="trailingIcon" :name="trailingIcon" :class="ui.trailingIcon({ class: props.ui?.trailingIcon })" />
           </slot>
-
+          <slot name="actions" :ui="ui" />
           <slot name="close" :ui="ui">
             <UButton
               v-if="close"
@@ -430,7 +429,7 @@ function onSelect(e: Event, item: T) {
                     <slot :name="((item.slot ? `${item.slot}-trailing` : group.slot ? `${group.slot}-trailing` : `item-trailing`) as keyof CommandPaletteSlots<G, T>)" :item="(item as any)" :index="index">
                       <UIcon
                         v-if="item.children && item.children.length > 0"
-                        :name="trailingIcon || appConfig.ui.icons.chevronRight"
+                        :name="itemTrailingIcon || appConfig.ui.icons.chevronRight"
                         :class="ui.itemTrailingIcon({ class: [props.ui?.itemTrailingIcon, item.ui?.itemTrailingIcon] })"
                       />
 
