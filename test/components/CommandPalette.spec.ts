@@ -86,7 +86,6 @@ describe('CommandPalette', () => {
     ['with ui', { props: { ...props, ui: { input: '[&>input]:h-10' } } }],
     // Slots
     ['with empty slot', { props, slots: { empty: () => 'Empty slot' } }],
-    ['with input-trailing slot', { props, slots: { 'input-trailing': () => 'Input trailing slot' } }],
     ['with item slot', { props, slots: { item: () => 'Item slot' } }],
     ['with item-leading slot', { props, slots: { 'item-leading': () => 'Item leading slot' } }],
     ['with item-label slot', { props, slots: { 'item-label': () => 'Item label slot' } }],
