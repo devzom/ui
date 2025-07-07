@@ -10,8 +10,9 @@ const open = ref(false)
 const searchTerm = ref('')
 // const searchTermDebounced = refDebounced(searchTerm, 200)
 const selected = ref([])
+const commandPalette = useTemplateRef('commandPalette')
 
-const { data: users, status } = await useFetch('https://jsonplaceholder.typicode.com/users', {
+const { data: _users, status } = await useFetch('https://jsonplaceholder.typicode.com/users', {
   // params: { q: searchTermDebounced },
   transform: (data: User[]) => {
     return data?.map(user => ({ id: user.id, label: user.name, suffix: user.email, avatar: { src: `https://i.pravatar.cc/120?img=${user.id}` } })) || []
@@ -259,6 +260,12 @@ function onSelect(item: any) {
 
 defineShortcuts({
   meta_k: () => open.value = !open.value,
+  meta_shift_a: {
+    usingInput: true,
+    handler: () => {
+      commandPalette.value?.openView('askAI')
+    }
+  },
   ...extractShortcuts(groups.value)
 })
 </script>
@@ -266,6 +273,7 @@ defineShortcuts({
 <template>
   <DefineTemplate>
     <UCommandPalette
+      ref="commandPalette"
       v-model="selected"
       v-model:search-term="searchTerm"
       :loading="status === 'pending'"
@@ -279,40 +287,47 @@ defineShortcuts({
       class="sm:max-h-80"
       @update:model-value="onSelect"
     >
-      <template #view="{ viewName }">
-        <div v-if="viewName === 'wallpaper'" class="flex flex-col h-full w-full">
-          <div class="flex-1 overflow-y-auto p-6">
-            <div class="grid grid-cols-4 gap-4">
+      <template #wallpaper>
+        <div class="flex-1 overflow-y-auto p-6">
+          <div class="grid grid-cols-4 gap-4">
+            <div
+              v-for="wallpaper in filteredWallpapers"
+              :key="wallpaper.id"
+              class="group relative cursor-pointer"
+              @click="setWallpaper(wallpaper)"
+            >
               <div
-                v-for="wallpaper in filteredWallpapers"
-                :key="wallpaper.id"
-                class="group relative cursor-pointer"
-                @click="setWallpaper(wallpaper)"
-              >
-                <div
-                  class="aspect-video rounded-lg bg-gradient-to-br shadow-lg ring-1 ring-black/5"
-                  :class="wallpaper.gradient"
-                />
-                <div class="mt-2 px-1">
-                  <div class="flex items-center gap-2">
-                    <h3 class="text-sm font-medium text-highlighted truncate">
-                      {{ wallpaper.name }}
-                    </h3>
-                    <UChip
-                      v-if="wallpaper.featured"
-                      label="★"
-                      size="xs"
-                      color="primary"
-                      class="shrink-0"
-                    />
-                  </div>
-                  <p class="text-xs text-dimmed">
-                    {{ wallpaper.category }}
-                  </p>
+                class="aspect-video rounded-lg bg-gradient-to-br shadow-lg ring-1 ring-black/5"
+                :class="wallpaper.gradient"
+              />
+              <div class="mt-2 px-1">
+                <div class="flex items-center gap-2">
+                  <h3 class="text-sm font-medium text-highlighted truncate">
+                    {{ wallpaper.name }}
+                  </h3>
+                  <UChip
+                    v-if="wallpaper.featured"
+                    label="★"
+                    size="xs"
+                    color="primary"
+                    class="shrink-0"
+                  />
                 </div>
+                <p class="text-xs text-dimmed">
+                  {{ wallpaper.category }}
+                </p>
               </div>
             </div>
           </div>
+        </div>
+      </template>
+
+      <template #askAI>
+        <div class="flex flex-col items-center justify-center gap-4 p-6">
+          <UIcon name="i-lucide-sparkles" class="size-8 text-primary" />
+          <span class="text-lg font-semibold text-highlighted">
+            Ask me anything...
+          </span>
         </div>
       </template>
     </UCommandPalette>

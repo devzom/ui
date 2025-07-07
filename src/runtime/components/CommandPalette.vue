@@ -154,12 +154,11 @@ export type CommandPaletteSlots<G extends CommandPaletteGroup<T> = CommandPalett
   'empty'(props: { searchTerm?: string }): any
   'back'(props: { ui: { [K in keyof Required<CommandPalette['slots']>]: (props?: Record<string, any>) => string } }): any
   'close'(props: { ui: { [K in keyof Required<CommandPalette['slots']>]: (props?: Record<string, any>) => string } }): any
-  'view'(props: { viewName?: string, current: any, searchTerm: string, navigateBack: () => void }): any
   'item': SlotProps<T>
   'item-leading': SlotProps<T>
   'item-label': SlotProps<T>
   'item-trailing': SlotProps<T>
-} & Record<string, SlotProps<G>> & Record<string, SlotProps<T>>
+} & Record<string, SlotProps<G>> & Record<string, SlotProps<T>> & Record<string, (props: { current: any, searchTerm: string, navigateBack: () => void, close: () => void }) => any>
 
 </script>
 
@@ -290,6 +289,31 @@ const filteredGroups = computed(() => {
 
 const listboxRootRef = useTemplateRef('listboxRootRef')
 
+// Exposed methods for programmatic control
+function openView(viewName: string) {
+  history.value.push({
+    id: `view-${viewName}`,
+    label: viewName,
+    view: viewName,
+    items: []
+  } as any)
+
+  searchTerm.value = ''
+  listboxRootRef.value?.highlightFirstItem()
+}
+
+function closeView() {
+  if (history.value.length > 0) {
+    navigateBack()
+  }
+}
+
+defineExpose({
+  openView,
+  closeView,
+  navigateBack
+})
+
 function navigate(item: T) {
   if (!item.children?.length && !item.view) {
     return
@@ -385,11 +409,11 @@ function onSelect(e: Event, item: T) {
     <ListboxContent :class="ui.content({ class: props.ui?.content })">
       <div v-if="currentView" :class="ui.viewport({ class: props.ui?.viewport })">
         <slot
-          name="view"
-          :view-name="currentView.view"
+          :name="currentView.view"
           :current="currentView"
           :search-term="searchTerm"
           :navigate-back="navigateBack"
+          :close="closeView"
         />
       </div>
 
