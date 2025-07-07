@@ -32,10 +32,10 @@ export interface CommandPaletteItem extends Omit<LinkProps, 'type' | 'raw' | 'cu
   placeholder?: string
   children?: CommandPaletteItem[]
   /**
-   * Custom interface slot to display instead of children items.
-   * When defined, clicking this item will show the custom interface.
+   * Custom view to display instead of children items.
+   * When defined, clicking this item will show the custom view.
    */
-  interface?: string
+  view?: string
   onSelect?(e?: Event): void
   class?: any
   ui?: Pick<CommandPalette['slots'], 'item' | 'itemLeadingIcon' | 'itemLeadingAvatarSize' | 'itemLeadingAvatar' | 'itemLeadingChipSize' | 'itemLeadingChip' | 'itemLabel' | 'itemLabelPrefix' | 'itemLabelBase' | 'itemLabelSuffix' | 'itemTrailing' | 'itemTrailingKbds' | 'itemTrailingKbdsSize' | 'itemTrailingHighlightedIcon' | 'itemTrailingIcon'>
@@ -154,7 +154,7 @@ export type CommandPaletteSlots<G extends CommandPaletteGroup<T> = CommandPalett
   'empty'(props: { searchTerm?: string }): any
   'back'(props: { ui: { [K in keyof Required<CommandPalette['slots']>]: (props?: Record<string, any>) => string } }): any
   'close'(props: { ui: { [K in keyof Required<CommandPalette['slots']>]: (props?: Record<string, any>) => string } }): any
-  'interface'(props: { interfaceName?: string, current: any, searchTerm: string, navigateBack: () => void }): any
+  'view'(props: { viewName?: string, current: any, searchTerm: string, navigateBack: () => void }): any
   'item': SlotProps<T>
   'item-leading': SlotProps<T>
   'item-label': SlotProps<T>
@@ -214,15 +214,15 @@ const fuse = computed(() => defu({}, props.fuse, {
   matchAllWhenSearchEmpty: true
 }))
 
-const history = ref<(CommandPaletteGroup & { placeholder?: string, interface?: string })[]>([])
+const history = ref<(CommandPaletteGroup & { placeholder?: string, view?: string })[]>([])
 
 const placeholder = computed(() => history.value[history.value.length - 1]?.placeholder || props.placeholder || t('commandPalette.placeholder'))
 
 const groups = computed(() => history.value?.length ? [history.value[history.value.length - 1] as G] : props.groups)
 
-const _currentInterface = computed(() => {
+const currentView = computed(() => {
   const current = history.value[history.value.length - 1]
-  return current?.interface ? current : null
+  return current?.view ? current : null
 })
 
 const items = computed(() => groups.value?.filter((group) => {
@@ -291,7 +291,7 @@ const filteredGroups = computed(() => {
 const listboxRootRef = useTemplateRef('listboxRootRef')
 
 function navigate(item: T) {
-  if (!item.children?.length && !item.interface) {
+  if (!item.children?.length && !item.view) {
     return
   }
 
@@ -300,7 +300,7 @@ function navigate(item: T) {
     label: item.label,
     slot: item.slot,
     placeholder: item.placeholder,
-    interface: item.interface,
+    view: item.view,
     items: item.children || []
   } as any)
 
@@ -328,7 +328,7 @@ function onBackspace() {
 }
 
 function onSelect(e: Event, item: T) {
-  if (item.children?.length || item.interface) {
+  if (item.children?.length || item.view) {
     e.preventDefault()
 
     navigate(item)
@@ -383,11 +383,11 @@ function onSelect(e: Event, item: T) {
     </ListboxFilter>
 
     <ListboxContent :class="ui.content({ class: props.ui?.content })">
-      <div v-if="_currentInterface" :class="ui.viewport({ class: props.ui?.viewport })">
+      <div v-if="currentView" :class="ui.viewport({ class: props.ui?.viewport })">
         <slot
-          name="interface"
-          :interface-name="_currentInterface.interface"
-          :current="_currentInterface"
+          name="view"
+          :view-name="currentView.view"
+          :current="currentView"
           :search-term="searchTerm"
           :navigate-back="navigateBack"
         />
@@ -437,7 +437,7 @@ function onSelect(e: Event, item: T) {
                   <span :class="ui.itemTrailing({ class: [props.ui?.itemTrailing, item.ui?.itemTrailing] })">
                     <slot :name="((item.slot ? `${item.slot}-trailing` : group.slot ? `${group.slot}-trailing` : `item-trailing`) as keyof CommandPaletteSlots<G, T>)" :item="(item as any)" :index="index">
                       <UIcon
-                        v-if="(item.children && item.children.length > 0) || item.interface"
+                        v-if="(item.children && item.children.length > 0) || item.view"
                         :name="trailingIcon || appConfig.ui.icons.chevronRight"
                         :class="ui.itemTrailingIcon({ class: [props.ui?.itemTrailingIcon, item.ui?.itemTrailingIcon] })"
                       />

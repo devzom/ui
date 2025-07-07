@@ -74,7 +74,7 @@ const groups = computed(() => [{
     label: 'Set Wallpaper',
     suffix: 'Choose from beautiful wallpaper collection.',
     icon: 'i-lucide-image',
-    interface: 'wallpaper',
+    view: 'wallpaper',
     placeholder: 'Search wallpapers...'
   }, {
     label: 'More actions',
@@ -279,8 +279,8 @@ defineShortcuts({
       class="sm:max-h-80"
       @update:model-value="onSelect"
     >
-      <template #interface="{ interfaceName }">
-        <div v-if="interfaceName === 'wallpaper'" class="flex flex-col h-full w-full">
+      <template #view="{ viewName }">
+        <div v-if="viewName === 'wallpaper'" class="flex flex-col h-full w-full">
           <div class="flex-1 overflow-y-auto p-6">
             <div class="grid grid-cols-4 gap-4">
               <div
