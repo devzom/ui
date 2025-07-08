@@ -120,6 +120,8 @@ function getOffset(index: number) {
       :close="(toast.close as boolean)"
       :data-expanded="expanded"
       :data-front="!expanded && index === toasts.length - 1"
+      :data-second="!expanded && index === toasts.length - 2"
+      :data-third="!expanded && index === toasts.length - 3"
       :style="{
         '--index': (index - toasts.length) + toasts.length,
         '--before': toasts.length - 1 - index,
