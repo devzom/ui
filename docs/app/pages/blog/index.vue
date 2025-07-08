@@ -152,7 +152,7 @@ const getCategoryIcon = (category: string) => {
                   :ui="{
                     base: 'rounded-none'
                   }"
-                  />
+                />
               </div>
 
               <UButton
