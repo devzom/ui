@@ -30,6 +30,7 @@ exports[`CommandPalette > renders with actions slot correctly 1`] = `
       </div>
     </div>
   </div>
+  <!--v-if-->
   <!---->
 </div>"
 `;
@@ -626,6 +627,7 @@ exports[`CommandPalette > renders with itemTrailingIcon correctly 1`] = `
       </div>
     </div>
   </div>
+  <!--v-if-->
   <!---->
 </div>"
 `;
@@ -889,6 +891,7 @@ exports[`CommandPalette > renders with trailingIcon correctly 1`] = `
       </div>
     </div>
   </div>
+  <!--v-if-->
   <!---->
 </div>"
 `;
