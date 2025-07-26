@@ -104,17 +104,23 @@ provide(formBusInjectionKey, bus)
 
 const nestedForms = ref<Map<string | number, { validate: typeof _validate }>>(new Map())
 
+// Reactive state to cache the last validated input, preventing redundant validation
+// on subsequent input events when the value hasn't changed
+const validatedState = reactive<InferInput<S>>(JSON.parse(JSON.stringify(props.state)))
+
 onMounted(async () => {
   bus.on(async (event) => {
     if (event.type === 'attach') {
       nestedForms.value.set(event.formId, { validate: event.validate })
     } else if (event.type === 'detach') {
       nestedForms.value.delete(event.formId)
-    } else if (props.validateOn?.includes(event.type) && !loading.value) {
+    } else if (validatedState[event.name] !== props.state[event.name] && props.validateOn?.includes(event.type) && !loading.value) {
       if (event.type !== 'input') {
         await _validate({ name: event.name, silent: true, nested: false })
+        validatedState[event.name] = props.state?.[event.name]
       } else if (event.eager || blurredFields.has(event.name)) {
         await _validate({ name: event.name, silent: true, nested: false })
+        validatedState[event.name] = props.state?.[event.name]
       }
     }
 
