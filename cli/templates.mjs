@@ -35,7 +35,7 @@ ${pro ? `import type { ComponentConfig } from '@nuxt/ui'` : ''}
 import theme from '#build/${path}/${prose ? 'prose/' : ''}${content ? 'content/' : ''}${kebabName}'
 ${!pro ? `import type { ComponentConfig } from '../types/utils'` : ''}
 
-type ${upperName} = ComponentConfig<typeof theme, AppConfig, ${upperName}${pro ? `, '${key}'` : ''}>
+type ${upperName} = ComponentConfig<typeof theme, AppConfig, '${camelName}'${pro ? `, '${key}'` : ''}>
 
 export interface ${upperName}Props {
   /**
@@ -80,7 +80,7 @@ ${pro ? `import type { ComponentConfig } from '@nuxt/ui'` : ''}
 import theme from '#build/${path}/${prose ? 'prose/' : ''}${content ? 'content/' : ''}${kebabName}'
 ${!pro ? `import type { ComponentConfig } from '../types/utils'` : ''}
 
-type ${upperName} = ComponentConfig<typeof theme, AppConfig, ${upperName}${pro ? `, '${key}'` : ''}>
+type ${upperName} = ComponentConfig<typeof theme, AppConfig, '${camelName}'${pro ? `, '${key}'` : ''}>
 
 export interface ${upperName}Props extends Pick<${upperName}RootProps> {
   class?: any
@@ -147,7 +147,8 @@ const test = ({ name, prose, content }) => {
       ? undefined
       : `
 import { describe, it, expect } from 'vitest'
-import ${upperName}, { type ${upperName}Props, type ${upperName}Slots } from '../../${content ? '../' : ''}src/runtime/components/${content ? 'content/' : ''}${upperName}.vue'
+import ${upperName} from '../../${content ? '../' : ''}src/runtime/components/${content ? 'content/' : ''}${upperName}.vue'
+import type { ${upperName}Props, ${upperName}Slots } from '../../${content ? '../' : ''}src/runtime/components/${content ? 'content/' : ''}${upperName}.vue'
 import ComponentRender from '../${content ? '../' : ''}component-render'
 
 describe('${upperName}', () => {

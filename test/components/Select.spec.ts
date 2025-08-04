@@ -1,10 +1,11 @@
 import { describe, it, expect, test } from 'vitest'
 import { flushPromises, mount } from '@vue/test-utils'
-import Select, { type SelectProps, type SelectSlots } from '../../src/runtime/components/Select.vue'
+import Select from '../../src/runtime/components/Select.vue'
+import type { SelectProps, SelectSlots } from '../../src/runtime/components/Select.vue'
 import ComponentRender from '../component-render'
 import theme from '#build/ui/input'
 import { renderForm } from '../utils/form'
-import type { FormInputEvents } from '~/src/module'
+import type { FormInputEvents } from '../../src/module'
 import { expectEmitPayloadType } from '../utils/types'
 
 describe('Select', () => {

@@ -234,11 +234,7 @@ function displayValue(value: GetItemValue<T, VK> | GetItemValue<T, VK>[]): strin
     return values?.length ? values.join(', ') : undefined
   }
 
-  if (!props.valueKey) {
-    return value && (typeof value === 'object' ? get(value, props.labelKey as string) : value)
-  }
-
-  const item = items.value.find(item => compare(typeof item === 'object' ? get(item as Record<string, any>, props.valueKey as string) : item, value))
+  const item = items.value.find(item => compare(typeof item === 'object' && props.valueKey ? get(item as Record<string, any>, props.valueKey as string) : item, value))
   return item && (typeof item === 'object' ? get(item, props.labelKey as string) : item)
 }
 
@@ -260,7 +256,11 @@ const filteredGroups = computed(() => {
   const fields = Array.isArray(props.filterFields) ? props.filterFields : [props.labelKey] as string[]
 
   return groups.value.map(items => items.filter((item) => {
-    if (typeof item !== 'object' || item === null) {
+    if (item === undefined || item === null) {
+      return false
+    }
+
+    if (typeof item !== 'object') {
       return contains(String(item), searchTerm.value)
     }
 
@@ -268,7 +268,10 @@ const filteredGroups = computed(() => {
       return true
     }
 
-    return fields.some(field => contains(get(item, field), searchTerm.value))
+    return fields.some((field) => {
+      const value = get(item, field)
+      return value !== undefined && value !== null && contains(String(value), searchTerm.value)
+    })
   })).filter(group => group.filter(item =>
     !isSelectItem(item) || (!item.type || !['label', 'separator'].includes(item.type))
   ).length > 0)
@@ -432,7 +435,7 @@ defineExpose({
           <slot name="content-top" />
 
           <ComboboxInput v-if="!!searchInput" v-model="searchTerm" :display-value="() => searchTerm" as-child>
-            <UInput autofocus autocomplete="off" v-bind="searchInputProps" :class="ui.input({ class: props.ui?.input })" />
+            <UInput autofocus autocomplete="off" :size="size" v-bind="searchInputProps" :class="ui.input({ class: props.ui?.input })" />
           </ComboboxInput>
 
           <ComboboxEmpty :class="ui.empty({ class: props.ui?.empty })">
