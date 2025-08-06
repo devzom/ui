@@ -34,7 +34,7 @@ export interface DropdownMenuItem extends Omit<LinkProps, 'type' | 'raw' | 'cust
   onSelect?(e: Event): void
   onUpdateChecked?(checked: boolean): void
   class?: any
-  ui?: Pick<DropdownMenu['slots'], 'item' | 'label' | 'separator' | 'itemLeadingIcon' | 'itemLeadingAvatarSize' | 'itemLeadingAvatar' | 'itemLabel' | 'itemLabelExternalIcon' | 'itemTrailing' | 'itemTrailingIcon' | 'itemTrailingKbds' | 'itemTrailingKbdsSize'>
+  ui?: Pick<DropdownMenu['slots'], 'item' | 'label' | 'separator' | 'itemLeadingIcon' | 'itemLeadingAvatarSize' | 'itemLeadingAvatar' | 'itemLabel' | 'itemLabelExternalIcon' | 'itemDescription' | 'itemContent' | 'itemTrailing' | 'itemTrailingIcon' | 'itemTrailingKbds' | 'itemTrailingKbdsSize'>
   [key: string]: any
 }
 
