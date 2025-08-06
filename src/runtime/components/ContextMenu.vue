@@ -10,6 +10,7 @@ type ContextMenu = ComponentConfig<typeof theme, AppConfig, 'contextMenu'>
 
 export interface ContextMenuItem extends Omit<LinkProps, 'type' | 'raw' | 'custom'> {
   label?: string
+  description?: string
   /**
    * @IconifyIcon
    */
@@ -74,6 +75,11 @@ export interface ContextMenuProps<T extends ArrayOrNested<ContextMenuItem> = Arr
    * @defaultValue 'label'
    */
   labelKey?: keyof NestedItem<T>
+  /**
+   * The key used to get the description from the item.
+   * @defaultValue 'description'
+   */
+  descriptionKey?: keyof NestedItem<T>
   disabled?: boolean
   class?: any
   ui?: ContextMenu['slots']
@@ -91,6 +97,7 @@ export type ContextMenuSlots<
   'item': SlotProps<T>
   'item-leading': SlotProps<T>
   'item-label': SlotProps<T>
+  'item-description': SlotProps<T>
   'item-trailing': SlotProps<T>
   'content-top': (props?: {}) => any
   'content-bottom': (props?: {}) => any
@@ -111,7 +118,8 @@ const props = withDefaults(defineProps<ContextMenuProps<T>>(), {
   portal: true,
   modal: true,
   externalIcon: true,
-  labelKey: 'label'
+  labelKey: 'label',
+  descriptionKey: 'description'
 })
 const emits = defineEmits<ContextMenuEmits>()
 const slots = defineSlots<ContextMenuSlots<T>>()
@@ -141,6 +149,7 @@ const ui = computed(() => tv({ extend: tv(theme), ...(appConfig.ui?.contextMenu 
       :items="items"
       :portal="portal"
       :label-key="(labelKey as keyof NestedItem<T>)"
+      :description-key="(descriptionKey as keyof NestedItem<T>)"
       :checked-icon="checkedIcon"
       :loading-icon="loadingIcon"
       :external-icon="externalIcon"

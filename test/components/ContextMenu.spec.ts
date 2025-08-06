@@ -78,11 +78,37 @@ describe('ContextMenu', () => {
     }]
   ]
 
+  const itemsWithDescription = [
+    [{
+      label: 'Appearance',
+      description: 'Change theme',
+      children: [{
+        label: 'System',
+        description: 'Use system setting',
+        icon: 'i-lucide-monitor'
+      }, {
+        label: 'Light',
+        description: 'Light theme',
+        icon: 'i-lucide-sun'
+      }]
+    }], [{
+      label: 'Show Sidebar',
+      description: 'Toggle sidebar',
+      color: 'primary',
+      kbds: ['meta', 'S']
+    }, {
+      label: 'Show Toolbar',
+      description: 'Toggle toolbar',
+      kbds: ['shift', 'meta', 'D']
+    }]
+  ]
+
   const props = { portal: false, items }
 
   it.each([
     // Props
     ['with items', { props }],
+    ['with items with description', { props: { ...props, items: itemsWithDescription } }],
     ['with labelKey', { props: { ...props, labelKey: 'icon' } }],
     ['with disabled', { props: { ...props, disabled: true } }],
     ...sizes.map((size: string) => [`with size ${size}`, { props: { ...props, size } }]),
@@ -96,6 +122,7 @@ describe('ContextMenu', () => {
     ['with item-leading slot', { props, slots: { 'item-leading': () => 'Item leading slot' } }],
     ['with item-label slot', { props, slots: { 'item-label': () => 'Item label slot' } }],
     ['with item-trailing slot', { props, slots: { 'item-trailing': () => 'Item trailing slot' } }],
+    ['with item-description slot', { props, slots: { 'item-description': () => 'Item description slot' } }],
     ['with custom slot', { props, slots: { custom: () => 'Custom slot' } }]
   ])('renders %s correctly', async (nameOrHtml: string, options: { props?: ContextMenuProps, slots?: Partial<ContextMenuSlots> }) => {
     const wrapper = await mountSuspended(ContextMenuWrapper, options as any)

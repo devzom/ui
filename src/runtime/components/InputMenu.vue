@@ -11,6 +11,7 @@ type InputMenu = ComponentConfig<typeof theme, AppConfig, 'inputMenu'>
 
 interface _InputMenuItem {
   label?: string
+  description?: string
   /**
    * @IconifyIcon
    */
@@ -25,7 +26,7 @@ interface _InputMenuItem {
   disabled?: boolean
   onSelect?(e?: Event): void
   class?: any
-  ui?: Pick<InputMenu['slots'], 'tagsItem' | 'tagsItemText' | 'tagsItemDelete' | 'tagsItemDeleteIcon' | 'label' | 'separator' | 'item' | 'itemLeadingIcon' | 'itemLeadingAvatarSize' | 'itemLeadingAvatar' | 'itemLeadingChip' | 'itemLeadingChipSize' | 'itemLabel' | 'itemTrailing' | 'itemTrailingIcon'>
+  ui?: Pick<InputMenu['slots'], 'tagsItem' | 'tagsItemText' | 'tagsItemDelete' | 'tagsItemDeleteIcon' | 'label' | 'separator' | 'item' | 'itemLeadingIcon' | 'itemLeadingAvatarSize' | 'itemLeadingAvatar' | 'itemLeadingChip' | 'itemLeadingChipSize' | 'itemLabel' | 'itemDescription' | 'itemContent' | 'itemTrailing' | 'itemTrailingIcon'>
   [key: string]: any
 }
 export type InputMenuItem = _InputMenuItem | AcceptableValue | boolean
@@ -99,6 +100,11 @@ export interface InputMenuProps<T extends ArrayOrNested<InputMenuItem> = ArrayOr
    * @defaultValue 'label'
    */
   labelKey?: keyof NestedItem<T>
+  /**
+   * When `items` is an array of objects, select the field to use as the description.
+   * @defaultValue 'description'
+   */
+  descriptionKey?: keyof NestedItem<T>
   items?: T
   /** The value of the InputMenu when initially rendered. Use when you do not need to control the state of the InputMenu. */
   defaultValue?: GetModelValue<T, VK, M>
@@ -162,6 +168,7 @@ export interface InputMenuSlots<
   'item': SlotProps<T>
   'item-leading': SlotProps<T>
   'item-label': SlotProps<T>
+  'item-description': SlotProps<T>
   'item-trailing': SlotProps<T>
   'tags-item-text': SlotProps<T>
   'tags-item-delete': SlotProps<T>
@@ -196,6 +203,7 @@ const props = withDefaults(defineProps<InputMenuProps<T, VK, M>>(), {
   autofocusDelay: 0,
   portal: true,
   labelKey: 'label' as never,
+  descriptionKey: 'description' as never,
   resetSearchTermOnBlur: true,
   resetSearchTermOnSelect: true
 })
@@ -532,11 +540,18 @@ defineExpose({
                     />
                   </slot>
 
-                  <span :class="ui.itemLabel({ class: [props.ui?.itemLabel, isInputItem(item) && item.ui?.itemLabel] })">
-                    <slot name="item-label" :item="(item as NestedItem<T>)" :index="index">
-                      {{ isInputItem(item) ? get(item, props.labelKey as string) : item }}
-                    </slot>
-                  </span>
+                  <div :class="ui.itemContent({ class: [props.ui?.itemContent, isInputItem(item) && item.ui?.itemContent] })">
+                    <span :class="ui.itemLabel({ class: [props.ui?.itemLabel, isInputItem(item) && item.ui?.itemLabel] })">
+                      <slot name="item-label" :item="(item as NestedItem<T>)" :index="index">
+                        {{ isInputItem(item) ? get(item, props.labelKey as string) : item }}
+                      </slot>
+                    </span>
+                    <div v-if="isInputItem(item) && get(item, props.descriptionKey as string)" :class="ui.itemDescription({ class: [props.ui?.itemDescription, item.ui?.itemDescription] })">
+                      <slot name="item-description" :item="(item as NestedItem<T>)" :index="index">
+                        {{ get(item, props.descriptionKey as string) }}
+                      </slot>
+                    </div>
+                  </div>
 
                   <span :class="ui.itemTrailing({ class: [props.ui?.itemTrailing, isInputItem(item) && item.ui?.itemTrailing] })">
                     <slot name="item-trailing" :item="(item as NestedItem<T>)" :index="index" />

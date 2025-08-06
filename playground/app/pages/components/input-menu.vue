@@ -17,18 +17,23 @@ const selectedItems = ref([fruits[0]!, vegetables[0]!])
 
 const statuses = [{
   label: 'Backlog',
+  description: 'Issues that have been identified but not yet prioritized',
   icon: 'i-lucide-circle-help'
 }, {
   label: 'Todo',
+  description: 'Issues that are ready to be worked on',
   icon: 'i-lucide-circle-plus'
 }, {
   label: 'In Progress',
+  description: 'Issues that are currently being worked on',
   icon: 'i-lucide-circle-arrow-up'
 }, {
   label: 'Done',
+  description: 'Issues that have been completed successfully',
   icon: 'i-lucide-circle-check'
 }, {
   label: 'Canceled',
+  description: 'Issues that have been cancelled or rejected',
   icon: 'i-lucide-circle-x'
 }] satisfies InputMenuItem[]
 

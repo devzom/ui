@@ -10,6 +10,7 @@ type DropdownMenu = ComponentConfig<typeof theme, AppConfig, 'dropdownMenu'>
 
 export interface DropdownMenuItem extends Omit<LinkProps, 'type' | 'raw' | 'custom'> {
   label?: string
+  description?: string
   /**
    * @IconifyIcon
    */
@@ -82,6 +83,11 @@ export interface DropdownMenuProps<T extends ArrayOrNested<DropdownMenuItem> = A
    * @defaultValue 'label'
    */
   labelKey?: keyof NestedItem<T>
+  /**
+   * The key used to get the description from the item.
+   * @defaultValue 'description'
+   */
+  descriptionKey?: keyof NestedItem<T>
   disabled?: boolean
   class?: any
   ui?: DropdownMenu['slots']
@@ -99,6 +105,7 @@ export type DropdownMenuSlots<
   'item': SlotProps<T>
   'item-leading': SlotProps<T>
   'item-label': SlotProps<T>
+  'item-description': SlotProps<T>
   'item-trailing': SlotProps<T>
   'content-top': (props?: {}) => any
   'content-bottom': (props?: {}) => any
@@ -120,7 +127,8 @@ const props = withDefaults(defineProps<DropdownMenuProps<T>>(), {
   portal: true,
   modal: true,
   externalIcon: true,
-  labelKey: 'label'
+  labelKey: 'label',
+  descriptionKey: 'description'
 })
 const emits = defineEmits<DropdownMenuEmits>()
 const slots = defineSlots<DropdownMenuSlots<T>>()
@@ -151,6 +159,7 @@ const ui = computed(() => tv({ extend: tv(theme), ...(appConfig.ui?.dropdownMenu
       :items="items"
       :portal="portal"
       :label-key="(labelKey as keyof NestedItem<T>)"
+      :description-key="(descriptionKey as keyof NestedItem<T>)"
       :checked-icon="checkedIcon"
       :loading-icon="loadingIcon"
       :external-icon="externalIcon"

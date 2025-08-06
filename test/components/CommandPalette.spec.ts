@@ -62,11 +62,30 @@ describe('CommandPalette', () => {
     }]
   }]
 
+  const groupsWithDescription = [{
+    id: 'actions',
+    items: [{
+      label: 'Add new file',
+      description: 'Create a new file',
+      suffix: 'Create a new file in the current directory or workspace.',
+      icon: 'i-lucide-file-plus',
+      kbds: ['meta', 'N'],
+      active: true
+    }, {
+      label: 'Add new folder',
+      description: 'Create a new folder',
+      suffix: 'Create a new folder in the current directory or workspace.',
+      icon: 'i-lucide-folder-plus',
+      kbds: ['meta', 'F']
+    }]
+  }]
+
   const props = { groups }
 
   it.each([
     // Props
     ['with groups', { props }],
+    ['with groups with description', { props: { groups: groupsWithDescription } }],
     ['without data', {}],
     ['with modelValue', { props: { ...props, modelValue: groups[2]?.items[0] } }],
     ['with defaultValue', { props: { ...props, defaultValue: groups[2]?.items[0] } }],
@@ -88,6 +107,7 @@ describe('CommandPalette', () => {
     ['with item-leading slot', { props, slots: { 'item-leading': () => 'Item leading slot' } }],
     ['with item-label slot', { props, slots: { 'item-label': () => 'Item label slot' } }],
     ['with item-trailing slot', { props, slots: { 'item-trailing': () => 'Item trailing slot' } }],
+    ['with item-description slot', { props, slots: { 'item-description': () => 'Item description slot' } }],
     ['with custom slot', { props, slots: { custom: () => 'Custom slot' } }],
     ['with close slot', { props: { ...props, close: true }, slots: { close: () => 'Close slot' } }],
     ['with footer slot', { props, slots: { footer: () => 'Footer slot' } }]

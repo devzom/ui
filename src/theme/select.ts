@@ -17,7 +17,7 @@ export default (options: Required<ModuleOptions>) => {
       empty: 'text-center text-muted',
       label: 'font-semibold text-highlighted',
       separator: '-mx-1 my-1 h-px bg-border',
-      item: ['group relative w-full flex items-center select-none outline-none before:absolute before:z-[-1] before:inset-px before:rounded-md data-disabled:cursor-not-allowed data-disabled:opacity-75 text-default data-highlighted:not-data-disabled:text-highlighted data-highlighted:not-data-disabled:before:bg-elevated/50', options.theme.transitions && 'transition-colors before:transition-colors'],
+      item: ['group relative w-full flex items-start select-none outline-none before:absolute before:z-[-1] before:inset-px before:rounded-md data-disabled:cursor-not-allowed data-disabled:opacity-75 text-default data-highlighted:not-data-disabled:text-highlighted data-highlighted:not-data-disabled:before:bg-elevated/50', options.theme.transitions && 'transition-colors before:transition-colors'],
       itemLeadingIcon: ['shrink-0 text-dimmed group-data-highlighted:not-group-data-disabled:text-default', options.theme.transitions && 'transition-colors'],
       itemLeadingAvatar: 'shrink-0',
       itemLeadingAvatarSize: '',
@@ -25,9 +25,9 @@ export default (options: Required<ModuleOptions>) => {
       itemLeadingChipSize: '',
       itemTrailing: 'ms-auto inline-flex gap-1.5 items-center',
       itemTrailingIcon: 'shrink-0',
-      itemLabel: 'truncate',
-      itemDescription: 'text-muted text-xs truncate',
-      itemContent: 'flex flex-col min-w-0'
+      itemLabel: 'truncate text-left',
+      itemDescription: 'text-muted text-xs truncate text-left',
+      itemContent: 'flex-1 min-w-0 flex flex-col text-left'
     },
     variants: {
       ...buttonGroupVariant,
