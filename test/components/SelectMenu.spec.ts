@@ -35,7 +35,7 @@ describe('SelectMenu', () => {
   }]
 
   const itemsWithDescription = [
-    ...items.map(item => ({ ...item, description: 'Description' })),
+    ...items.map(item => ({ ...item, description: 'Description' }))
   ]
 
   const props = { open: true, portal: false, items }
