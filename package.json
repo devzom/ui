@@ -67,7 +67,7 @@
   },
   "devDependencies": {
     "@nuxt/eslint-config": "^1.8.0",
-    "@nuxt/module-builder": "^1.0.2",
+    "@nuxt/module-builder": "^1.0.1",
     "@nuxt/test-utils": "^3.19.2",
     "@release-it/conventional-changelog": "^10.0.1",
     "@vue/test-utils": "^2.4.6",
@@ -106,6 +106,7 @@
   },
   "resolutions": {
     "@nuxt/ui": "workspace:*",
+    "@nuxt/module-builder": "1.0.1",
     "@nuxt/content": "2.13.2",
     "@nuxtjs/mdc": "0.9.0",
     "@vueuse/core": "^13.6.0",
