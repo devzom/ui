@@ -71,16 +71,16 @@ export default defineNuxtConfig({
     '/getting-started/**': { redirect: { to: '/docs/getting-started/**', statusCode: 301 }, prerender: false },
     '/components/**': { redirect: { to: '/docs/components/**', statusCode: 301 }, prerender: false },
     '/composables/**': { redirect: { to: '/docs/composables/**', statusCode: 301 }, prerender: false },
-    '/components/button-group': { redirect: { to: '/docs/components/field-group', statusCode: 301 }, prerender: false },
     // v4 redirects - default root pages
     '/docs': { redirect: '/docs/getting-started', prerender: false },
-    '/docs/components': { redirect: '/docs/components/app', prerender: false },
     '/docs/composables': { redirect: '/docs/composables/define-shortcuts', prerender: false },
     // v4 redirects - default shadow pages
     '/docs/getting-started/installation': { redirect: '/docs/getting-started/installation/nuxt', prerender: false },
     '/docs/getting-started/icons': { redirect: '/docs/getting-started/icons/nuxt', prerender: false },
     '/docs/getting-started/color-mode': { redirect: '/docs/getting-started/color-mode/nuxt', prerender: false },
     '/docs/getting-started/i18n': { redirect: '/docs/getting-started/i18n/nuxt', prerender: false },
+    // v4 redirects - renamed components
+    '/components/button-group': { redirect: { to: '/docs/components/field-group', statusCode: 301 }, prerender: false },
     // v4 redirects - removed pro pages
     '/pro': { redirect: { to: '/pro/activate', statusCode: 301 }, prerender: false },
     '/pro/pricing': { redirect: { to: '/pro/activate', statusCode: 301 }, prerender: false },
