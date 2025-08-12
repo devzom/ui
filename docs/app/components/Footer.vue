@@ -2,6 +2,12 @@
 const route = useRoute()
 
 const links = [{
+  label: 'Docs',
+  to: '/docs'
+}, {
+  label: 'Figma',
+  to: '/figma'
+}, {
   label: 'Templates',
   to: '/templates'
 }, {

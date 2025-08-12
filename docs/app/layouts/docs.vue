@@ -28,17 +28,20 @@ const categories = [{
   id: 'page',
   title: 'Page'
 }, {
+  id: 'content',
+  title: 'Content'
+}, {
   id: 'dashboard',
   title: 'Dashboard'
 }, {
-  id: 'ai',
-  title: 'AI'
+  id: 'chat',
+  title: 'AI Chat'
 }, {
   id: 'color-mode',
   title: 'Color Mode'
 }, {
   id: 'i18n',
-  title: 'Internationalization (i18n)'
+  title: 'i18n'
 }]
 
 function groupChildrenByCategory(items: ContentNavigationItem[]): ContentNavigationItem[] {
@@ -57,9 +60,10 @@ function groupChildrenByCategory(items: ContentNavigationItem[]): ContentNavigat
 }
 
 const children = computed(() => {
-  const children = findPageChildren(navigation?.value, `/docs/${route.params.slug?.[0]}`, { indexAsChild: true })
+  const slug = route.params.slug?.[0]
+  const children = findPageChildren(navigation?.value, `/docs/${slug}`, { indexAsChild: true })?.map(child => ({ ...child, icon: undefined }))
 
-  return route.params.slug?.[0] === 'components' ? groupChildrenByCategory(children) : children
+  return slug === 'components' ? groupChildrenByCategory(children) : [{ title: 'Overview', path: `/docs/${slug}`, children }]
 })
 </script>
 
@@ -69,7 +73,7 @@ const children = computed(() => {
       <UPage>
         <template #left>
           <UPageAside>
-            <UContentNavigation :navigation="children" :ui="{ linkTrailingBadge: 'font-semibold uppercase' }" />
+            <UContentNavigation :navigation="children" variant="link" highlight :ui="{ linkTrailingBadge: 'font-semibold uppercase' }" />
           </UPageAside>
         </template>
 

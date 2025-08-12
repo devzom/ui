@@ -1,7 +1,7 @@
 ---
 title: ChatPalette
 description: 'A chat palette to create a chatbot interface inside an overlay.'
-category: ai
+category: chat
 links:
   - label: GitHub
     icon: i-simple-icons-github

@@ -1,7 +1,7 @@
 ---
 title: ChatPrompt
 description: 'An enhanced Textarea for submitting prompts in AI chat interfaces.'
-category: ai
+category: chat
 links:
   - label: Textarea
     to: /docs/components/textarea

@@ -1,10 +1,24 @@
 export function useSearchLinks() {
-  return [{
+  const route = useRoute()
+
+  return computed(() => [{
     label: 'Docs',
     icon: 'i-lucide-square-play',
-    to: '/docs/getting-started'
+    to: '/docs/getting-started',
+    active: route.path.startsWith('/docs/getting-started')
+  }, {
+    label: 'Components',
+    icon: 'i-lucide-square-code',
+    to: '/docs/components',
+    active: route.path.startsWith('/docs/components')
+  }, {
+    label: 'Composables',
+    icon: 'i-lucide-square-function',
+    to: '/docs/composables',
+    active: route.path.startsWith('/docs/composables')
   }, {
     label: 'Figma',
+    description: 'Official Nuxt UI design kit for Figma.',
     icon: 'i-simple-icons-figma',
     to: '/figma'
   }, {
@@ -25,7 +39,8 @@ export function useSearchLinks() {
   }, {
     label: 'Releases',
     icon: 'i-lucide-rocket',
+    description: 'Stay up to date with the latest releases of Nuxt UI.',
     to: 'https://github.com/nuxt/ui/releases',
     target: '_blank'
-  }]
+  }])
 }
