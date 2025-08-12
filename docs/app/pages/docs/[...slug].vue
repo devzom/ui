@@ -48,10 +48,10 @@ if (!import.meta.prerender) {
   })
 }
 
-const title = page.value?.navigation?.title ? page.value.navigation.title : page.value?.title
-const prefix = page.value?.path.includes('components') || page.value?.path.includes('composables') ? 'Vue ' : ''
-const suffix = page.value?.path.includes('components') ? 'Component ' : page.value?.path.includes('composables') ? 'Composable ' : ''
-const description = page.value?.description
+const title = page.value?.seo?.title ? page.value.seo.title : page.value?.navigation?.title ? page.value.navigation.title : page.value?.title
+const prefix = page.value?.path.includes('components/') || page.value?.path.includes('composables/') ? 'Vue ' : ''
+const suffix = page.value?.path.includes('components/') ? 'Component ' : page.value?.path.includes('composables/') ? 'Composable ' : ''
+const description = page.value?.seo?.description ? page.value.seo.description : page.value?.description
 
 useSeoMeta({
   titleTemplate: `${prefix}%s ${suffix}- Nuxt UI ${page.value?.framework === 'vue' ? ' for Vue' : ''}`,
