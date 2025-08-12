@@ -1,8 +1,8 @@
 title: Official Nuxt UI Templates
-description: 'Ready to use templates powered by our premium Vue components and Nuxt Content. The templates are responsive, accessible and easy to customize so you can get started in no time.'
+description: 'Explore ready-made templates powered by our Vue components. These templates are fully responsive, accessible, and easy to customize, so you can launch your project quickly and effortlessly.'
 hero:
   title: Ship [in minutes]{.text-primary} with :br Nuxt UI Templates
-  description: 'Ready to use templates powered by our premium Vue components and Nuxt Content.<br class="hidden lg:block"> The templates are responsive, accessible and easy to customize so you can get started in no time.'
+  description: 'Explore ready-made templates powered by our Vue components. These templates are fully responsive, accessible, and easy to customize, so you can launch your project quickly and effortlessly.'
 navigation: false
 templates:
   - title: 'Portfolio'
@@ -32,14 +32,14 @@ templates:
         color: neutral
         variant: outline
   - title: 'Chat'
-    description: "An AI chatbot template designed to help you build your own chatbot with Nuxt UI components and deployed on [NuxtHub](https://hub.nuxt.com)."
+    description: "An AI chatbot template designed to help you build your own chatbot with Nuxt UI components."
     icon: i-lucide-message-circle
     thumbnail:
       dark: https://assets.hub.nuxt.com/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJodHRwczovL2NoYXQtdGVtcGxhdGUubnV4dC5kZXYiLCJpYXQiOjE3NDI4NDY2ODB9.n4YCsoNz8xatox7UMoYZFNo7iS1mC_DT0h0A9cKRoTw.jpg?theme=dark
       light: https://assets.hub.nuxt.com/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJodHRwczovL2NoYXQtdGVtcGxhdGUubnV4dC5kZXYiLCJpYXQiOjE3NDI4NDY2ODB9.n4YCsoNz8xatox7UMoYZFNo7iS1mC_DT0h0A9cKRoTw.jpg?theme=light
     features:
-      - title: Powered by Cloudflare AI models
-        icon: i-simple-icons-cloudflare
+      - title: Powered by Vercel AI SDK
+        icon: i-simple-icons-vercel
       - title: GitHub OAuth authentication
         icon: i-lucide-lock
       - title: Saved chats and messages
