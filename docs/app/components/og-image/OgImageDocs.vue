@@ -4,10 +4,8 @@ withDefaults(defineProps<{
   description: string
   headline: string
   framework?: string
-  module?: string
 }>(), {
-  framework: 'nuxt',
-  module: ''
+  framework: 'nuxt'
 })
 </script>
 

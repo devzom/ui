@@ -1,12 +1,9 @@
 <script setup lang="ts">
-withDefaults(defineProps<{
+defineProps<{
   title: string
   description: string
   component: string
-  module?: string
-}>(), {
-  module: ''
-})
+}>()
 </script>
 
 <template>
