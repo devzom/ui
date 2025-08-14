@@ -61,7 +61,7 @@ useSeoMeta({
   ogDescription: description
 })
 
-if (route.path.startsWith('/docs/components')) {
+if (route.path.startsWith('/docs/components/')) {
   defineOgImageComponent('OgImageComponent', {
     title: page.value.title,
     description: page.value.description,
