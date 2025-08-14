@@ -21,8 +21,7 @@ const { data: components } = await useAsyncData('ui-components', () => {
   return queryCollection('docs')
     .where('path', 'LIKE', '/docs/components/%')
     .where('extension', '=', 'md')
-    .where('module', 'IS NULL')
-    .select('path', 'title', 'description', 'category', 'module')
+    .select('path', 'title', 'description', 'category')
     .all()
 })
 

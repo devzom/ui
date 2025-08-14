@@ -60,7 +60,6 @@ export const collections = {
     schema: z.object({
       category: z.enum(['layout', 'form', 'element', 'navigation', 'data', 'overlay', 'dashboard', 'page', 'ai', 'color-mode', 'i18n']).optional(),
       framework: z.string().optional(),
-      module: z.string().optional(),
       navigation: z.object({
         title: z.string().optional()
       }),
