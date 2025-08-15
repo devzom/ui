@@ -15,7 +15,7 @@ exports[`AuthForm > renders with as correctly 1`] = `
           <!--v-if-->
         </div>
         <div class="mt-1 relative">
-          <div class="relative inline-flex items-center w-full"><input id="v-1" type="text" name="email" class="w-full rounded-md border-0 placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-highlighted bg-default focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-error ring ring-inset ring-error" autocomplete="off" error="Invalid email format" aria-invalid="true" aria-describedby="v-1-error">
+          <div class="relative inline-flex items-center w-full"><input id="v-1" type="text" name="email" class="w-full rounded-md border-0 appearance-none placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-highlighted bg-default focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-error ring ring-inset ring-error" autocomplete="off" error="Invalid email format" aria-invalid="true" aria-describedby="v-1-error">
             <!--v-if-->
             <!--v-if-->
           </div>
@@ -30,7 +30,7 @@ exports[`AuthForm > renders with as correctly 1`] = `
           <!--v-if-->
         </div>
         <div class="mt-1 relative">
-          <div class="relative inline-flex items-center w-full"><input id="v-2" type="password" name="password" class="w-full rounded-md border-0 placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-highlighted bg-default ring ring-inset ring-accented focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary pe-9" autocomplete="off" aria-invalid="false">
+          <div class="relative inline-flex items-center w-full"><input id="v-2" type="password" name="password" class="w-full rounded-md border-0 appearance-none placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-highlighted bg-default ring ring-inset ring-accented focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary pe-9" autocomplete="off" aria-invalid="false">
             <!--v-if--><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><button type="button" aria-label="Show password" aria-pressed="false" aria-controls="password" class="rounded-md font-medium inline-flex items-center disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-75 aria-disabled:opacity-75 transition-colors text-xs gap-1.5 text-muted hover:text-default active:text-default disabled:text-muted aria-disabled:text-muted focus:outline-none focus-visible:ring-inset focus-visible:ring-2 focus-visible:ring-inverted p-1.5"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 16 16" class="shrink-0 size-4"></svg><!--v-if--><!--v-if--></button></span>
           </div>
           <!--v-if-->
@@ -61,7 +61,7 @@ exports[`AuthForm > renders with class correctly 1`] = `
           <!--v-if-->
         </div>
         <div class="mt-1 relative">
-          <div class="relative inline-flex items-center w-full"><input id="v-1" type="text" name="email" class="w-full rounded-md border-0 placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-highlighted bg-default focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-error ring ring-inset ring-error" autocomplete="off" error="Invalid email format" aria-invalid="true" aria-describedby="v-1-error">
+          <div class="relative inline-flex items-center w-full"><input id="v-1" type="text" name="email" class="w-full rounded-md border-0 appearance-none placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-highlighted bg-default focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-error ring ring-inset ring-error" autocomplete="off" error="Invalid email format" aria-invalid="true" aria-describedby="v-1-error">
             <!--v-if-->
             <!--v-if-->
           </div>
@@ -76,7 +76,7 @@ exports[`AuthForm > renders with class correctly 1`] = `
           <!--v-if-->
         </div>
         <div class="mt-1 relative">
-          <div class="relative inline-flex items-center w-full"><input id="v-2" type="password" name="password" class="w-full rounded-md border-0 placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-highlighted bg-default ring ring-inset ring-accented focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary pe-9" autocomplete="off" aria-invalid="false">
+          <div class="relative inline-flex items-center w-full"><input id="v-2" type="password" name="password" class="w-full rounded-md border-0 appearance-none placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-highlighted bg-default ring ring-inset ring-accented focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary pe-9" autocomplete="off" aria-invalid="false">
             <!--v-if--><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><button type="button" aria-label="Show password" aria-pressed="false" aria-controls="password" class="rounded-md font-medium inline-flex items-center disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-75 aria-disabled:opacity-75 transition-colors text-xs gap-1.5 text-muted hover:text-default active:text-default disabled:text-muted aria-disabled:text-muted focus:outline-none focus-visible:ring-inset focus-visible:ring-2 focus-visible:ring-inverted p-1.5"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 16 16" class="shrink-0 size-4"></svg><!--v-if--><!--v-if--></button></span>
           </div>
           <!--v-if-->
@@ -111,7 +111,7 @@ exports[`AuthForm > renders with description correctly 1`] = `
           <!--v-if-->
         </div>
         <div class="mt-1 relative">
-          <div class="relative inline-flex items-center w-full"><input id="v-1" type="text" name="email" class="w-full rounded-md border-0 placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-highlighted bg-default focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-error ring ring-inset ring-error" autocomplete="off" error="Invalid email format" aria-invalid="true" aria-describedby="v-1-error">
+          <div class="relative inline-flex items-center w-full"><input id="v-1" type="text" name="email" class="w-full rounded-md border-0 appearance-none placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-highlighted bg-default focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-error ring ring-inset ring-error" autocomplete="off" error="Invalid email format" aria-invalid="true" aria-describedby="v-1-error">
             <!--v-if-->
             <!--v-if-->
           </div>
@@ -126,7 +126,7 @@ exports[`AuthForm > renders with description correctly 1`] = `
           <!--v-if-->
         </div>
         <div class="mt-1 relative">
-          <div class="relative inline-flex items-center w-full"><input id="v-2" type="password" name="password" class="w-full rounded-md border-0 placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-highlighted bg-default ring ring-inset ring-accented focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary pe-9" autocomplete="off" aria-invalid="false">
+          <div class="relative inline-flex items-center w-full"><input id="v-2" type="password" name="password" class="w-full rounded-md border-0 appearance-none placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-highlighted bg-default ring ring-inset ring-accented focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary pe-9" autocomplete="off" aria-invalid="false">
             <!--v-if--><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><button type="button" aria-label="Show password" aria-pressed="false" aria-controls="password" class="rounded-md font-medium inline-flex items-center disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-75 aria-disabled:opacity-75 transition-colors text-xs gap-1.5 text-muted hover:text-default active:text-default disabled:text-muted aria-disabled:text-muted focus:outline-none focus-visible:ring-inset focus-visible:ring-2 focus-visible:ring-inverted p-1.5"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 16 16" class="shrink-0 size-4"></svg><!--v-if--><!--v-if--></button></span>
           </div>
           <!--v-if-->
@@ -161,7 +161,7 @@ exports[`AuthForm > renders with description slot correctly 1`] = `
           <!--v-if-->
         </div>
         <div class="mt-1 relative">
-          <div class="relative inline-flex items-center w-full"><input id="v-1" type="text" name="email" class="w-full rounded-md border-0 placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-highlighted bg-default focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-error ring ring-inset ring-error" autocomplete="off" error="Invalid email format" aria-invalid="true" aria-describedby="v-1-error">
+          <div class="relative inline-flex items-center w-full"><input id="v-1" type="text" name="email" class="w-full rounded-md border-0 appearance-none placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-highlighted bg-default focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-error ring ring-inset ring-error" autocomplete="off" error="Invalid email format" aria-invalid="true" aria-describedby="v-1-error">
             <!--v-if-->
             <!--v-if-->
           </div>
@@ -176,7 +176,7 @@ exports[`AuthForm > renders with description slot correctly 1`] = `
           <!--v-if-->
         </div>
         <div class="mt-1 relative">
-          <div class="relative inline-flex items-center w-full"><input id="v-2" type="password" name="password" class="w-full rounded-md border-0 placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-highlighted bg-default ring ring-inset ring-accented focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary pe-9" autocomplete="off" aria-invalid="false">
+          <div class="relative inline-flex items-center w-full"><input id="v-2" type="password" name="password" class="w-full rounded-md border-0 appearance-none placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-highlighted bg-default ring ring-inset ring-accented focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary pe-9" autocomplete="off" aria-invalid="false">
             <!--v-if--><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><button type="button" aria-label="Show password" aria-pressed="false" aria-controls="password" class="rounded-md font-medium inline-flex items-center disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-75 aria-disabled:opacity-75 transition-colors text-xs gap-1.5 text-muted hover:text-default active:text-default disabled:text-muted aria-disabled:text-muted focus:outline-none focus-visible:ring-inset focus-visible:ring-2 focus-visible:ring-inverted p-1.5"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 16 16" class="shrink-0 size-4"></svg><!--v-if--><!--v-if--></button></span>
           </div>
           <!--v-if-->
@@ -207,7 +207,7 @@ exports[`AuthForm > renders with disabled correctly 1`] = `
           <!--v-if-->
         </div>
         <div class="mt-1 relative">
-          <div class="relative inline-flex items-center w-full"><input id="v-1" type="text" name="email" class="w-full rounded-md border-0 placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-highlighted bg-default focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-error ring ring-inset ring-error" disabled="" autocomplete="off" error="Invalid email format" aria-invalid="true" aria-describedby="v-1-error">
+          <div class="relative inline-flex items-center w-full"><input id="v-1" type="text" name="email" class="w-full rounded-md border-0 appearance-none placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-highlighted bg-default focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-error ring ring-inset ring-error" disabled="" autocomplete="off" error="Invalid email format" aria-invalid="true" aria-describedby="v-1-error">
             <!--v-if-->
             <!--v-if-->
           </div>
@@ -222,7 +222,7 @@ exports[`AuthForm > renders with disabled correctly 1`] = `
           <!--v-if-->
         </div>
         <div class="mt-1 relative">
-          <div class="relative inline-flex items-center w-full"><input id="v-2" type="password" name="password" class="w-full rounded-md border-0 placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-highlighted bg-default ring ring-inset ring-accented focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary pe-9" disabled="" autocomplete="off" aria-invalid="false">
+          <div class="relative inline-flex items-center w-full"><input id="v-2" type="password" name="password" class="w-full rounded-md border-0 appearance-none placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-highlighted bg-default ring ring-inset ring-accented focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary pe-9" disabled="" autocomplete="off" aria-invalid="false">
             <!--v-if--><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><button type="button" aria-label="Show password" aria-pressed="false" aria-controls="password" class="rounded-md font-medium inline-flex items-center disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-75 aria-disabled:opacity-75 transition-colors text-xs gap-1.5 text-muted hover:text-default active:text-default disabled:text-muted aria-disabled:text-muted focus:outline-none focus-visible:ring-inset focus-visible:ring-2 focus-visible:ring-inverted p-1.5"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 16 16" class="shrink-0 size-4"></svg><!--v-if--><!--v-if--></button></span>
           </div>
           <!--v-if-->
@@ -253,7 +253,7 @@ exports[`AuthForm > renders with fields correctly 1`] = `
           <!--v-if-->
         </div>
         <div class="mt-1 relative">
-          <div class="relative inline-flex items-center w-full"><input id="v-1" type="text" name="email" class="w-full rounded-md border-0 placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-highlighted bg-default focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-error ring ring-inset ring-error" autocomplete="off" error="Invalid email format" aria-invalid="true" aria-describedby="v-1-error">
+          <div class="relative inline-flex items-center w-full"><input id="v-1" type="text" name="email" class="w-full rounded-md border-0 appearance-none placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-highlighted bg-default focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-error ring ring-inset ring-error" autocomplete="off" error="Invalid email format" aria-invalid="true" aria-describedby="v-1-error">
             <!--v-if-->
             <!--v-if-->
           </div>
@@ -268,7 +268,7 @@ exports[`AuthForm > renders with fields correctly 1`] = `
           <!--v-if-->
         </div>
         <div class="mt-1 relative">
-          <div class="relative inline-flex items-center w-full"><input id="v-2" type="password" name="password" class="w-full rounded-md border-0 placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-highlighted bg-default ring ring-inset ring-accented focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary pe-9" autocomplete="off" aria-invalid="false">
+          <div class="relative inline-flex items-center w-full"><input id="v-2" type="password" name="password" class="w-full rounded-md border-0 appearance-none placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-highlighted bg-default ring ring-inset ring-accented focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary pe-9" autocomplete="off" aria-invalid="false">
             <!--v-if--><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><button type="button" aria-label="Show password" aria-pressed="false" aria-controls="password" class="rounded-md font-medium inline-flex items-center disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-75 aria-disabled:opacity-75 transition-colors text-xs gap-1.5 text-muted hover:text-default active:text-default disabled:text-muted aria-disabled:text-muted focus:outline-none focus-visible:ring-inset focus-visible:ring-2 focus-visible:ring-inverted p-1.5"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 16 16" class="shrink-0 size-4"></svg><!--v-if--><!--v-if--></button></span>
           </div>
           <!--v-if-->
@@ -299,7 +299,7 @@ exports[`AuthForm > renders with footer slot correctly 1`] = `
           <!--v-if-->
         </div>
         <div class="mt-1 relative">
-          <div class="relative inline-flex items-center w-full"><input id="v-1" type="text" name="email" class="w-full rounded-md border-0 placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-highlighted bg-default focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-error ring ring-inset ring-error" autocomplete="off" error="Invalid email format" aria-invalid="true" aria-describedby="v-1-error">
+          <div class="relative inline-flex items-center w-full"><input id="v-1" type="text" name="email" class="w-full rounded-md border-0 appearance-none placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-highlighted bg-default focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-error ring ring-inset ring-error" autocomplete="off" error="Invalid email format" aria-invalid="true" aria-describedby="v-1-error">
             <!--v-if-->
             <!--v-if-->
           </div>
@@ -314,7 +314,7 @@ exports[`AuthForm > renders with footer slot correctly 1`] = `
           <!--v-if-->
         </div>
         <div class="mt-1 relative">
-          <div class="relative inline-flex items-center w-full"><input id="v-2" type="password" name="password" class="w-full rounded-md border-0 placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-highlighted bg-default ring ring-inset ring-accented focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary pe-9" autocomplete="off" aria-invalid="false">
+          <div class="relative inline-flex items-center w-full"><input id="v-2" type="password" name="password" class="w-full rounded-md border-0 appearance-none placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-highlighted bg-default ring ring-inset ring-accented focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary pe-9" autocomplete="off" aria-invalid="false">
             <!--v-if--><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><button type="button" aria-label="Show password" aria-pressed="false" aria-controls="password" class="rounded-md font-medium inline-flex items-center disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-75 aria-disabled:opacity-75 transition-colors text-xs gap-1.5 text-muted hover:text-default active:text-default disabled:text-muted aria-disabled:text-muted focus:outline-none focus-visible:ring-inset focus-visible:ring-2 focus-visible:ring-inverted p-1.5"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 16 16" class="shrink-0 size-4"></svg><!--v-if--><!--v-if--></button></span>
           </div>
           <!--v-if-->
@@ -345,7 +345,7 @@ exports[`AuthForm > renders with header slot correctly 1`] = `
           <!--v-if-->
         </div>
         <div class="mt-1 relative">
-          <div class="relative inline-flex items-center w-full"><input id="v-1" type="text" name="email" class="w-full rounded-md border-0 placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-highlighted bg-default focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-error ring ring-inset ring-error" autocomplete="off" error="Invalid email format" aria-invalid="true" aria-describedby="v-1-error">
+          <div class="relative inline-flex items-center w-full"><input id="v-1" type="text" name="email" class="w-full rounded-md border-0 appearance-none placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-highlighted bg-default focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-error ring ring-inset ring-error" autocomplete="off" error="Invalid email format" aria-invalid="true" aria-describedby="v-1-error">
             <!--v-if-->
             <!--v-if-->
           </div>
@@ -360,7 +360,7 @@ exports[`AuthForm > renders with header slot correctly 1`] = `
           <!--v-if-->
         </div>
         <div class="mt-1 relative">
-          <div class="relative inline-flex items-center w-full"><input id="v-2" type="password" name="password" class="w-full rounded-md border-0 placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-highlighted bg-default ring ring-inset ring-accented focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary pe-9" autocomplete="off" aria-invalid="false">
+          <div class="relative inline-flex items-center w-full"><input id="v-2" type="password" name="password" class="w-full rounded-md border-0 appearance-none placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-highlighted bg-default ring ring-inset ring-accented focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary pe-9" autocomplete="off" aria-invalid="false">
             <!--v-if--><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><button type="button" aria-label="Show password" aria-pressed="false" aria-controls="password" class="rounded-md font-medium inline-flex items-center disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-75 aria-disabled:opacity-75 transition-colors text-xs gap-1.5 text-muted hover:text-default active:text-default disabled:text-muted aria-disabled:text-muted focus:outline-none focus-visible:ring-inset focus-visible:ring-2 focus-visible:ring-inverted p-1.5"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 16 16" class="shrink-0 size-4"></svg><!--v-if--><!--v-if--></button></span>
           </div>
           <!--v-if-->
@@ -395,7 +395,7 @@ exports[`AuthForm > renders with icon correctly 1`] = `
           <!--v-if-->
         </div>
         <div class="mt-1 relative">
-          <div class="relative inline-flex items-center w-full"><input id="v-1" type="text" name="email" class="w-full rounded-md border-0 placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-highlighted bg-default focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-error ring ring-inset ring-error" autocomplete="off" error="Invalid email format" aria-invalid="true" aria-describedby="v-1-error">
+          <div class="relative inline-flex items-center w-full"><input id="v-1" type="text" name="email" class="w-full rounded-md border-0 appearance-none placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-highlighted bg-default focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-error ring ring-inset ring-error" autocomplete="off" error="Invalid email format" aria-invalid="true" aria-describedby="v-1-error">
             <!--v-if-->
             <!--v-if-->
           </div>
@@ -410,7 +410,7 @@ exports[`AuthForm > renders with icon correctly 1`] = `
           <!--v-if-->
         </div>
         <div class="mt-1 relative">
-          <div class="relative inline-flex items-center w-full"><input id="v-2" type="password" name="password" class="w-full rounded-md border-0 placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-highlighted bg-default ring ring-inset ring-accented focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary pe-9" autocomplete="off" aria-invalid="false">
+          <div class="relative inline-flex items-center w-full"><input id="v-2" type="password" name="password" class="w-full rounded-md border-0 appearance-none placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-highlighted bg-default ring ring-inset ring-accented focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary pe-9" autocomplete="off" aria-invalid="false">
             <!--v-if--><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><button type="button" aria-label="Show password" aria-pressed="false" aria-controls="password" class="rounded-md font-medium inline-flex items-center disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-75 aria-disabled:opacity-75 transition-colors text-xs gap-1.5 text-muted hover:text-default active:text-default disabled:text-muted aria-disabled:text-muted focus:outline-none focus-visible:ring-inset focus-visible:ring-2 focus-visible:ring-inverted p-1.5"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 16 16" class="shrink-0 size-4"></svg><!--v-if--><!--v-if--></button></span>
           </div>
           <!--v-if-->
@@ -441,7 +441,7 @@ exports[`AuthForm > renders with leading slot correctly 1`] = `
           <!--v-if-->
         </div>
         <div class="mt-1 relative">
-          <div class="relative inline-flex items-center w-full"><input id="v-1" type="text" name="email" class="w-full rounded-md border-0 placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-highlighted bg-default focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-error ring ring-inset ring-error" autocomplete="off" error="Invalid email format" aria-invalid="true" aria-describedby="v-1-error">
+          <div class="relative inline-flex items-center w-full"><input id="v-1" type="text" name="email" class="w-full rounded-md border-0 appearance-none placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-highlighted bg-default focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-error ring ring-inset ring-error" autocomplete="off" error="Invalid email format" aria-invalid="true" aria-describedby="v-1-error">
             <!--v-if-->
             <!--v-if-->
           </div>
@@ -456,7 +456,7 @@ exports[`AuthForm > renders with leading slot correctly 1`] = `
           <!--v-if-->
         </div>
         <div class="mt-1 relative">
-          <div class="relative inline-flex items-center w-full"><input id="v-2" type="password" name="password" class="w-full rounded-md border-0 placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-highlighted bg-default ring ring-inset ring-accented focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary pe-9" autocomplete="off" aria-invalid="false">
+          <div class="relative inline-flex items-center w-full"><input id="v-2" type="password" name="password" class="w-full rounded-md border-0 appearance-none placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-highlighted bg-default ring ring-inset ring-accented focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary pe-9" autocomplete="off" aria-invalid="false">
             <!--v-if--><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><button type="button" aria-label="Show password" aria-pressed="false" aria-controls="password" class="rounded-md font-medium inline-flex items-center disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-75 aria-disabled:opacity-75 transition-colors text-xs gap-1.5 text-muted hover:text-default active:text-default disabled:text-muted aria-disabled:text-muted focus:outline-none focus-visible:ring-inset focus-visible:ring-2 focus-visible:ring-inverted p-1.5"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 16 16" class="shrink-0 size-4"></svg><!--v-if--><!--v-if--></button></span>
           </div>
           <!--v-if-->
@@ -487,7 +487,7 @@ exports[`AuthForm > renders with loading correctly 1`] = `
           <!--v-if-->
         </div>
         <div class="mt-1 relative">
-          <div class="relative inline-flex items-center w-full"><input id="v-1" type="text" name="email" class="w-full rounded-md border-0 placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-highlighted bg-default focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-error ring ring-inset ring-error" autocomplete="off" error="Invalid email format" aria-invalid="true" aria-describedby="v-1-error">
+          <div class="relative inline-flex items-center w-full"><input id="v-1" type="text" name="email" class="w-full rounded-md border-0 appearance-none placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-highlighted bg-default focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-error ring ring-inset ring-error" autocomplete="off" error="Invalid email format" aria-invalid="true" aria-describedby="v-1-error">
             <!--v-if-->
             <!--v-if-->
           </div>
@@ -502,7 +502,7 @@ exports[`AuthForm > renders with loading correctly 1`] = `
           <!--v-if-->
         </div>
         <div class="mt-1 relative">
-          <div class="relative inline-flex items-center w-full"><input id="v-2" type="password" name="password" class="w-full rounded-md border-0 placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-highlighted bg-default ring ring-inset ring-accented focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary pe-9" autocomplete="off" aria-invalid="false">
+          <div class="relative inline-flex items-center w-full"><input id="v-2" type="password" name="password" class="w-full rounded-md border-0 appearance-none placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-highlighted bg-default ring ring-inset ring-accented focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary pe-9" autocomplete="off" aria-invalid="false">
             <!--v-if--><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><button type="button" aria-label="Show password" aria-pressed="false" aria-controls="password" class="rounded-md font-medium inline-flex items-center disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-75 aria-disabled:opacity-75 transition-colors text-xs gap-1.5 text-muted hover:text-default active:text-default disabled:text-muted aria-disabled:text-muted focus:outline-none focus-visible:ring-inset focus-visible:ring-2 focus-visible:ring-inverted p-1.5"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 16 16" class="shrink-0 size-4"></svg><!--v-if--><!--v-if--></button></span>
           </div>
           <!--v-if-->
@@ -538,7 +538,7 @@ exports[`AuthForm > renders with providers correctly 1`] = `
           <!--v-if-->
         </div>
         <div class="mt-1 relative">
-          <div class="relative inline-flex items-center w-full"><input id="v-1" type="text" name="email" class="w-full rounded-md border-0 placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-highlighted bg-default focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-error ring ring-inset ring-error" autocomplete="off" error="Invalid email format" aria-invalid="true" aria-describedby="v-1-error">
+          <div class="relative inline-flex items-center w-full"><input id="v-1" type="text" name="email" class="w-full rounded-md border-0 appearance-none placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-highlighted bg-default focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-error ring ring-inset ring-error" autocomplete="off" error="Invalid email format" aria-invalid="true" aria-describedby="v-1-error">
             <!--v-if-->
             <!--v-if-->
           </div>
@@ -553,7 +553,7 @@ exports[`AuthForm > renders with providers correctly 1`] = `
           <!--v-if-->
         </div>
         <div class="mt-1 relative">
-          <div class="relative inline-flex items-center w-full"><input id="v-2" type="password" name="password" class="w-full rounded-md border-0 placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-highlighted bg-default ring ring-inset ring-accented focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary pe-9" autocomplete="off" aria-invalid="false">
+          <div class="relative inline-flex items-center w-full"><input id="v-2" type="password" name="password" class="w-full rounded-md border-0 appearance-none placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-highlighted bg-default ring ring-inset ring-accented focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary pe-9" autocomplete="off" aria-invalid="false">
             <!--v-if--><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><button type="button" aria-label="Show password" aria-pressed="false" aria-controls="password" class="rounded-md font-medium inline-flex items-center disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-75 aria-disabled:opacity-75 transition-colors text-xs gap-1.5 text-muted hover:text-default active:text-default disabled:text-muted aria-disabled:text-muted focus:outline-none focus-visible:ring-inset focus-visible:ring-2 focus-visible:ring-inverted p-1.5"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 16 16" class="shrink-0 size-4"></svg><!--v-if--><!--v-if--></button></span>
           </div>
           <!--v-if-->
@@ -584,7 +584,7 @@ exports[`AuthForm > renders with providers slot correctly 1`] = `
           <!--v-if-->
         </div>
         <div class="mt-1 relative">
-          <div class="relative inline-flex items-center w-full"><input id="v-1" type="text" name="email" class="w-full rounded-md border-0 placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-highlighted bg-default focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-error ring ring-inset ring-error" autocomplete="off" error="Invalid email format" aria-invalid="true" aria-describedby="v-1-error">
+          <div class="relative inline-flex items-center w-full"><input id="v-1" type="text" name="email" class="w-full rounded-md border-0 appearance-none placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-highlighted bg-default focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-error ring ring-inset ring-error" autocomplete="off" error="Invalid email format" aria-invalid="true" aria-describedby="v-1-error">
             <!--v-if-->
             <!--v-if-->
           </div>
@@ -599,7 +599,7 @@ exports[`AuthForm > renders with providers slot correctly 1`] = `
           <!--v-if-->
         </div>
         <div class="mt-1 relative">
-          <div class="relative inline-flex items-center w-full"><input id="v-2" type="password" name="password" class="w-full rounded-md border-0 placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-highlighted bg-default ring ring-inset ring-accented focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary pe-9" autocomplete="off" aria-invalid="false">
+          <div class="relative inline-flex items-center w-full"><input id="v-2" type="password" name="password" class="w-full rounded-md border-0 appearance-none placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-highlighted bg-default ring ring-inset ring-accented focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary pe-9" autocomplete="off" aria-invalid="false">
             <!--v-if--><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><button type="button" aria-label="Show password" aria-pressed="false" aria-controls="password" class="rounded-md font-medium inline-flex items-center disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-75 aria-disabled:opacity-75 transition-colors text-xs gap-1.5 text-muted hover:text-default active:text-default disabled:text-muted aria-disabled:text-muted focus:outline-none focus-visible:ring-inset focus-visible:ring-2 focus-visible:ring-inverted p-1.5"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 16 16" class="shrink-0 size-4"></svg><!--v-if--><!--v-if--></button></span>
           </div>
           <!--v-if-->
@@ -630,7 +630,7 @@ exports[`AuthForm > renders with separator correctly 1`] = `
           <!--v-if-->
         </div>
         <div class="mt-1 relative">
-          <div class="relative inline-flex items-center w-full"><input id="v-1" type="text" name="email" class="w-full rounded-md border-0 placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-highlighted bg-default focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-error ring ring-inset ring-error" autocomplete="off" error="Invalid email format" aria-invalid="true" aria-describedby="v-1-error">
+          <div class="relative inline-flex items-center w-full"><input id="v-1" type="text" name="email" class="w-full rounded-md border-0 appearance-none placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-highlighted bg-default focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-error ring ring-inset ring-error" autocomplete="off" error="Invalid email format" aria-invalid="true" aria-describedby="v-1-error">
             <!--v-if-->
             <!--v-if-->
           </div>
@@ -645,7 +645,7 @@ exports[`AuthForm > renders with separator correctly 1`] = `
           <!--v-if-->
         </div>
         <div class="mt-1 relative">
-          <div class="relative inline-flex items-center w-full"><input id="v-2" type="password" name="password" class="w-full rounded-md border-0 placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-highlighted bg-default ring ring-inset ring-accented focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary pe-9" autocomplete="off" aria-invalid="false">
+          <div class="relative inline-flex items-center w-full"><input id="v-2" type="password" name="password" class="w-full rounded-md border-0 appearance-none placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-highlighted bg-default ring ring-inset ring-accented focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary pe-9" autocomplete="off" aria-invalid="false">
             <!--v-if--><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><button type="button" aria-label="Show password" aria-pressed="false" aria-controls="password" class="rounded-md font-medium inline-flex items-center disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-75 aria-disabled:opacity-75 transition-colors text-xs gap-1.5 text-muted hover:text-default active:text-default disabled:text-muted aria-disabled:text-muted focus:outline-none focus-visible:ring-inset focus-visible:ring-2 focus-visible:ring-inverted p-1.5"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 16 16" class="shrink-0 size-4"></svg><!--v-if--><!--v-if--></button></span>
           </div>
           <!--v-if-->
@@ -676,7 +676,7 @@ exports[`AuthForm > renders with submit correctly 1`] = `
           <!--v-if-->
         </div>
         <div class="mt-1 relative">
-          <div class="relative inline-flex items-center w-full"><input id="v-1" type="text" name="email" class="w-full rounded-md border-0 placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-highlighted bg-default focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-error ring ring-inset ring-error" autocomplete="off" error="Invalid email format" aria-invalid="true" aria-describedby="v-1-error">
+          <div class="relative inline-flex items-center w-full"><input id="v-1" type="text" name="email" class="w-full rounded-md border-0 appearance-none placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-highlighted bg-default focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-error ring ring-inset ring-error" autocomplete="off" error="Invalid email format" aria-invalid="true" aria-describedby="v-1-error">
             <!--v-if-->
             <!--v-if-->
           </div>
@@ -691,7 +691,7 @@ exports[`AuthForm > renders with submit correctly 1`] = `
           <!--v-if-->
         </div>
         <div class="mt-1 relative">
-          <div class="relative inline-flex items-center w-full"><input id="v-2" type="password" name="password" class="w-full rounded-md border-0 placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-highlighted bg-default ring ring-inset ring-accented focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary pe-9" autocomplete="off" aria-invalid="false">
+          <div class="relative inline-flex items-center w-full"><input id="v-2" type="password" name="password" class="w-full rounded-md border-0 appearance-none placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-highlighted bg-default ring ring-inset ring-accented focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary pe-9" autocomplete="off" aria-invalid="false">
             <!--v-if--><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><button type="button" aria-label="Show password" aria-pressed="false" aria-controls="password" class="rounded-md font-medium inline-flex items-center disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-75 aria-disabled:opacity-75 transition-colors text-xs gap-1.5 text-muted hover:text-default active:text-default disabled:text-muted aria-disabled:text-muted focus:outline-none focus-visible:ring-inset focus-visible:ring-2 focus-visible:ring-inverted p-1.5"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 16 16" class="shrink-0 size-4"></svg><!--v-if--><!--v-if--></button></span>
           </div>
           <!--v-if-->
@@ -722,7 +722,7 @@ exports[`AuthForm > renders with submit slot correctly 1`] = `
           <!--v-if-->
         </div>
         <div class="mt-1 relative">
-          <div class="relative inline-flex items-center w-full"><input id="v-1" type="text" name="email" class="w-full rounded-md border-0 placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-highlighted bg-default focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-error ring ring-inset ring-error" autocomplete="off" error="Invalid email format" aria-invalid="true" aria-describedby="v-1-error">
+          <div class="relative inline-flex items-center w-full"><input id="v-1" type="text" name="email" class="w-full rounded-md border-0 appearance-none placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-highlighted bg-default focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-error ring ring-inset ring-error" autocomplete="off" error="Invalid email format" aria-invalid="true" aria-describedby="v-1-error">
             <!--v-if-->
             <!--v-if-->
           </div>
@@ -737,7 +737,7 @@ exports[`AuthForm > renders with submit slot correctly 1`] = `
           <!--v-if-->
         </div>
         <div class="mt-1 relative">
-          <div class="relative inline-flex items-center w-full"><input id="v-2" type="password" name="password" class="w-full rounded-md border-0 placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-highlighted bg-default ring ring-inset ring-accented focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary pe-9" autocomplete="off" aria-invalid="false">
+          <div class="relative inline-flex items-center w-full"><input id="v-2" type="password" name="password" class="w-full rounded-md border-0 appearance-none placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-highlighted bg-default ring ring-inset ring-accented focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary pe-9" autocomplete="off" aria-invalid="false">
             <!--v-if--><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><button type="button" aria-label="Show password" aria-pressed="false" aria-controls="password" class="rounded-md font-medium inline-flex items-center disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-75 aria-disabled:opacity-75 transition-colors text-xs gap-1.5 text-muted hover:text-default active:text-default disabled:text-muted aria-disabled:text-muted focus:outline-none focus-visible:ring-inset focus-visible:ring-2 focus-visible:ring-inverted p-1.5"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 16 16" class="shrink-0 size-4"></svg><!--v-if--><!--v-if--></button></span>
           </div>
           <!--v-if-->
@@ -769,7 +769,7 @@ exports[`AuthForm > renders with title correctly 1`] = `
           <!--v-if-->
         </div>
         <div class="mt-1 relative">
-          <div class="relative inline-flex items-center w-full"><input id="v-1" type="text" name="email" class="w-full rounded-md border-0 placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-highlighted bg-default focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-error ring ring-inset ring-error" autocomplete="off" error="Invalid email format" aria-invalid="true" aria-describedby="v-1-error">
+          <div class="relative inline-flex items-center w-full"><input id="v-1" type="text" name="email" class="w-full rounded-md border-0 appearance-none placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-highlighted bg-default focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-error ring ring-inset ring-error" autocomplete="off" error="Invalid email format" aria-invalid="true" aria-describedby="v-1-error">
             <!--v-if-->
             <!--v-if-->
           </div>
@@ -784,7 +784,7 @@ exports[`AuthForm > renders with title correctly 1`] = `
           <!--v-if-->
         </div>
         <div class="mt-1 relative">
-          <div class="relative inline-flex items-center w-full"><input id="v-2" type="password" name="password" class="w-full rounded-md border-0 placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-highlighted bg-default ring ring-inset ring-accented focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary pe-9" autocomplete="off" aria-invalid="false">
+          <div class="relative inline-flex items-center w-full"><input id="v-2" type="password" name="password" class="w-full rounded-md border-0 appearance-none placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-highlighted bg-default ring ring-inset ring-accented focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary pe-9" autocomplete="off" aria-invalid="false">
             <!--v-if--><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><button type="button" aria-label="Show password" aria-pressed="false" aria-controls="password" class="rounded-md font-medium inline-flex items-center disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-75 aria-disabled:opacity-75 transition-colors text-xs gap-1.5 text-muted hover:text-default active:text-default disabled:text-muted aria-disabled:text-muted focus:outline-none focus-visible:ring-inset focus-visible:ring-2 focus-visible:ring-inverted p-1.5"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 16 16" class="shrink-0 size-4"></svg><!--v-if--><!--v-if--></button></span>
           </div>
           <!--v-if-->
@@ -819,7 +819,7 @@ exports[`AuthForm > renders with title slot correctly 1`] = `
           <!--v-if-->
         </div>
         <div class="mt-1 relative">
-          <div class="relative inline-flex items-center w-full"><input id="v-1" type="text" name="email" class="w-full rounded-md border-0 placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-highlighted bg-default focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-error ring ring-inset ring-error" autocomplete="off" error="Invalid email format" aria-invalid="true" aria-describedby="v-1-error">
+          <div class="relative inline-flex items-center w-full"><input id="v-1" type="text" name="email" class="w-full rounded-md border-0 appearance-none placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-highlighted bg-default focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-error ring ring-inset ring-error" autocomplete="off" error="Invalid email format" aria-invalid="true" aria-describedby="v-1-error">
             <!--v-if-->
             <!--v-if-->
           </div>
@@ -834,7 +834,7 @@ exports[`AuthForm > renders with title slot correctly 1`] = `
           <!--v-if-->
         </div>
         <div class="mt-1 relative">
-          <div class="relative inline-flex items-center w-full"><input id="v-2" type="password" name="password" class="w-full rounded-md border-0 placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-highlighted bg-default ring ring-inset ring-accented focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary pe-9" autocomplete="off" aria-invalid="false">
+          <div class="relative inline-flex items-center w-full"><input id="v-2" type="password" name="password" class="w-full rounded-md border-0 appearance-none placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-highlighted bg-default ring ring-inset ring-accented focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary pe-9" autocomplete="off" aria-invalid="false">
             <!--v-if--><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><button type="button" aria-label="Show password" aria-pressed="false" aria-controls="password" class="rounded-md font-medium inline-flex items-center disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-75 aria-disabled:opacity-75 transition-colors text-xs gap-1.5 text-muted hover:text-default active:text-default disabled:text-muted aria-disabled:text-muted focus:outline-none focus-visible:ring-inset focus-visible:ring-2 focus-visible:ring-inverted p-1.5"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 16 16" class="shrink-0 size-4"></svg><!--v-if--><!--v-if--></button></span>
           </div>
           <!--v-if-->
@@ -865,7 +865,7 @@ exports[`AuthForm > renders with ui correctly 1`] = `
           <!--v-if-->
         </div>
         <div class="mt-1 relative">
-          <div class="relative inline-flex items-center w-full"><input id="v-1" type="text" name="email" class="w-full rounded-md border-0 placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-highlighted bg-default focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-error ring ring-inset ring-error" autocomplete="off" error="Invalid email format" aria-invalid="true" aria-describedby="v-1-error">
+          <div class="relative inline-flex items-center w-full"><input id="v-1" type="text" name="email" class="w-full rounded-md border-0 appearance-none placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-highlighted bg-default focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-error ring ring-inset ring-error" autocomplete="off" error="Invalid email format" aria-invalid="true" aria-describedby="v-1-error">
             <!--v-if-->
             <!--v-if-->
           </div>
@@ -880,7 +880,7 @@ exports[`AuthForm > renders with ui correctly 1`] = `
           <!--v-if-->
         </div>
         <div class="mt-1 relative">
-          <div class="relative inline-flex items-center w-full"><input id="v-2" type="password" name="password" class="w-full rounded-md border-0 placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-highlighted bg-default ring ring-inset ring-accented focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary pe-9" autocomplete="off" aria-invalid="false">
+          <div class="relative inline-flex items-center w-full"><input id="v-2" type="password" name="password" class="w-full rounded-md border-0 appearance-none placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-highlighted bg-default ring ring-inset ring-accented focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary pe-9" autocomplete="off" aria-invalid="false">
             <!--v-if--><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><button type="button" aria-label="Show password" aria-pressed="false" aria-controls="password" class="rounded-md font-medium inline-flex items-center disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-75 aria-disabled:opacity-75 transition-colors text-xs gap-1.5 text-muted hover:text-default active:text-default disabled:text-muted aria-disabled:text-muted focus:outline-none focus-visible:ring-inset focus-visible:ring-2 focus-visible:ring-inverted p-1.5"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 16 16" class="shrink-0 size-4"></svg><!--v-if--><!--v-if--></button></span>
           </div>
           <!--v-if-->
@@ -911,7 +911,7 @@ exports[`AuthForm > renders with validation slot correctly 1`] = `
           <!--v-if-->
         </div>
         <div class="mt-1 relative">
-          <div class="relative inline-flex items-center w-full"><input id="v-1" type="text" name="email" class="w-full rounded-md border-0 placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-highlighted bg-default focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-error ring ring-inset ring-error" autocomplete="off" error="Invalid email format" aria-invalid="true" aria-describedby="v-1-error">
+          <div class="relative inline-flex items-center w-full"><input id="v-1" type="text" name="email" class="w-full rounded-md border-0 appearance-none placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-highlighted bg-default focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-error ring ring-inset ring-error" autocomplete="off" error="Invalid email format" aria-invalid="true" aria-describedby="v-1-error">
             <!--v-if-->
             <!--v-if-->
           </div>
@@ -926,7 +926,7 @@ exports[`AuthForm > renders with validation slot correctly 1`] = `
           <!--v-if-->
         </div>
         <div class="mt-1 relative">
-          <div class="relative inline-flex items-center w-full"><input id="v-2" type="password" name="password" class="w-full rounded-md border-0 placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-highlighted bg-default ring ring-inset ring-accented focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary pe-9" autocomplete="off" aria-invalid="false">
+          <div class="relative inline-flex items-center w-full"><input id="v-2" type="password" name="password" class="w-full rounded-md border-0 appearance-none placeholder:text-dimmed focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-highlighted bg-default ring ring-inset ring-accented focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary pe-9" autocomplete="off" aria-invalid="false">
             <!--v-if--><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><button type="button" aria-label="Show password" aria-pressed="false" aria-controls="password" class="rounded-md font-medium inline-flex items-center disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-75 aria-disabled:opacity-75 transition-colors text-xs gap-1.5 text-muted hover:text-default active:text-default disabled:text-muted aria-disabled:text-muted focus:outline-none focus-visible:ring-inset focus-visible:ring-2 focus-visible:ring-inverted p-1.5"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 16 16" class="shrink-0 size-4"></svg><!--v-if--><!--v-if--></button></span>
           </div>
           <!--v-if-->
