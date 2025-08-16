@@ -1,7 +1,3 @@
-<template>
-  <UTable :data="data" :columns="columns" />
-</template>
-
 <script setup lang="ts">
 import type { ColumnDef } from '@tanstack/vue-table'
 
@@ -110,7 +106,7 @@ const columns: ColumnDef<Payment>[] = [
     header: 'Amount',
     meta: {
       class: {
-        th: 'text-right font-bold text-blue-600',
+        th: 'text-right font-bold text-primary',
         td: 'text-right font-mono'
       }
     },
@@ -122,9 +118,13 @@ const columns: ColumnDef<Payment>[] = [
       }).format(amount)
 
       return h('span', {
-        class: 'font-semibold text-green-600'
+        class: 'font-semibold text-success'
       }, formatted)
     }
   }
 ]
 </script>
+
+<template>
+  <UTable :data="data" :columns="columns" class="w-full" />
+</template>

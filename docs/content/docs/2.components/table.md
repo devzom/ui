@@ -118,6 +118,15 @@ Use the `meta` prop as an object ([TableMeta](https://tanstack.com/table/latest/
 - `style`:
   - `tr`: [The style to apply to the `tr` element.]{class="text-muted"}
 
+::component-example
+---
+prettier: true
+collapse: true
+name: 'table-custom-meta-example'
+class: '!p-0'
+---
+::
+
 ### Loading
 
 Use the `loading` prop to display a loading state, the `loading-color` prop to change its color and the `loading-animation` prop to change its animation.
@@ -576,19 +585,6 @@ Since the table ref doesn't expose the tbody element, add a unique class to it v
 prettier: true
 collapse: true
 name: 'table-drag-and-drop-example'
-class: '!p-0'
----
-::
-
-### With custom styling
-
-You can use the `meta` property in column definitions to apply custom Tailwind classes to headers and cells.
-
-::component-example
----
-prettier: true
-collapse: true
-name: 'table-custom-styling-example'
 class: '!p-0'
 ---
 ::
