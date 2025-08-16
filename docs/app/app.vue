@@ -54,7 +54,7 @@ provide('navigation', mappedNavigation)
 
     <div :class="[route.path.startsWith('/docs/') && 'root']">
       <template v-if="!route.path.startsWith('/examples')">
-        <Banner />
+        <!-- <Banner /> -->
 
         <Header :links="links" />
       </template>
