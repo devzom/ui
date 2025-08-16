@@ -580,6 +580,19 @@ class: '!p-0'
 ---
 ::
 
+### With custom styling
+
+You can use the `meta` property in column definitions to apply custom Tailwind classes to headers and cells.
+
+::component-example
+---
+prettier: true
+collapse: true
+name: 'table-custom-styling-example'
+class: '!p-0'
+---
+::
+
 ### With slots
 
 You can use slots to customize the header and data cells of the table.
