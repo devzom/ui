@@ -30,10 +30,10 @@ export default {
       '2xl': 'h-5'
     },
     appearance: {
-      inner: '[&::-webkit-meter-inner-element]:block [&::-webkit-meter-inner-element]:relative [&::-webkit-meter-inner-element]:border-none [&::-webkit-meter-inner-element]:bg-none [&::-webkit-meter-inner-element]:bg-transparent',
-      meter: '[&::-webkit-meter-bar]:border-none [&::-webkit-meter-bar]:bg-none [&::-webkit-meter-bar]:bg-transparent',
-      bar: '[&::-webkit-meter-optimum-value]:border-none [&::-webkit-meter-optimum-value]:bg-none [&::-webkit-meter-optimum-value]:bg-current',
-      value: '[&::-moz-meter-bar]:border-none [&::-moz-meter-bar]:bg-none [&::-moz-meter-bar]:bg-current'
+      inner: '[&::-webkit-meter-inner-element]:block [&::-webkit-meter-inner-element]:relative [&::-webkit-meter-inner-element]:w-full [&::-webkit-meter-inner-element]:h-full [&::-webkit-meter-inner-element]:border-none [&::-webkit-meter-inner-element]:bg-none [&::-webkit-meter-inner-element]:bg-transparent [&::-webkit-meter-inner-element]:overflow-hidden',
+      meter: '[&::-webkit-meter-bar]:block [&::-webkit-meter-bar]:relative [&::-webkit-meter-bar]:h-full [&::-webkit-meter-bar]:border-none [&::-webkit-meter-bar]:bg-none [&::-webkit-meter-bar]:bg-transparent',
+      bar: '[&::-webkit-meter-optimum-value]:block [&::-webkit-meter-optimum-value]:relative [&::-webkit-meter-optimum-value]:h-full [&::-webkit-meter-optimum-value]:border-none [&::-webkit-meter-optimum-value]:bg-none [&::-webkit-meter-optimum-value]:bg-current',
+      value: '[&::-moz-meter-bar]:block [&::-moz-meter-bar]:h-full [&::-moz-meter-bar]:border-none [&::-moz-meter-bar]:bg-none [&::-moz-meter-bar]:bg-current'
     },
     bar: {
       transition: '[&::-webkit-meter-optimum-value]:transition-all [&::-moz-meter-bar]:transition-all',
