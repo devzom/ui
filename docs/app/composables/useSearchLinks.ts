@@ -17,6 +17,11 @@ export function useSearchLinks() {
     to: '/docs/composables',
     active: route.path.startsWith('/docs/composables')
   }, {
+    label: 'Blocks',
+    icon: 'i-lucide-blocks',
+    to: '/docs/blocks',
+    active: route.path === '/docs/blocks'
+  }, {
     label: 'Figma',
     description: 'Official Nuxt UI design kit for Figma.',
     icon: 'i-simple-icons-figma',
