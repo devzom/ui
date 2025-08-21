@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { camelCase } from 'scule'
 import { SplitterGroup, SplitterPanel, SplitterResizeHandle } from 'reka-ui'
+import type { TabsItem } from '@nuxt/ui'
 
 const props = withDefaults(defineProps<{
   name: string
@@ -10,7 +11,7 @@ const props = withDefaults(defineProps<{
    */
   prettier?: boolean
   /**
-   * Custom height for the iframe
+   * Custom height for the iframe container
    * @defaultValue '500px'
    */
   height?: string
@@ -28,8 +29,15 @@ const props = withDefaults(defineProps<{
    * A list of line numbers to highlight in the code block
    */
   highlights?: number[]
+  /**
+   * Whether to center the example content
+   * @defaultValue true
+   */
+  centered?: boolean
 }>(), {
-  source: true
+  source: true,
+  height: '500px',
+  centered: true
 })
 
 const { $prettier } = useNuxtApp()
@@ -76,42 +84,99 @@ const { data: ast } = await useAsyncData(`block-example-${camelName}`, async () 
 
   return parseMarkdown(formatted)
 }, { watch: [code] })
+
+const items = [
+  {
+    label: 'Preview',
+    slot: 'preview' as const
+  },
+  {
+    label: 'Code',
+    slot: 'code' as const
+  }
+] satisfies TabsItem[]
+
+// Fullscreen functionality - available for integration
+
+const openFullscreen = () => {
+  const url = `/examples/${props.name}?centered=${props.centered}`
+  window.open(url, '_blank', 'width=1200,height=800,scrollbars=yes,resizable=yes')
+}
 </script>
 
 <template>
-  <div class="size-full" :style="{ height: props.height }">
-    <SplitterGroup
-      :id="`splitter-${camelName}`"
-      direction="horizontal"
-      class="size-full"
+  <div class="my-6 border border-muted overflow-hidden" :style="{ height: props.height }">
+    <UTabs
+      :items="items"
+      class="size-full gap-0"
+      variant="link"
+      :ui="{ content: 'size-full' }"
     >
-      <SplitterPanel
-        :id="`splitter-${camelName}-panel-1`"
-        :default-size="70"
-        :min-size="30"
-        class="border border-muted rounded-lg overflow-hidden"
-      >
-        <iframe
-          :src="`/examples/${name}`"
-          class="size-full"
-        />
-      </SplitterPanel>
-      <SplitterResizeHandle
-        :id="`splitter-${camelName}-handle`"
-        class="group w-4 flex items-center justify-center"
-      >
-        <div class="w-1 h-8 group-hover:h-16 bg-muted transition-all rounded-full" />
-      </SplitterResizeHandle>
+      <template #preview>
+        <SplitterGroup
+          :id="`splitter-${camelName}`"
+          direction="horizontal"
+        >
+          <SplitterPanel
+            :id="`splitter-${camelName}-panel-1`"
+            :default-size="70"
+            :min-size="30"
+            class="overflow-hidden"
+          >
+            <iframe
+              :src="`/examples/${name}?centered=${centered}`"
+              class="w-full h-full border-0"
+            />
+          </SplitterPanel>
+          <SplitterResizeHandle
+            :id="`splitter-${camelName}-handle`"
+            class="group w-4 flex items-center justify-center"
+          >
+            <div class="w-1 h-8 group-hover:h-16 bg-elevated transition-all rounded-full" />
+          </SplitterResizeHandle>
 
-      <SplitterPanel
-        :id="`splitter-${camelName}-panel-2`"
-        :default-size="0"
-        :min-size="0"
-      />
-    </SplitterGroup>
+          <SplitterPanel
+            :id="`splitter-${camelName}-panel-2`"
+            :default-size="0"
+            :min-size="0"
+          />
+        </SplitterGroup>
+      </template>
 
-    <template v-if="source">
-      <MDCRenderer v-if="ast" :body="ast.body" :data="ast.data" />
-    </template>
+      <template #code>
+        <div
+          v-if="source"
+          class="overflow-y-auto mt-[1px] h-full"
+          :style="{ maxHeight: `calc(${props.height} - 40px)` }"
+        >
+          <MDCRenderer v-if="ast" :body="ast.body" :data="ast.data" class="*:my-0 *:*:border-none *:*:rounded-none" />
+        </div>
+      </template>
+
+      <template #list-trailing>
+        <div class="ml-2 flex items-center gap-2">
+          <span class="text-muted text-sm">
+            |
+          </span>
+
+          <UTooltip
+            text="Open in fullscreen"
+            :delay-duration="0"
+            :content="{
+              side: 'top'
+            }"
+          >
+            <UButton
+              variant="ghost"
+              size="sm"
+              square
+              color="neutral"
+              icon="i-lucide-maximize"
+              @click="openFullscreen"
+            />
+          </UTooltip>
+        </div>
+      </template>
+    </UTabs>
   </div>
 </template>

@@ -39,6 +39,14 @@ const blocksNavigation = computed(() => [{
   label: 'Headers',
   to: '/blocks/headers',
   active: route.path.startsWith('/blocks/headers')
+}, {
+  label: 'Hero',
+  to: '/blocks/hero',
+  active: route.path.startsWith('/blocks/hero')
+}, {
+  label: 'Footer',
+  to: '/blocks/footer',
+  active: route.path.startsWith('/blocks/footer')
 }])
 
 const logoElement = ref()
