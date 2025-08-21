@@ -42,7 +42,10 @@ authors:
 to: 'https://nuxt.com/blog/nuxt-ui-v3'
 target: '_blank'
 class: 'w-full'
-ui.container: 'max-w-lg'
+ui:
+  root: '@container'
+  container: 'max-w-lg'
+  indicator: '@min-[800px]:flex'
 ---
 ::
 
@@ -64,8 +67,11 @@ hide:
   - ui.container
 props:
   title: 'Introducing Nuxt UI v3'
-  class: 'w-full'
-  ui.container: 'max-w-lg'
+  class: 'w-full'  
+  ui:
+    root: '@container'
+    container: 'max-w-lg'
+    indicator: '@min-[800px]:flex'
 ---
 ::
 
@@ -86,7 +92,10 @@ props:
   title: 'Introducing Nuxt UI v3'
   description: 'Nuxt UI v3 is out! After 1500+ commits, this major redesign brings improved accessibility, Tailwind CSS v4 support, and full Vue compatibility.'
   class: 'w-full'
-  ui.container: 'max-w-lg'
+  ui:
+    root: '@container'
+    container: 'max-w-lg'
+    indicator: '@min-[800px]:flex'
 ---
 ::
 
@@ -113,7 +122,10 @@ props:
   description: 'Nuxt UI v3 is out! After 1500+ commits, this major redesign brings improved accessibility, Tailwind CSS v4 support, and full Vue compatibility.'
   date: 2025-03-12
   class: 'w-full'
-  ui.container: 'max-w-lg'
+  ui:
+    root: '@container'
+    container: 'max-w-lg'
+    indicator: '@min-[800px]:flex'
 ---
 ::
 
@@ -138,7 +150,10 @@ props:
   date: 2025-03-12
   badge: 'Release'
   class: 'w-full'
-  ui.container: 'max-w-lg'
+  ui:
+    root: '@container'
+    container: 'max-w-lg'
+    indicator: '@min-[800px]:flex'
 ---
 ::
 
@@ -196,7 +211,10 @@ props:
   date: 2025-03-12
   image: 'https://nuxt.com/assets/blog/nuxt-ui-v3.png'
   class: 'w-full'
-  ui.container: 'max-w-lg'
+  ui:
+    root: '@container'
+    container: 'max-w-lg'
+    indicator: '@min-[800px]:flex'
 ---
 ::
 
@@ -253,7 +271,10 @@ props:
       to: https://x.com/hugorcd__
       target: _blank
   class: 'w-full'
-  ui.container: 'max-w-lg'
+  ui:
+    root: '@container'
+    container: 'max-w-lg'
+    indicator: '@min-[800px]:flex'
 ---
 ::
 
@@ -282,7 +303,10 @@ props:
   to: 'https://nuxt.com/blog/nuxt-ui-v3'
   target: _blank
   class: 'w-full'
-  ui.container: 'max-w-lg'
+  ui:
+    root: '@container'
+    container: 'max-w-lg'
+    indicator: '@min-[800px]:flex'
 ---
 ::
 
@@ -309,7 +333,10 @@ props:
   image: 'https://nuxt.com/assets/blog/nuxt-ui-v3.png'
   indicator: false
   class: 'w-full'
-  ui.container: 'max-w-lg'
+  ui:
+    root: '@container'
+    container: 'max-w-lg'
+    indicator: '@min-[800px]:flex'
 ---
 ::
 
