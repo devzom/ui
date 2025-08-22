@@ -1,11 +1,9 @@
 <template>
   <div class="relative">
     <UMain>
-      <UContainer>
-        <UPage>
-          <slot />
-        </UPage>
-      </UContainer>
+      <UPage>
+        <slot />
+      </UPage>
     </UMain>
   </div>
 </template>

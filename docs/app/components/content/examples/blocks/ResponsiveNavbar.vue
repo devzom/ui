@@ -112,7 +112,7 @@ const headerUi = computed(() => ({
     '@container h-fit fixed mt-2 px-0 rounded-xl py-2 transition-all duration-500 left-1/2 -translate-x-1/2',
     scrollPercent.value > 0.02 ? 'bg-muted/50 backdrop-blur-lg' : 'bg-transparent backdrop-blur-none',
     scrollPercent.value > 0.02 ? 'border border-muted' : 'border border-transparent',
-    scrollPercent.value > 0.005 ? 'w-[90%] sm:w-[60%]' : 'w-[95%] sm:w-[70%]'
+    scrollPercent.value > 0.005 ? 'w-[90%] sm:w-[65%]' : 'w-[95%] sm:w-[70%]'
   ].join(' '),
   container: '',
   center: '@min-[620px]:flex',
@@ -123,7 +123,7 @@ const headerUi = computed(() => ({
 const navigationUi = computed(() => ({
   item: 'py-0',
   linkTrailingIcon: 'hidden',
-  viewport: 'bg-default border border-muted',
+  viewport: 'bg-default rounded-lg',
   viewportWrapper: 'w-[600px] transition-all duration-500 left-1/2 -translate-x-1/2'
 }))
 </script>
@@ -140,12 +140,13 @@ const navigationUi = computed(() => ({
           <template #features-content="{ item }">
             <div class="flex flex-row p-2 gap-2">
               <div class="flex-1">
-                <UCard class="h-full p-6 bg-elevated/50" />
+                <UCard class="h-full rounded-sm p-6 bg-elevated/50" />
               </div>
               <ul class="flex-1 flex-col gap-1">
                 <li v-for="child in item.children" :key="child.label">
                   <UButton
                     variant="ghost"
+                    color="neutral"
                     class="text-sm w-full text-left justify-start p-3 h-auto"
                   >
                     <template #leading>
@@ -168,7 +169,7 @@ const navigationUi = computed(() => ({
 
         <template #right>
           <div class="flex items-center gap-2">
-            <UButton variant="outline" size="xs" label="Open App" />
+            <UButton size="xs" label="Open App" />
           </div>
         </template>
 

@@ -34,14 +34,21 @@ const props = withDefaults(defineProps<{
    * @defaultValue true
    */
   centered?: boolean
+  title?: string
+  description?: string
+  hint?: string
 }>(), {
   source: true,
   height: '500px',
   centered: true
 })
 
+const toast = useToast()
+
 const { $prettier } = useNuxtApp()
 const camelName = camelCase(props.name)
+
+const id = computed(() => props.name ? `block-${props.name}` : undefined)
 
 const data = await fetchComponentExample(camelName)
 
@@ -96,87 +103,138 @@ const items = [
   }
 ] satisfies TabsItem[]
 
-// Fullscreen functionality - available for integration
-
 const openFullscreen = () => {
   const url = `/examples/${props.name}?centered=${props.centered}`
   window.open(url, '_blank', 'width=1200,height=800,scrollbars=yes,resizable=yes')
 }
+
+const copyCode = async () => {
+  if (data?.code) {
+    try {
+      await navigator.clipboard.writeText(data.code)
+      toast.add({
+        title: 'Code copied to clipboard',
+        color: 'success'
+      })
+    } catch (err) {
+      console.error('Failed to copy code:', err)
+    }
+  }
+}
 </script>
 
 <template>
-  <div class="my-6 border border-muted overflow-hidden" :style="{ height: props.height }">
-    <UTabs
-      :items="items"
-      class="size-full gap-0"
-      variant="link"
-      :ui="{ content: 'size-full' }"
-    >
-      <template #preview>
-        <SplitterGroup
-          :id="`splitter-${camelName}`"
-          direction="horizontal"
+  <div :id="id" class="@container relative border-y border-default w-full mb-10 scroll-mt-[calc(45px+var(--ui-header-height))] lg:scroll-mt-(--ui-header-height)">
+    <UContainer class="border-x border-default px-0!">
+      <div v-if="title || description" class="flex flex-col gap-1 p-4">
+        <span v-if="title" class="text-xl font-bold text-highlighted">
+          <a v-if="id" :href="`#${id}`" class="inline-flex items-center gap-2">
+            {{ title }}
+          </a>
+          <template v-else>
+            {{ title }}
+          </template>
+        </span>
+        <span v-if="description" class="text-muted">
+          {{ description }}
+        </span>
+      </div>
+      <div class="border-t border-default overflow-hidden" :style="{ height: props.height }">
+        <UTabs
+          :items="items"
+          class="size-full gap-0"
+          variant="link"
+          :ui="{
+            content: 'relative size-full border-t border-default',
+            indicator: 'z-10'
+          }"
         >
-          <SplitterPanel
-            :id="`splitter-${camelName}-panel-1`"
-            :default-size="70"
-            :min-size="30"
-            class="overflow-hidden"
-          >
-            <iframe
-              :src="`/examples/${name}?centered=${centered}`"
-              class="w-full h-full border-0"
-            />
-          </SplitterPanel>
-          <SplitterResizeHandle
-            :id="`splitter-${camelName}-handle`"
-            class="group w-4 flex items-center justify-center"
-          >
-            <div class="w-1 h-8 group-hover:h-16 bg-elevated transition-all rounded-full" />
-          </SplitterResizeHandle>
+          <template #preview>
+            <span v-if="hint" class="absolute bottom-2 left-2 bg-muted/50 backdrop-blur-3xl border border-default px-2 py-1 rounded text-xs">
+              {{ hint }}
+            </span>
+            <SplitterGroup
+              :id="`splitter-${camelName}`"
+              direction="horizontal"
+            >
+              <SplitterPanel
+                :id="`splitter-${camelName}-panel-1`"
+                :default-size="70"
+                :min-size="30"
+                class="overflow-hidden"
+              >
+                <iframe
+                  :src="`/examples/${name}?centered=${centered}`"
+                  class="size-full"
+                />
+              </SplitterPanel>
+              <SplitterResizeHandle
+                :id="`splitter-${camelName}-handle`"
+                class="group w-4 flex items-center justify-center bg-default"
+              >
+                <div class="w-1 h-8 group-hover:h-16 bg-elevated transition-all rounded-full" />
+              </SplitterResizeHandle>
 
-          <SplitterPanel
-            :id="`splitter-${camelName}-panel-2`"
-            :default-size="0"
-            :min-size="0"
-          />
-        </SplitterGroup>
-      </template>
+              <SplitterPanel
+                :id="`splitter-${camelName}-panel-2`"
+                class="bg-stripes"
+                :default-size="0"
+                :min-size="0"
+              />
+            </SplitterGroup>
+          </template>
 
-      <template #code>
-        <div
-          v-if="source"
-          class="overflow-y-auto mt-[1px] h-full"
-          :style="{ maxHeight: `calc(${props.height} - 40px)` }"
-        >
-          <MDCRenderer v-if="ast" :body="ast.body" :data="ast.data" class="*:my-0 *:*:border-none *:*:rounded-none" />
-        </div>
-      </template>
+          <template #code>
+            <div
+              v-if="source"
+              class="overflow-y-auto h-full"
+            >
+              <MDCRenderer v-if="ast" :body="ast.body" :data="ast.data" class="*:my-0 *:*:border-none *:*:rounded-none" />
+            </div>
+          </template>
 
-      <template #list-trailing>
-        <div class="ml-2 flex items-center gap-2">
-          <span class="text-muted text-sm">
-            |
-          </span>
+          <template #list-trailing>
+            <div class="flex flex-1 items-center justify-end gap-2">
+              <UButton
+                variant="ghost"
+                size="sm"
+                square
+                color="neutral"
+                icon="i-lucide-copy"
+                label="Copy code"
+                @click="copyCode"
+              />
 
-          <UTooltip
-            text="Open in fullscreen"
-            :delay-duration="0"
-            :content="{
-              side: 'top'
-            }"
-          >
-            <UButton
-              variant="ghost"
-              size="sm"
-              square
-              color="neutral"
-              icon="i-lucide-maximize"
-              @click="openFullscreen"
-            />
-          </UTooltip>
-        </div>
-      </template>
-    </UTabs>
+              <UTooltip
+                text="Open in fullscreen"
+                :delay-duration="0"
+                :content="{
+                  side: 'top'
+                }"
+              >
+                <UButton
+                  variant="ghost"
+                  size="sm"
+                  square
+                  color="neutral"
+                  icon="i-lucide-maximize"
+                  @click="openFullscreen"
+                />
+              </UTooltip>
+            </div>
+          </template>
+        </UTabs>
+      </div>
+    </UContainer>
   </div>
 </template>
+
+<style>
+@reference '../../assets/css/main.css';
+
+.bg-stripes {
+  @apply w-full [background-size:8px_8px];
+  @apply dark:[background-image:linear-gradient(-45deg,var(--color-neutral-800)_12.50%,transparent_12.50%,transparent_50%,var(--color-neutral-800)_50%,var(--color-neutral-800)_62.50%,transparent_62.50%,transparent_100%)];
+  @apply not-dark:[background-image:linear-gradient(-45deg,var(--color-neutral-100)_12.50%,transparent_12.50%,transparent_50%,var(--color-neutral-100)_50%,var(--color-neutral-100)_62.50%,transparent_62.50%,transparent_100%)];
+}
+</style>
