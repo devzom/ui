@@ -35,7 +35,7 @@ features:
     icon: i-lucide-swatch-book
     to: /docs/getting-started/theme#design-system
   - title: Internationalization (i18n)
-    description: Nuxt UI is translated into 30+ languages, works well with i18n and multi-directional support (LTR/RTL).
+    description: Nuxt UI is translated into 50+ languages, works well with i18n and multi-directional support (LTR/RTL).
     icon: i-lucide-globe
     to: /docs/getting-started/i18n/nuxt
   - title: Easy font customization
