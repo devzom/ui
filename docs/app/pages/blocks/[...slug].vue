@@ -16,11 +16,15 @@ if (!page.value) {
   })
 }
 
+const title = page.value?.seo?.title ? page.value.seo.title : page.value?.navigation?.title ? page.value.navigation.title : page.value?.title
+const description = page.value?.seo?.description ? page.value.seo.description : page.value?.description
+
 useSeoMeta({
-  title: page.value.title,
-  ogTitle: `${page.value.title} - Nuxt UI`,
-  description: page.value.description,
-  ogDescription: page.value.description
+  titleTemplate: '%s - Nuxt UI Blocks',
+  title,
+  ogTitle: `${title} - Nuxt UI Blocks`,
+  description,
+  ogDescription: description
 })
 </script>
 
