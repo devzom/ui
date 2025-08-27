@@ -111,7 +111,7 @@ const headerUi = computed(() => ({
   root: [
     '@container h-fit fixed mt-2 px-0 rounded-xl py-2 transition-all duration-500 left-1/2 -translate-x-1/2',
     scrollPercent.value > 0.02 ? 'bg-default/80 backdrop-blur-lg' : 'bg-transparent backdrop-blur-none',
-    scrollPercent.value > 0.02 ? 'border border-muted' : 'border border-transparent',
+    scrollPercent.value > 0.02 ? 'border border-default' : 'border border-transparent',
     scrollPercent.value > 0.005 ? 'w-[90%] sm:w-[65%]' : 'w-[95%] sm:w-[70%]'
   ].join(' '),
   container: '',

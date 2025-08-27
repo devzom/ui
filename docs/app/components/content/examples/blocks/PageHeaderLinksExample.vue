@@ -2,9 +2,13 @@
 const route = useRoute()
 const toast = useToast()
 const { copy, copied } = useClipboard()
-const site = useSiteConfig()
 
-const mdPath = computed(() => `${site.url}/raw${route.path}.md`)
+// This is an example component for demonstration purposes
+// In a real implementation, you would use:
+// const site = useSiteConfig()
+// const mdPath = computed(() => `${site.url}/raw${route.path}.md`)
+
+const mdPath = computed(() => `https://ui.nuxt.com/raw/components/button.md`)
 
 const items = [
   {
@@ -39,7 +43,10 @@ const items = [
 ]
 
 async function copyPage() {
-  copy(await $fetch<string>(`/raw${route.path}.md`))
+  // Example content for demonstration
+  copy('# Example Button Component\n\nThis is example markdown content...')
+
+  // copy(await $fetch<string>(`/raw${route.path}.md`))
 }
 </script>
 
