@@ -127,8 +127,12 @@ const copyCode = async () => {
   <div :id="id" class="relative border border-default mb-10 scroll-mt-[calc(45px+var(--ui-header-height))] lg:scroll-mt-(--ui-header-height)">
     <div v-if="title || description" class="flex flex-col gap-1 p-4">
       <span v-if="title" class="text-xl font-bold text-highlighted">
-        <a v-if="id" :href="`#${id}`" class="inline-flex items-center gap-2">
+        <a v-if="id" :href="`#${id}`" class="inline-flex items-center gap-1 group hover:underline underline-offset-2 decoration-1">
           {{ title }}
+          <UIcon
+            name="i-lucide-link"
+            class="size-4 hidden group-hover:block"
+          />
         </a>
         <template v-else>
           {{ title }}
