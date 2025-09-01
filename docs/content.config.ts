@@ -75,25 +75,6 @@ export const collections = {
       }))
     })
   }),
-  blocks: defineCollection({
-    type: 'page',
-    source: [{
-      include: 'blocks/**/*'
-    }],
-    schema: z.object({
-      category: z.string().optional(),
-      navigation: z.object({
-        title: z.string().optional(),
-        icon: z.string().optional()
-      }).optional(),
-      links: z.array(z.object({
-        label: z.string(),
-        icon: z.string(),
-        to: z.string(),
-        target: z.string().optional()
-      })).optional()
-    })
-  }),
   index: defineCollection({
     type: 'page',
     source: 'index.yml',

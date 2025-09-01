@@ -2,7 +2,7 @@
 import type { AppConfig } from '@nuxt/schema'
 import type { UseFileDialogReturn } from '@vueuse/core'
 import theme from '#build/ui/file-upload'
-import type { ButtonProps } from '../types'
+import type { ButtonProps, IconProps } from '../types'
 import type { ComponentConfig } from '../types/tv'
 
 type FileUpload = ComponentConfig<typeof theme, AppConfig, 'fileUpload'>
@@ -20,7 +20,7 @@ export interface FileUploadProps<M extends boolean = false> {
    * @defaultValue appConfig.ui.icons.upload
    * @IconifyIcon
    */
-  icon?: string
+  icon?: IconProps['name']
   label?: string
   description?: string
   /**
@@ -79,7 +79,7 @@ export interface FileUploadProps<M extends boolean = false> {
    * @defaultValue appConfig.ui.icons.file
    * @IconifyIcon
    */
-  fileIcon?: string
+  fileIcon?: IconProps['name']
   /**
    * Configure the delete button for the file.
    * When `layout` is `grid`, the default is `{ color: 'neutral', variant: 'solid', size: 'xs' }`{lang="ts-type"}
@@ -91,14 +91,13 @@ export interface FileUploadProps<M extends boolean = false> {
    * @defaultValue appConfig.ui.icons.close
    * @IconifyIcon
    */
-  fileDeleteIcon?: string
+  fileDeleteIcon?: IconProps['name']
   class?: any
   ui?: FileUpload['slots']
 }
 
-export interface FileUploadEmits<M extends boolean = false> {
-  'update:modelValue': [payload: M extends true ? File[] : File | null]
-  'change': [event: Event]
+export interface FileUploadEmits {
+  change: [event: Event]
 }
 
 type FileUploadFiles<M> = (M extends true ? File[] : File) | null
@@ -146,7 +145,7 @@ const props = withDefaults(defineProps<FileUploadProps<M>>(), {
   layout: 'grid',
   position: 'outside'
 })
-const emits = defineEmits<FileUploadEmits<M>>()
+const emits = defineEmits<FileUploadEmits>()
 const slots = defineSlots<FileUploadSlots<M>>()
 
 const modelValue = defineModel<(M extends true ? File[] : File) | null>()

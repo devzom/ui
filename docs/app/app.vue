@@ -52,7 +52,7 @@ provide('navigation', mappedNavigation)
   <UApp :toaster="appConfig.toaster">
     <NuxtLoadingIndicator color="var(--ui-primary)" :height="2" />
 
-    <div :class="[(route.path.startsWith('/docs/') || route.path.startsWith('/blocks/')) && 'root']">
+    <div :class="[route.path.startsWith('/docs/') && 'root']">
       <template v-if="!route.path.startsWith('/examples')">
         <!-- <Banner /> -->
 
