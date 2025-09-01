@@ -173,8 +173,8 @@ importers:
         specifier: workspace:*
         version: link:..
       '@nuxt/ui-pro':
-        specifier: https://pkg.pr.new/@nuxt/ui-pro@fdb0248
-        version: https://pkg.pr.new/@nuxt/ui-pro@fdb0248(vue@3.5.20(typescript@5.8.3))
+        specifier: ^1.8.2
+        version: 1.8.2(vue@3.5.20(typescript@5.8.3))
       '@nuxtjs/plausible':
         specifier: ^2.0.0
         version: 2.0.0(magicast@0.3.5)
@@ -1234,9 +1234,8 @@ packages:
       vitest:
         optional: true
 
-  '@nuxt/ui-pro@https://pkg.pr.new/@nuxt/ui-pro@fdb0248':
-    resolution: {tarball: https://pkg.pr.new/@nuxt/ui-pro@fdb0248}
-    version: 1.8.0
+  '@nuxt/ui-pro@1.8.2':
+    resolution: {integrity: sha512-QF3c6EypUFXM+VvBMi8JM5UHoW5i7BlvZIgvw/SHOc27NXr56l4KN691CpPCVzBSEJTFH0nnLn1mmjky2+pHGA==}
 
   '@nuxt/vite-builder@4.0.3':
     resolution: {integrity: sha512-1eKm51V3Ine4DjxLUDnPIKewuIZwJjGh1oMvY3sAJ5RtdSngRonqkaoGV4EWtLH7cO+oTBbbdVg5O95chYYcLQ==}
@@ -8525,7 +8524,7 @@ snapshots:
       - magicast
       - typescript
 
-  '@nuxt/ui-pro@https://pkg.pr.new/@nuxt/ui-pro@fdb0248(vue@3.5.20(typescript@5.8.3))':
+  '@nuxt/ui-pro@1.8.2(vue@3.5.20(typescript@5.8.3))':
     dependencies:
       '@iconify-json/vscode-icons': 1.2.30
       '@nuxt/ui': 'link:'
