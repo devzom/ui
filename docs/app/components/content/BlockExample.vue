@@ -44,11 +44,33 @@ const props = withDefaults(defineProps<{
 })
 
 const toast = useToast()
+const colorMode = useColorMode()
 
 const { $prettier } = useNuxtApp()
 const camelName = camelCase(props.name)
 
 const id = computed(() => props.name ? `block-${props.name}` : undefined)
+
+const localTheme = ref<'light' | 'dark'>()
+const effectiveTheme = computed(() => {
+  return localTheme.value || colorMode.value
+})
+
+const toggleTheme = () => {
+  if (effectiveTheme.value === 'light') {
+    localTheme.value = 'dark'
+  } else {
+    localTheme.value = 'light'
+  }
+}
+
+const themeIcon = computed(() => {
+  return effectiveTheme.value === 'light' ? 'i-lucide-moon' : 'i-lucide-sun'
+})
+
+const themeTooltip = computed(() => {
+  return effectiveTheme.value === 'light' ? 'Switch to dark mode' : 'Switch to light mode'
+})
 
 const data = await fetchComponentExample(camelName)
 
@@ -104,7 +126,7 @@ const items = [
 ] satisfies TabsItem[]
 
 const openFullscreen = () => {
-  const url = `/examples/${props.name}?centered=${props.centered}`
+  const url = `/examples/blocks/${props.name}?centered=${props.centered}&theme=${effectiveTheme.value}`
   window.open(url, '_blank', 'width=1200,height=800,scrollbars=yes,resizable=yes')
 }
 
@@ -167,7 +189,7 @@ const copyCode = async () => {
               class="overflow-hidden"
             >
               <iframe
-                :src="`/examples/${name}?centered=${centered}`"
+                :src="`/examples/blocks/${name}?centered=${centered}&theme=${effectiveTheme}`"
                 class="size-full"
               />
             </SplitterPanel>
@@ -207,6 +229,23 @@ const copyCode = async () => {
               label="Copy code"
               @click="copyCode"
             />
+
+            <UTooltip
+              :text="themeTooltip"
+              :delay-duration="0"
+              :content="{
+                side: 'top'
+              }"
+            >
+              <UButton
+                variant="ghost"
+                size="sm"
+                square
+                color="neutral"
+                :icon="themeIcon"
+                @click="toggleTheme"
+              />
+            </UTooltip>
 
             <UTooltip
               text="Open in fullscreen"
