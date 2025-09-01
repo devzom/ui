@@ -6,7 +6,6 @@
     "enabled": true
   },
   "baseBranchPatterns": [
-    "v2",
     "v4"
   ],
   "ignoreDeps": [
