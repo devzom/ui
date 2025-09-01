@@ -1,5 +1,7 @@
 # Changelog
 
+## [2.22.3](https://github.com/nuxt/ui/compare/v2.22.2...v2.22.3) (2025-09-01)
+
 ## [2.22.2](https://github.com/nuxt/ui/compare/v2.22.1...v2.22.2) (2025-09-01)
 
 ### Bug Fixes
