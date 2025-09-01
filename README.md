@@ -11,6 +11,9 @@ Nuxt UI is a module that provides a set of Vue components and composables built 
 
 Its goal is to provide everything related to UI when building a Nuxt app. This includes components, icons, colors, dark mode but also keyboard shortcuts.
 
+> [!NOTE]
+> You are on the `v2` branch, check out the [v3 branch](https://github.com/nuxt/ui/tree/v3) for Nuxt UI v3 or [v4 branch](https://github.com/nuxt/ui/tree/v4) for Nuxt UI v4.
+
 ## Features
 
 - Built with [Headless UI](https://headlessui.dev/) and [Tailwind CSS](https://tailwindcss.com/)
