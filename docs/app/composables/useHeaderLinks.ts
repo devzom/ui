@@ -7,6 +7,11 @@ export function useHeaderLinks() {
     to: '/docs',
     active: route.path.startsWith('/docs/')
   }, {
+    label: 'Blocks',
+    icon: 'i-lucide-blocks',
+    to: '/blocks',
+    active: route.path.startsWith('/blocks/')
+  }, {
     label: 'Figma',
     icon: 'i-simple-icons-figma',
     to: '/figma'
@@ -15,17 +20,13 @@ export function useHeaderLinks() {
     label: 'Templates',
     to: '/templates'
   }, {
-    icon: 'i-lucide-presentation',
-    label: 'Showcase',
-    to: '/showcase'
-  }, {
     label: 'Community',
     icon: 'i-lucide-users',
     children: [{
-      label: 'Team',
-      description: 'Meet the team behind Nuxt UI.',
-      icon: 'i-lucide-users',
-      to: '/team'
+      label: 'Showcase',
+      description: 'Discover amazing projects built with Nuxt UI.',
+      icon: 'i-lucide-presentation',
+      to: '/showcase'
     }, {
       label: 'Devtools Integration',
       description: 'Integrate Nuxt UI with Nuxt Devtools with Compodium.',

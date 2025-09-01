@@ -36,6 +36,20 @@ const docsNavigation = computed(() => mapContentNavigation(navigation?.value.map
   active: route.path.startsWith(item.to as string)
 })))
 
+const blocksNavigation = computed(() => [{
+  label: 'Headers',
+  to: '/blocks/headers',
+  active: route.path.startsWith('/blocks/headers')
+}, {
+  label: 'Hero',
+  to: '/blocks/hero',
+  active: route.path.startsWith('/blocks/hero')
+}, {
+  label: 'Footer',
+  to: '/blocks/footer',
+  active: route.path.startsWith('/blocks/footer')
+}])
+
 const logoElement = ref()
 const { copy } = useClipboard()
 const toast = useToast()
@@ -133,13 +147,26 @@ const logoContextMenuItems = [
       <UContentNavigation :navigation="navigation" highlight :ui="{ linkTrailingBadge: 'font-semibold uppercase' }" />
     </template>
 
-    <template v-if="route.path.startsWith('/docs/')" #bottom>
+    <template v-if="route.path.startsWith('/docs/') || route.path.startsWith('/blocks/')" #bottom>
       <USeparator class="hidden lg:flex" />
 
       <UContainer class="hidden lg:flex items-center justify-between">
-        <UNavigationMenu :items="docsNavigation" variant="pill" highlight class="-mx-2.5 -mb-px" />
+        <UNavigationMenu
+          v-if="route.path.startsWith('/docs/')"
+          :items="docsNavigation"
+          variant="pill"
+          highlight
+          class="-mx-2.5 -mb-px"
+        />
+        <UNavigationMenu
+          v-else-if="route.path.startsWith('/blocks/')"
+          :items="blocksNavigation"
+          variant="pill"
+          highlight
+          class="-mx-2.5 -mb-px"
+        />
 
-        <FrameworkSelect class="w-40" />
+        <FrameworkSelect v-if="route.path.startsWith('/docs/')" class="w-40" />
       </UContainer>
     </template>
   </UHeader>
