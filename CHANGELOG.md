@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.22.2](https://github.com/nuxt/ui/compare/v2.22.1...v2.22.2) (2025-09-01)
+
+### Bug Fixes
+
+* **Meter:** correct vertical alignment of progress bar ([#4735](https://github.com/nuxt/ui/issues/4735)) ([875be4b](https://github.com/nuxt/ui/commit/875be4b680856b2e2b4e6b31d18f233f7e7fcdfb))
+* **SelectMenu/InputMenu:** ensure object compare with `by` prop ([#4791](https://github.com/nuxt/ui/issues/4791)) ([44382cd](https://github.com/nuxt/ui/commit/44382cd3404cb692a3a72336312d81a72fa7cde6))
+
 ## [2.22.1](https://github.com/nuxt/ui/compare/v2.22.0...v2.22.1) (2025-07-16)
 
 ### Bug Fixes
