@@ -30,7 +30,7 @@ const { $ui } = useNuxtApp()
 const links = [{
   icon: 'i-simple-icons-figma',
   label: 'Figma Kit',
-  to: 'https://www.figma.com/community/file/1436401057300493073',
+  to: 'https://go.nuxt.com/figma-ui2',
   target: '_blank'
 }, {
   label: 'Playground',
