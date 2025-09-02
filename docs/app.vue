@@ -2,6 +2,7 @@
 <template>
   <div>
     <NuxtLoadingIndicator />
+    <Analytics />
 
     <!-- <Banner v-if="!$route.path.startsWith('/examples')" /> -->
 
@@ -31,6 +32,7 @@
 import { withoutTrailingSlash } from 'ufo'
 import { debounce } from 'perfect-debounce'
 import type { ParsedContent } from '@nuxt/content'
+import { Analytics } from '@vercel/analytics/nuxt'
 
 const searchRef = ref()
 
