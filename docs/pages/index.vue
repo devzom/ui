@@ -252,8 +252,8 @@
 
             <template #footer-right>
               <div class="flex items-center gap-1.5">
-                <UButton aria-label="Nuxt on X" icon="i-simple-icons-x" to="https://x.com/nuxt_js" target="_blank" v-bind="($ui.button.secondary as any)" />
-                <UButton aria-label="Nuxt UI on Discord" icon="i-simple-icons-discord" to="https://discord.com/channels/473401852243869706/1153996761426300948" target="_blank" v-bind="($ui.button.secondary as any)" />
+                <UButton aria-label="Nuxt on X" icon="i-simple-icons-x" to="https://go.nuxt.com/x" target="_blank" v-bind="($ui.button.secondary as any)" />
+                <UButton aria-label="Nuxt on Discord" icon="i-simple-icons-discord" to="https://go.nuxt.com/discord" target="_blank" v-bind="($ui.button.secondary as any)" />
                 <UButton aria-label="Nuxt UI on GitHub" icon="i-simple-icons-github" to="https://github.com/nuxt/ui" target="_blank" v-bind="($ui.button.secondary as any)" />
               </div>
             </template>
