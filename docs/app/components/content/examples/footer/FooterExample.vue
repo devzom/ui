@@ -3,7 +3,7 @@ import type { NavigationMenuItem } from '@nuxt/ui'
 
 const items: NavigationMenuItem[] = [{
   label: 'Figma Kit',
-  to: 'https://www.figma.com/community/file/1288455405058138934',
+  to: 'https://go.nuxt.com/figma-ui',
   target: '_blank'
 }, {
   label: 'Playground',
