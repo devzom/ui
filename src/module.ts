@@ -115,6 +115,7 @@ export default defineNuxtModule<ModuleOptions>({
 
     if (nuxt.options.builder === '@nuxt/vite-builder') {
       const plugin = await import('@tailwindcss/vite').then(r => r.default)
+      // @ts-expect-error - TODO: fix this
       addVitePlugin(plugin())
     } else {
       nuxt.options.postcss.plugins['@tailwindcss/postcss'] = {}
