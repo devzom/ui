@@ -167,7 +167,7 @@
     "embla-carousel": "^8.6.0",
     "eslint": "^9.34.0",
     "happy-dom": "^18.0.1",
-    "nuxt": "^4.0.3",
+    "nuxt": "^4.1.0",
     "release-it": "^19.0.4",
     "vitest": "^3.2.4",
     "vitest-environment-nuxt": "^1.0.1",
@@ -226,7 +226,10 @@
       "esbuild",
       "vue-demi",
       "workerd"
-    ]
+    ],
+    "overrides": {
+      "vite": "npm:rolldown-vite@latest"
+    }
   },
   "keywords": [
     "nuxt-ui",
