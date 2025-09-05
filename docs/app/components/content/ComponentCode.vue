@@ -300,6 +300,21 @@ ${props.slots?.default}
   return code
 })
 
+function handleAIGenerated(generatedContent: any) {
+  try {
+    // Apply generated content to component props
+    Object.entries(generatedContent).forEach(([key, value]) => {
+      if (value !== undefined && value !== null) {
+        setComponentProp(key, value)
+      }
+    })
+
+    console.log('Applied generated content:', generatedContent)
+  } catch (error) {
+    console.error('Error applying generated content:', error)
+  }
+}
+
 const { data: ast } = await useAsyncData(`component-code-${name}-${hash({ props: componentProps, slots: props.slots })}`, async () => {
   if (!props.prettier) {
     return parseMarkdown(code.value)
@@ -373,6 +388,10 @@ const { data: ast } = await useAsyncData(`component-code-${name}-${hash({ props:
       </div>
 
       <div v-if="component" class="flex justify-center border border-b-0 border-muted relative p-4 z-[1]" :class="[!options.length && 'rounded-t-md', props.class, { 'overflow-hidden': props.overflowHidden }]">
+        <AIContentGenerator
+          :component-name="name.replace('U', '').replace('Prose', '')"
+          @generated="handleAIGenerated"
+        />
         <component :is="component" v-bind="{ ...componentProps, ...componentEvents }">
           <template v-for="slot in Object.keys(slots || {})" :key="slot" #[slot]>
             <slot :name="slot" mdc-unwrap="p">
