@@ -3,6 +3,8 @@ import { kebabCase } from 'scule'
 import type { ContentNavigationItem } from '@nuxt/content'
 import { mapContentNavigation } from '@nuxt/ui/utils/content'
 import { findPageBreadcrumb } from '@nuxt/content/utils'
+import { motion } from 'motion-v'
+import { useWindowScroll } from '@vueuse/core'
 
 const route = useRoute()
 const { framework } = useSharedData()
@@ -87,6 +89,21 @@ const communityLinks = computed(() => [{
   to: `https://github.com/nuxt/ui`,
   target: '_blank'
 }])
+
+const { y: scrollY } = useWindowScroll({ behavior: 'smooth' })
+
+function scrollToTop() {
+  scrollY.value = 0
+}
+
+const showScrollToTop = computed(() => {
+  if (import.meta.server) return false
+
+  const documentHeight = document.documentElement.scrollHeight - window.innerHeight
+  const scrollPercentage = (scrollY.value / documentHeight) * 100
+
+  return scrollPercentage > 15
+})
 </script>
 
 <template>
@@ -134,7 +151,42 @@ const communityLinks = computed(() => [{
 
           <USeparator type="dashed" />
 
-          <AdsCarbon />
+          <div>
+            <motion.div
+              class="space-y-4"
+              :animate="{
+                height: showScrollToTop ? 'auto' : 0,
+                marginBottom: showScrollToTop ? '16px' : '0px',
+                opacity: showScrollToTop ? 1 : 0,
+                y: showScrollToTop ? 0 : -10
+              }"
+              :initial="{
+                height: 0,
+                marginBottom: '0px',
+                opacity: 0,
+                y: -10
+              }"
+              :transition="{ duration: 0.25, ease: 'easeInOut' }"
+              :style="{
+                overflow: 'hidden',
+                willChange: 'transform'
+              }"
+            >
+              <UButton
+                icon="i-lucide-circle-arrow-up"
+                color="neutral"
+                variant="outline"
+                size="sm"
+                class="w-full"
+                label="Back to top"
+                @click="scrollToTop"
+              />
+
+              <USeparator type="dashed" />
+            </motion.div>
+
+            <AdsCarbon />
+          </div>
         </template>
       </UContentToc>
     </template>
