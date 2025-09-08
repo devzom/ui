@@ -100,9 +100,6 @@ importers:
       embla-carousel-wheel-gestures:
         specifier: ^8.1.0
         version: 8.1.0(embla-carousel@8.6.0)
-      exsolve:
-        specifier: ^1.0.7
-        version: 1.0.7
       fuse.js:
         specifier: ^7.1.0
         version: 7.1.0
