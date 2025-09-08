@@ -209,6 +209,7 @@
   "resolutions": {
     "@nuxt/ui": "workspace:*",
     "@nuxt/module-builder": "1.0.1",
+    "@nuxtjs/mdc": "https://pkg.pr.new/@nuxtjs/mdc@421",
     "chokidar": "3.6.0",
     "debug": "4.3.7",
     "unimport": "4.1.1",
