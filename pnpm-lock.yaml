@@ -297,6 +297,9 @@ importers:
       joi:
         specifier: ^18.0.1
         version: 18.0.1
+      json-schema-to-zod:
+        specifier: ^2.6.1
+        version: 2.6.1
       maska:
         specifier: ^3.2.0
         version: 3.2.0

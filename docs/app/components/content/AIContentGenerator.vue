@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { motion, AnimatePresence } from 'motion-v'
-import { hasComponentSchema } from '~~/shared/utils'
 
 interface Props {
   /** The component name (e.g., 'accordion', 'page-card') */
@@ -28,7 +27,7 @@ const aiError = ref<string | null>(null)
 const surfaceRef = ref<HTMLElement>()
 const textareaRef = ref<any>()
 
-const supportsAI = computed(() => hasComponentSchema(props.componentName))
+const supportsAI = computed(() => true)// hasComponentSchema(props.componentName))
 
 function toggleSurface() {
   if (isGenerating.value) return
