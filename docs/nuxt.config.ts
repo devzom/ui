@@ -169,6 +169,11 @@ export default defineNuxtConfig({
       crawlLinks: true,
       autoSubfolderIndex: false
     }
+    // storage: {
+    //   cache: {
+    //     driver: 'vercel-runtime-cache'
+    //   }
+    // }
   },
 
   vite: {
