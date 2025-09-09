@@ -1,4 +1,4 @@
-export function useHeaderLinks() {
+export function useHeader() {
   const route = useRoute()
 
   const desktopLinks = computed(() => [{
@@ -18,7 +18,7 @@ export function useHeaderLinks() {
     label: 'Community',
     children: [{
       label: 'Team',
-      description: 'Meet the team behind Nuxt UI.',
+      description: 'Meet the team building and maintaining Nuxt UI.',
       icon: 'i-lucide-users',
       to: '/team'
     }, {
@@ -80,7 +80,6 @@ export function useHeaderLinks() {
     to: '/showcase'
   }, {
     label: 'Team',
-    description: 'Meet the team behind Nuxt UI.',
     icon: 'i-lucide-users',
     to: '/team'
   }, {

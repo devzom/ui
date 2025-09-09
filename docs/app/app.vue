@@ -8,7 +8,7 @@ const route = useRoute()
 const appConfig = useAppConfig()
 const colorMode = useColorMode()
 
-const { data: navigation } = await useAsyncData('navigation', () => queryCollectionNavigation('docs', ['framework', 'category']))
+const { data: navigation } = await useAsyncData('navigation', () => queryCollectionNavigation('docs', ['framework', 'category', 'description']))
 const { data: files } = useLazyAsyncData('search', () => queryCollectionSearchSections('docs'), {
   server: false
 })
@@ -43,10 +43,10 @@ useServerSeoMeta({
 useFaviconFromTheme()
 
 const { frameworks } = useFrameworks()
-const links = useSearchLinks()
-const { mappedNavigation, filteredNavigation } = useSearchNavigation(navigation)
+const { rootNavigation, navigationByFramework } = useNavigation(navigation)
+const { links } = useSearch()
 
-provide('navigation', mappedNavigation)
+provide('navigation', rootNavigation)
 </script>
 
 <template>
@@ -78,7 +78,7 @@ provide('navigation', mappedNavigation)
               label: 'Framework',
               items: frameworks
             }]"
-            :navigation="filteredNavigation"
+            :navigation="navigationByFramework"
             :fuse="{ resultLimit: 120 }"
           />
         </ClientOnly>

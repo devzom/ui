@@ -4,8 +4,8 @@ import type { ContentNavigationItem } from '@nuxt/content'
 const navigation = inject<Ref<ContentNavigationItem[]>>('navigation')
 
 const route = useRoute()
-const { mobileLinks } = useHeaderLinks()
-const { groupedNavigation } = useGroupNavigation(navigation!)
+const { mobileLinks } = useHeader()
+const { navigationByCategory } = useNavigation(navigation!)
 </script>
 
 <template>
@@ -18,6 +18,6 @@ const { groupedNavigation } = useGroupNavigation(navigation!)
       <FrameworkTabs />
     </div>
 
-    <UContentNavigation :navigation="groupedNavigation" highlight :ui="{ linkTrailingBadge: 'font-semibold uppercase' }" />
+    <UContentNavigation :navigation="navigationByCategory" highlight :ui="{ linkTrailingBadge: 'font-semibold uppercase' }" />
   </template>
 </template>
