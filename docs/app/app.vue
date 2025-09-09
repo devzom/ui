@@ -13,8 +13,6 @@ const { data: files } = useLazyAsyncData('search', () => queryCollectionSearchSe
   server: false
 })
 
-const links = useHeaderLinks()
-const searchLinks = useSearchLinks()
 const color = computed(() => colorMode.value === 'dark' ? (colors as any)[appConfig.ui.colors.neutral][900] : 'white')
 const radius = computed(() => `:root { --ui-radius: ${appConfig.theme.radius}rem; }`)
 const blackAsPrimary = computed(() => appConfig.theme.blackAsPrimary ? `:root { --ui-primary: black; } .dark { --ui-primary: white; }` : ':root {}')
@@ -45,7 +43,8 @@ useServerSeoMeta({
 useFaviconFromTheme()
 
 const { frameworks } = useSharedData()
-const { mappedNavigation, filteredNavigation } = useContentNavigation(navigation)
+const links = useSearchLinks()
+const { mappedNavigation, filteredNavigation } = useSearchNavigation(navigation)
 
 provide('navigation', mappedNavigation)
 </script>
@@ -60,7 +59,7 @@ provide('navigation', mappedNavigation)
       <template v-if="!route.path.startsWith('/examples')">
         <!-- <Banner /> -->
 
-        <Header :links="links" />
+        <Header />
       </template>
 
       <NuxtLayout>
@@ -72,7 +71,7 @@ provide('navigation', mappedNavigation)
 
         <ClientOnly>
           <LazyUContentSearch
-            :links="searchLinks"
+            :links="links"
             :files="files"
             :groups="[{
               id: 'framework',
