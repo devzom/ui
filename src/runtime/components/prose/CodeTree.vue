@@ -152,6 +152,7 @@ onBeforeUpdate(() => rerenderCount.value++)
       role="treeitem"
       :aria-level="level + 1"
       :class="level > 0 ? ui.itemWithChildren({ class: props.ui?.itemWithChildren }) : ui.item({ class: props.ui?.item })"
+      :aria-selected="model?.path === item.path"
     >
       <TreeItem
         v-slot="{ isExpanded, isSelected }"
