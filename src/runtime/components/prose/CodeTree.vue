@@ -149,15 +149,20 @@ onBeforeUpdate(() => rerenderCount.value++)
     <li
       v-for="(item, index) in items"
       :key="`${level}-${index}`"
+      role="treeitem"
+      :aria-level="level + 1"
       :class="level > 0 ? ui.itemWithChildren({ class: props.ui?.itemWithChildren }) : ui.item({ class: props.ui?.item })"
     >
       <TreeItem
         v-slot="{ isExpanded, isSelected }"
         as-child
-        :level="level"
+        :level="level + 1"
         :value="item"
       >
-        <button :class="ui.link({ class: props.ui?.link, active: isSelected })">
+        <button
+          :class="ui.link({ class: props.ui?.link, active: isSelected })"
+          :aria-expanded="item.children?.length ? isExpanded : undefined"
+        >
           <UIcon
             v-if="item.children?.length"
             :name="isExpanded ? appConfig.ui.icons.folderOpen : appConfig.ui.icons.folder"
@@ -188,10 +193,13 @@ onBeforeUpdate(() => rerenderCount.value++)
   <div v-bind="$attrs" :class="ui.root({ class: [props.ui?.root, props.class] })">
     <TreeRoot
       v-model="model"
+      as="ul"
+      role="tree"
       :class="ui.list({ class: props.ui?.list })"
       :items="items"
       :get-key="(item) => item.path"
       :default-expanded="expanded"
+      :aria-label="'File tree navigation'"
     >
       <ReuseTreeTemplate :items="items" :level="0" />
     </TreeRoot>
