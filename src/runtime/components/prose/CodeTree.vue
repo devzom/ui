@@ -200,7 +200,7 @@ onBeforeUpdate(() => rerenderCount.value++)
       :items="items"
       :get-key="(item) => item.path"
       :default-expanded="expanded"
-      :aria-label="'File tree navigation'"
+      aria-label="File tree navigation"
     >
       <ReuseTreeTemplate :items="items" :level="0" />
     </TreeRoot>
