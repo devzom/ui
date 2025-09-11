@@ -1,4 +1,5 @@
-import { defineCollection, z } from '@nuxt/content'
+import { defineCollection, property } from '@nuxt/content'
+import { z } from 'zod'
 
 const Image = z.object({
   src: z.string(),
@@ -15,19 +16,7 @@ const DualModeImage = z.object({
   alt: z.string().optional()
 })
 
-const Button = z.object({
-  label: z.string(),
-  icon: z.string().optional(),
-  leadingIcon: z.string().optional(),
-  trailingIcon: z.string().optional(),
-  to: z.string().optional(),
-  color: z.enum(['primary', 'neutral', 'success', 'warning', 'error', 'info']).optional(),
-  size: z.enum(['xs', 'sm', 'md', 'lg', 'xl']).optional(),
-  variant: z.enum(['solid', 'outline', 'subtle', 'soft', 'ghost', 'link']).optional(),
-  id: z.string().optional(),
-  target: z.enum(['_blank', '_self']).optional(),
-  class: z.string().optional()
-})
+const Button = property(z.object({})).inherit('@nuxt/ui/components/Button.vue')
 
 const BaseSection = z.object({
   title: z.string(),
@@ -194,16 +183,9 @@ export const collections = {
       navigation: z.boolean().optional(),
       links: z.array(Button),
       hero: BaseSection,
-      templates: z.array(z.object({
-        title: z.string(),
-        description: z.string(),
-        icon: z.string(),
-        framework: z.enum(['nuxt', 'vue']),
-        thumbnail: DualModeImage,
-        images: z.array(Image).optional(),
-        features: z.array(TitleIconFeature).optional(),
-        links: z.array(Button).optional()
-      }))
+      templates: z.array(
+        property(z.object({})).inherit('@nuxt/ui/components/PageSection.vue')
+      )
     })
   })
 }
