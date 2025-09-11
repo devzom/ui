@@ -1,8 +1,9 @@
+import { getComponentMeta } from 'nuxt-component-meta/parser'
+import { propsToJsonSchema } from 'nuxt-component-meta/utils'
+import { jsonSchemaToZod } from 'json-schema-to-zod'
 import { gateway } from '@ai-sdk/gateway'
 import { generateObject } from 'ai'
 import { z } from 'zod'
-
-export const maxDuration = 30
 
 export default defineEventHandler(async (event) => {
   try {
@@ -20,17 +21,22 @@ export default defineEventHandler(async (event) => {
       })
     }
 
-    const systemPrompt = `You are an expert UI/UX designer and developer. Generate realistic, useful content for Nuxt UI components.
+    const systemPrompt = `You are an expert content generator specialized in populating component properties with realistic, meaningful data.
 
 Rules:
 - NEVER use HTML tags in text content (no <p>, <strong>, <li>, <ul>, etc.)
 - ONLY use plain text for all content fields
 - ONLY generate properties that exist in the provided schema
 - DO NOT invent new properties or keys
-- For icons, use Lucide icons with the format: i-lucide-icon-name
-- Keep text content clean and readable without markup
+- Generate ONLY the exact structure required by the schema
 
-Content Guidelines:
+LUCIDE ICONS - USE ONLY EXISTING ICONS:
+- Use format: i-lucide-[icon-name]
+- Common icons that EXIST: i-lucide-home, i-lucide-user, i-lucide-settings, i-lucide-mail, i-lucide-phone, i-lucide-briefcase, i-lucide-code, i-lucide-palette, i-lucide-camera, i-lucide-map-pin, i-lucide-clock, i-lucide-star, i-lucide-heart, i-lucide-shield, i-lucide-globe, i-lucide-folder, i-lucide-file, i-lucide-image, i-lucide-music, i-lucide-video, i-lucide-download, i-lucide-upload, i-lucide-search, i-lucide-plus, i-lucide-minus, i-lucide-check, i-lucide-x, i-lucide-arrow-right, i-lucide-arrow-left, i-lucide-chevron-right, i-lucide-chevron-down
+- DO NOT invent icons like "i-lucide-tools", "i-lucide-design", etc.
+- When in doubt, use common icons like i-lucide-folder, i-lucide-file, or i-lucide-star
+
+CONTENT GUIDELINES:
 - Generate content that matches the user's prompt and use case
 - Use clear, descriptive labels and meaningful text
 - Keep content concise but informative
@@ -58,3 +64,28 @@ Generate ONLY the exact structure required by the schema. Do not add extra prope
     })
   }
 })
+
+const AI_PROPS = [
+  'items',
+  'description',
+  'title',
+  'label',
+  'text'
+]
+
+export function getComponentSchema(componentName: string): z.ZodType<any> | null {
+  try {
+    const meta = getComponentMeta(`src/runtime/components/${componentName}.vue`)
+
+    if (!meta?.props) return null
+
+    const filteredProps = Object.values(meta.props).filter((prop: any) => AI_PROPS.includes(prop.name))
+    if (filteredProps.length === 0) return null
+
+    const jsonSchema = propsToJsonSchema(filteredProps)
+    const zodString = jsonSchemaToZod(jsonSchema)
+    return eval(zodString)
+  } catch {
+    return null
+  }
+}

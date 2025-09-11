@@ -7,6 +7,7 @@ import { hash } from 'ohash'
 import { CalendarDate } from '@internationalized/date'
 import * as theme from '#build/ui'
 import { get, set } from '#ui/utils'
+import type { AIContentWidgetProps } from './AIContentWidget.vue'
 
 interface Cast {
   get: (args: any) => any
@@ -80,6 +81,10 @@ const props = defineProps<{
    * Whether to add overflow-hidden to wrapper
    */
   overflowHidden?: boolean
+  /**
+   * AI generation configuration - true to enable with defaults, object to customize
+   */
+  ai?: AIContentWidgetProps['ai']
 }>()
 
 const route = useRoute()
@@ -337,7 +342,7 @@ const { data: ast } = await useAsyncData(`component-code-${name}-${hash({ props:
 </script>
 
 <template>
-  <div class="my-5">
+  <div class="my-5 group">
     <div class="relative">
       <div v-if="options.length" class="flex flex-wrap items-center gap-2.5 border border-muted border-b-0 relative rounded-t-md px-4 py-2.5 overflow-x-auto">
         <template v-for="option in options" :key="option.name">
@@ -388,8 +393,9 @@ const { data: ast } = await useAsyncData(`component-code-${name}-${hash({ props:
       </div>
 
       <div v-if="component" class="flex justify-center border border-b-0 border-muted relative p-4 z-[1]" :class="[!options.length && 'rounded-t-md', props.class, { 'overflow-hidden': props.overflowHidden }]">
-        <AIContentGenerator
+        <AIContentWidget
           :component-name="name.replace('U', '').replace('Prose', '')"
+          :ai="props.ai"
           @generated="handleAIGenerated"
         />
         <component :is="component" v-bind="{ ...componentProps, ...componentEvents }">

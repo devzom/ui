@@ -36,6 +36,7 @@ externalTypes:
   - AccordionItem[]
 hide:
   - class
+ai: true
 props:
   class: 'px-4'
   items:

@@ -37,6 +37,7 @@ ignore:
 external:
   - items
   - modelValue
+ai: true
 props:
   modelValue: 'Backlog'
   items:
