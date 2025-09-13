@@ -34,7 +34,7 @@ export interface ModuleOptions {
 
   /**
    * Customize how the theme is generated
-   * @link https://ui.nuxt.com/docs/getting-started/theme
+   * @link https://ui.nuxt.com/docs/getting-started/theme/design-system
    */
   theme?: {
     /**
