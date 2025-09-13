@@ -48,7 +48,7 @@ Component: ${componentName}
 Generate ONLY the exact structure required by the schema. Do not add extra properties.`
 
     const result = await generateObject({
-      model: gateway('openai/gpt-4.1-nano'),
+      model: gateway('google/gemini-2.5-flash-lite'),
       system: systemPrompt,
       prompt: `${prompt}. Generate content for a ${componentName} component.`,
       temperature: 0.3,
