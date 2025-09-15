@@ -929,7 +929,7 @@ props:
 This can be useful when using the CommandPalette inside a [`Modal`](/docs/components/modal) for example.
 ::
 
-### With footer slot :badge{label="New" class="align-text-top"}
+### With footer slot
 
 Use the `#footer` slot to add custom content at the bottom of the CommandPalette, such as keyboard shortcuts help or additional actions.
 
