@@ -10,8 +10,6 @@ links:
 
 ## Usage
 
-### Value
-
 Use the default slot to set the value of the Kbd.
 
 ::component-code
@@ -21,7 +19,9 @@ slots:
 ---
 ::
 
-You can achieve the same result by using the `value` prop.
+### Value
+
+Use the `value` prop to set the value of the Kbd.
 
 ::component-code
 ---

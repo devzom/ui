@@ -14,6 +14,22 @@ links:
 
 Use a [Button](/docs/components/button) or any other component in the default slot of the Tooltip.
 
+::component-code
+---
+prettier: true
+ignore:
+  - text
+props:
+  text: 'Open on GitHub'
+slots:
+  default: |
+
+    <UButton label="Open" color="neutral" variant="subtle" />
+---
+
+:u-button{label="Open" color="neutral" variant="subtle"}
+::
+
 ::warning
 Make sure to wrap your app with the [`App`](/docs/components/app) component which uses the [`TooltipProvider`](https://reka-ui.com/docs/components/tooltip#provider) component from Reka UI.
 ::
