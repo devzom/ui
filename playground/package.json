@@ -19,7 +19,8 @@
   },
   "devDependencies": {
     "typescript": "^5.8.3",
-    "vue-tsc": "^3.0.7"
+    "vue-tsc": "^3.0.7",
+    "wrangler": "^4.37.0"
   },
   "resolutions": {
     "unimport": "4.1.1"
