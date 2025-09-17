@@ -42,6 +42,7 @@ CONTENT GUIDELINES:
 - Keep content concise but informative
 - Ensure all generated data is realistic and would be genuinely useful in a real application
 - If generating arrays/lists, create 3-5 items unless otherwise specified
+- If generating links, use '#' as the source
 - Use professional, modern language appropriate for web applications
 
 Component: ${componentName}

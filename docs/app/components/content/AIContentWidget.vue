@@ -35,7 +35,7 @@ const SURFACE_WIDTH = 320
 const SURFACE_HEIGHT = 160
 
 const schema = z.object({
-  prompt: z.string().min(5, 'Please describe what content you want to generate')
+  prompt: z.string()
 })
 
 type Schema = z.output<typeof schema>
@@ -180,6 +180,7 @@ onClickOutside(surfaceRef, closeSurface)
               <UTextarea
                 ref="textareaRef"
                 v-model="state.prompt"
+                required
                 autofocus
                 :placeholder="typeof ai === 'object' && ai.placeholder ? ai.placeholder : 'Describe the content you want to generate...'"
                 :rows="4"
