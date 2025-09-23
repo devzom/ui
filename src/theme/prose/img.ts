@@ -3,7 +3,7 @@ export default {
     base: 'rounded-md w-full',
     overlay: 'fixed inset-0 bg-default/75 backdrop-blur-sm will-change-opacity',
     content: 'fixed inset-0 flex items-center justify-center cursor-zoom-out focus:outline-none',
-    zoomedImage: 'w-auto sm:h-full max-w-[90vw] max-h-[90vh] rounded-md'
+    zoomedImage: 'w-full h-auto max-w-[95vw] max-h-[95vh] object-contain rounded-md'
   },
   variants: {
     zoom: {
