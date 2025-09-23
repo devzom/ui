@@ -1,5 +1,16 @@
 # Changelog
 
+## [3.3.5](https://github.com/nuxt/ui/compare/v3.3.4...v3.3.5) (2025-09-23)
+
+### Bug Fixes
+
+* **InputMenu:** ensure to pass a string to items when multiple ([0031a75](https://github.com/nuxt/ui/commit/0031a75e3d10e2e0ea682a174d4bee981bf33d3a)), closes [#5018](https://github.com/nuxt/ui/issues/5018)
+* **InputTags:** add blur and focus event handlers on input ([#5007](https://github.com/nuxt/ui/issues/5007)) ([5db2708](https://github.com/nuxt/ui/commit/5db270804ce274b9c8eb7a2bff484905c829515b))
+* **Progress:** improve `status-position` when 0 ([#4994](https://github.com/nuxt/ui/issues/4994)) ([e0891ea](https://github.com/nuxt/ui/commit/e0891ea4f69ff4927ebf62e1d4d0b38b50062333))
+* **Tabs:** use nullish coalescing on item value ([a4ab796](https://github.com/nuxt/ui/commit/a4ab796d0e9482c03afeb655382d9736d9f5c60a)), closes [#4804](https://github.com/nuxt/ui/issues/4804)
+* **types:** allow arbitrary keys in tv config ([#4992](https://github.com/nuxt/ui/issues/4992)) ([8d859ea](https://github.com/nuxt/ui/commit/8d859ea73a4b1b27bfa803c1fb593a79495a8a2a))
+* **types:** resolve ambient declaration error in `icons` type ([#4991](https://github.com/nuxt/ui/issues/4991)) ([526cb81](https://github.com/nuxt/ui/commit/526cb816a550d2be99f2fa7882612ba5169c2387))
+
 ## [3.3.4](https://github.com/nuxt/ui/compare/v3.3.3...v3.3.4) (2025-09-15)
 
 ### Bug Fixes
