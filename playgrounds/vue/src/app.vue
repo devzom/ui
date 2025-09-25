@@ -66,8 +66,8 @@ const components = [
   'tree'
 ].map(component => ({ label: upperName(component), to: `/components/${component}` }))
 
-const items = computed(() => [{ label: 'Home', to: '/' }, { label: 'Components', to: '/components/accordion', active: route.path.startsWith('/components/') }])
-const groups = computed(() => [{ id: 'links', items: items.value }, { id: 'components', label: 'Components', items: components }])
+const items = [{ label: 'Home', to: '/' }, { label: 'Chat', to: '/chat' }]
+const groups = [{ id: 'links', items }, { id: 'components', label: 'Components', items: components }]
 
 provide('components', components)
 </script>
@@ -92,11 +92,9 @@ provide('components', components)
 
         <UNavigationMenu :items="items" orientation="vertical" />
 
-        <template v-if="route.path.startsWith('/components/')">
-          <USeparator type="dashed" />
+        <USeparator type="dashed" />
 
-          <UNavigationMenu :items="components" orientation="vertical" />
-        </template>
+        <UNavigationMenu :items="components" orientation="vertical" />
       </UDashboardSidebar>
 
       <UDashboardPanel :ui="{ body: ['justify-center items-center', route.path.startsWith('/components') && 'mt-16'] }">
