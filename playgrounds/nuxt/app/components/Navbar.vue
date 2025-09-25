@@ -1,0 +1,44 @@
+<script setup lang="ts">
+import { useRoute, useRouter } from '#imports'
+import { upperName } from '../utils'
+
+const route = useRoute()
+const router = useRouter()
+
+const title = computed(() => upperName(route.path.split('/').pop() as string))
+
+const components = inject<{ to: string, label: string }[]>('components')
+
+const index = computed(() => components?.findIndex(component => component.to === route.path) ?? -1)
+
+function navigate(index: number) {
+  router.push(components?.[index]?.to as string)
+}
+</script>
+
+<template>
+  <UDashboardNavbar :title="title" class="absolute top-0 inset-x-0 z-5 bg-default">
+    <template #trailing>
+      <UFieldGroup size="xs">
+        <UButton
+          icon="i-lucide-chevron-left"
+          color="neutral"
+          variant="outline"
+          :disabled="index === 0"
+          @click="navigate(index - 1)"
+        />
+        <UButton
+          icon="i-lucide-chevron-right"
+          color="neutral"
+          variant="outline"
+          :disabled="index === (components?.length ?? 0) - 1"
+          @click="navigate(index + 1)"
+        />
+      </UFieldGroup>
+    </template>
+
+    <template #right>
+      <slot />
+    </template>
+  </UDashboardNavbar>
+</template>

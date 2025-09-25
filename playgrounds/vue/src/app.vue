@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { splitByCase, upperFirst } from 'scule'
-import { useRouter } from 'vue-router'
-import { reactive, ref } from 'vue'
+import { upperName } from '../../nuxt/app/utils'
+import { useRoute } from 'vue-router'
+import { reactive } from 'vue'
 
+const route = useRoute()
 const appConfig = useAppConfig()
 
 appConfig.toaster = reactive({
@@ -10,8 +11,6 @@ appConfig.toaster = reactive({
   expand: true,
   duration: 5000
 })
-
-const router = useRouter()
 
 const components = [
   'accordion',
@@ -65,46 +64,50 @@ const components = [
   'toast',
   'tooltip',
   'tree'
-]
+].map(component => ({ label: upperName(component), to: `/components/${component}` }))
 
-const items = components.map(component => ({ label: upperName(component), to: `/components/${component}` }))
+const items = computed(() => [{ label: 'Home', to: '/' }, { label: 'Components', to: '/components/accordion', active: route.path.startsWith('/components/') }])
+const groups = computed(() => [{ id: 'links', items: items.value }, { id: 'components', label: 'Components', items: components }])
 
-function upperName(name: string) {
-  return splitByCase(name).map(p => upperFirst(p)).join('')
-}
-
-const isCommandPaletteOpen = ref(false)
-
-function onSelect(item: any) {
-  router.push(item.to)
-}
-
-defineShortcuts({
-  meta_k: () => isCommandPaletteOpen.value = true
-})
+provide('components', components)
 </script>
 
 <template>
-  <UApp :toaster="(appConfig.toaster as any)">
-    <div class="h-screen w-screen overflow-hidden flex min-h-0 bg-default" data-vaul-drawer-wrapper>
-      <UNavigationMenu :items="items" orientation="vertical" class="hidden lg:flex border-e border-default overflow-y-auto w-48 p-4" />
-      <UNavigationMenu :items="items" orientation="horizontal" class="lg:hidden border-b border-default [&>div]:min-w-min overflow-x-auto" />
+  <UApp :toaster="appConfig.toaster">
+    <UDashboardGroup unit="rem" storage="local">
+      <UDashboardSidebar class="bg-elevated/25">
+        <template #header>
+          <RouterLink to="/" class="text-highlighted">
+            <Logo class="h-5 w-auto" />
+          </RouterLink>
 
-      <div class="fixed top-15 lg:top-3 end-4 flex items-center gap-2">
-        <UColorModeButton />
-      </div>
+          <div class="flex items-center ms-auto">
+            <ThemeDropdown />
 
-      <div class="flex-1 flex flex-col items-center justify-around overflow-y-auto w-full py-14 px-4">
-        <Suspense>
-          <RouterView />
-        </Suspense>
-      </div>
-    </div>
+            <UColorModeButton />
+          </div>
+        </template>
 
-    <UModal v-model:open="isCommandPaletteOpen" class="sm:h-96">
-      <template #content>
-        <UCommandPalette placeholder="Search a component..." :groups="[{ id: 'items', items }]" :fuse="{ resultLimit: 100 }" @update:model-value="onSelect" @update:open="value => isCommandPaletteOpen = value" />
-      </template>
-    </UModal>
+        <UDashboardSearchButton />
+
+        <UNavigationMenu :items="items" orientation="vertical" />
+
+        <template v-if="route.path.startsWith('/components/')">
+          <USeparator type="dashed" />
+
+          <UNavigationMenu :items="components" orientation="vertical" />
+        </template>
+      </UDashboardSidebar>
+
+      <UDashboardPanel :ui="{ body: 'justify-center items-center mt-16' }">
+        <template #body>
+          <Suspense>
+            <RouterView />
+          </Suspense>
+        </template>
+      </UDashboardPanel>
+
+      <UDashboardSearch :groups="groups" />
+    </UDashboardGroup>
   </UApp>
 </template>
