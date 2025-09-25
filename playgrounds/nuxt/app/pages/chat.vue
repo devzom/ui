@@ -1,0 +1,49 @@
+<script setup lang="ts">
+import type { UIMessage } from 'ai'
+import { Chat } from '@ai-sdk/vue'
+import { getTextFromMessage } from '@nuxt/ui/utils/ai'
+
+const toast = useToast()
+
+const messages: UIMessage[] = []
+const input = ref('')
+
+const chat = new Chat({
+  messages,
+  onError(error) {
+    const { message: description } = typeof error.message === 'string' && error.message[0] === '{' ? JSON.parse(error.message) : error
+
+    toast.add({
+      description,
+      icon: 'i-lucide-alert-circle',
+      color: 'error',
+      duration: 0
+    })
+  }
+})
+
+function handleSubmit(e: Event) {
+  e.preventDefault()
+  chat.sendMessage({ text: input.value })
+  input.value = ''
+}
+</script>
+
+<template>
+  <UContainer class="flex-1 flex flex-col gap-4 sm:gap-6 max-w-3xl">
+    <UChatMessages
+      :messages="chat.messages"
+      :status="chat.status"
+      :user="{ avatar: { src: 'https://github.com/benjamincanac.png' } }"
+      class="lg:pt-(--ui-header-height) pb-4 sm:pb-6"
+    >
+      <template #content="{ message }">
+        <MDC :value="getTextFromMessage(message)" :cache-key="message.id" unwrap="p" />
+      </template>
+    </UChatMessages>
+
+    <UChatPrompt v-model="input" variant="subtle" class="sticky bottom-0" :error="chat.error" @submit="handleSubmit">
+      <UChatPromptSubmit :status="chat.status" @stop="chat.stop" @reload="chat.regenerate" />
+    </UChatPrompt>
+  </UContainer>
+</template>

@@ -62,7 +62,7 @@ const components = [
   'tree'
 ].map(component => ({ label: upperName(component), to: `/components/${component}` }))
 
-const items = computed(() => [{ label: 'Home', to: '/' }, { label: 'Components', to: '/components/accordion', active: route.path.startsWith('/components/') }])
+const items = computed(() => [{ label: 'Home', to: '/' }, { label: 'Chat', to: '/chat' }, { label: 'Components', to: '/components/accordion', active: route.path.startsWith('/components/') }])
 const groups = computed(() => [{ id: 'links', items: items.value }, { id: 'components', label: 'Components', items: components }])
 
 provide('components', components)
@@ -95,7 +95,7 @@ provide('components', components)
         </template>
       </UDashboardSidebar>
 
-      <UDashboardPanel :ui="{ body: 'justify-center items-center mt-16' }">
+      <UDashboardPanel :ui="{ body: ['justify-center items-center', route.path.startsWith('/components') && 'mt-16'] }">
         <template #body>
           <NuxtPage />
         </template>

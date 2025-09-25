@@ -99,7 +99,7 @@ provide('components', components)
         </template>
       </UDashboardSidebar>
 
-      <UDashboardPanel :ui="{ body: 'justify-center items-center mt-16' }">
+      <UDashboardPanel :ui="{ body: ['justify-center items-center', route.path.startsWith('/components') && 'mt-16'] }">
         <template #body>
           <Suspense>
             <RouterView />
