@@ -30,7 +30,9 @@ function handleSubmit(e: Event) {
 </script>
 
 <template>
-  <UContainer class="flex-1 flex flex-col gap-4 sm:gap-6 max-w-3xl">
+  <UDashboardNavbar class="absolute top-0 inset-x-0 lg:border-b-0" />
+
+  <div class="flex-1 flex flex-col gap-4 sm:gap-6 max-w-3xl w-full mx-auto">
     <UChatMessages
       :messages="chat.messages"
       :status="chat.status"
@@ -45,5 +47,5 @@ function handleSubmit(e: Event) {
     <UChatPrompt v-model="input" variant="subtle" class="sticky bottom-0" :error="chat.error" @submit="handleSubmit">
       <UChatPromptSubmit :status="chat.status" @stop="chat.stop" @reload="chat.regenerate" />
     </UChatPrompt>
-  </UContainer>
+  </div>
 </template>
