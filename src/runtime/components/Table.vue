@@ -221,7 +221,11 @@ const { t } = useLocale()
 const appConfig = useAppConfig() as Table['AppConfig']
 
 const data = ref(props.data ?? []) as Ref<T[]>
-const columns = computed<TableColumn<T>[]>(() => props.columns ?? Object.keys(data.value[0] ?? {}).map((accessorKey: string) => ({ accessorKey, header: upperFirst(accessorKey) })))
+const columns = computed<TableColumn<T>[]>(() => props.columns ?? Object.keys(data.value[0] ?? {}).map((accessorKey: string) => ({
+  accessorKey,
+  header: upperFirst(accessorKey),
+  cell: ({ getValue }) => getCellDisplayValue(getValue())
+})))
 const meta = computed(() => props.meta ?? {})
 
 const ui = computed(() => tv({ extend: tv(theme), ...(appConfig.ui?.table || {}) })({
@@ -389,6 +393,13 @@ function resolveValue<T, A = undefined>(prop: T | ((arg: A) => T), arg?: A): T |
     return prop(arg)
   }
   return prop
+}
+
+function getCellDisplayValue(value: unknown): string {
+  if (value === null || value === undefined || value === '') {
+    return '\u00A0' // Non-breaking space
+  }
+  return String(value)
 }
 
 watch(
