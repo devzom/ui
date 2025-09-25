@@ -60,9 +60,9 @@ const components = [
   'toast',
   'tooltip',
   'tree'
-].map(component => ({ label: upperName(component), to: `/components/${component}` }))
+].map(component => ({ label: upperName(component), icon: 'i-lucide-box', to: `/components/${component}` }))
 
-const items = [{ label: 'Home', to: '/' }, { label: 'Chat', to: '/chat' }]
+const items = [{ label: 'Home', icon: 'i-lucide-home', to: '/' }, { label: 'Chat', icon: 'i-lucide-message-circle', to: '/chat' }]
 const groups = [{ id: 'links', items }, { id: 'components', label: 'Components', items: components }]
 
 provide('components', components)
