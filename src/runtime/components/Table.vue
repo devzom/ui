@@ -224,7 +224,10 @@ const data = ref(props.data ?? []) as Ref<T[]>
 const columns = computed<TableColumn<T>[]>(() => props.columns ?? Object.keys(data.value[0] ?? {}).map((accessorKey: string) => ({
   accessorKey,
   header: upperFirst(accessorKey),
-  cell: ({ getValue }) => getCellDisplayValue(getValue())
+  cell: ({ getValue }) => {
+    const value = getValue()
+    return value === '' || value == null ? '\u00A0' : String(value)
+  }
 })))
 const meta = computed(() => props.meta ?? {})
 
@@ -395,13 +398,6 @@ function resolveValue<T, A = undefined>(prop: T | ((arg: A) => T), arg?: A): T |
   return prop
 }
 
-function getCellDisplayValue(value: unknown): string {
-  if (value === null || value === undefined || value === '') {
-    return '\u00A0' // Non-breaking space
-  }
-  return String(value)
-}
-
 watch(
   () => props.data, () => {
     data.value = props.data ? [...props.data] : []
@@ -488,7 +484,12 @@ defineExpose({
                 :style="resolveValue(cell.column.columnDef.meta?.style?.td, cell)"
               >
                 <slot :name="`${cell.column.id}-cell`" v-bind="cell.getContext()">
-                  <FlexRender :render="cell.column.columnDef.cell" :props="cell.getContext()" />
+                  <template v-if="cell.column.columnDef.cell">
+                    <FlexRender :render="cell.column.columnDef.cell" :props="cell.getContext()" />
+                  </template>
+                  <template v-else>
+                    {{ cell.getValue() === '' || cell.getValue() == null ? '\u00A0' : cell.getValue() }}
+                  </template>
                 </slot>
               </td>
             </tr>
