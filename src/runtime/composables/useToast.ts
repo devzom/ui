@@ -1,5 +1,5 @@
 import { ref, nextTick } from 'vue'
-import { useState } from '#imports'
+import { useState, useAppConfig } from '#imports'
 import type { ToastProps, ToastEmits } from '../types'
 import type { EmitsToProps } from '../types/utils'
 
@@ -9,8 +9,9 @@ export interface Toast extends Omit<ToastProps, 'defaultOpen'>, EmitsToProps<Toa
 }
 
 export function useToast() {
+  const appConfig = useAppConfig()
   const toasts = useState<Toast[]>('toasts', () => [])
-  const maxToasts = 5
+  const maxToasts = (appConfig.toaster as any)?.maxToasts ?? 5
   const running = ref(false)
   const queue: Toast[] = []
 
