@@ -221,14 +221,22 @@ const { t } = useLocale()
 const appConfig = useAppConfig() as Table['AppConfig']
 
 const data = ref(props.data ?? []) as Ref<T[]>
-const columns = computed<TableColumn<T>[]>(() => props.columns ?? Object.keys(data.value[0] ?? {}).map((accessorKey: string) => ({
-  accessorKey,
-  header: upperFirst(accessorKey),
-  cell: ({ getValue }) => {
-    const value = getValue()
-    return value === '' || value == null ? '\u00A0' : String(value)
-  }
-})))
+const columns = computed<TableColumn<T>[]>(() => {
+  const baseColumns = props.columns ? props.columns : Object.keys(data.value[0] ?? {}).map((accessorKey: string) => ({ accessorKey, header: upperFirst(accessorKey) }))
+
+  return baseColumns.map((column) => {
+    const col = column as TableColumn<T>
+    if (col.cell) return col
+    return {
+      ...col,
+      cell: ({ getValue }) => {
+        const value = getValue()
+        return value === '' || value == null ? '\u00A0' : String(value)
+      }
+    }
+  })
+})
+
 const meta = computed(() => props.meta ?? {})
 
 const ui = computed(() => tv({ extend: tv(theme), ...(appConfig.ui?.table || {}) })({
