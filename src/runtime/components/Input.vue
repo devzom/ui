@@ -65,6 +65,7 @@ export interface InputSlots {
 import { ref, computed, onMounted } from 'vue'
 import { Primitive } from 'reka-ui'
 import { useVModel } from '@vueuse/core'
+import { useCustomControl } from '@formwerk/core'
 import { useAppConfig } from '#imports'
 import { useFieldGroup } from '../composables/useFieldGroup'
 import { useComponentIcons } from '../composables/useComponentIcons'
@@ -88,7 +89,13 @@ const modelValue = useVModel<InputProps<T>, 'modelValue', 'update:modelValue'>(p
 
 const appConfig = useAppConfig() as Input['AppConfig']
 
-const { emitFormBlur, emitFormInput, emitFormChange, size: formGroupSize, color, id, name, highlight, disabled, emitFormFocus, ariaAttrs } = useFormField<InputProps<T>>(props, { deferInputValidation: true })
+const { emitFormBlur, emitFormInput, emitFormChange, size: formGroupSize, color, name, highlight, disabled, emitFormFocus } = useFormField<InputProps<T>>(props, { deferInputValidation: true })
+const { controlProps, field: { isDisabled } } = useCustomControl({
+  name,
+  disabled,
+  required: props.required,
+  controlType: 'UInput'
+})
 const { orientation, size: fieldGroupSize } = useFieldGroup<InputProps<T>>(props)
 const { isLeading, isTrailing, leadingIconName, trailingIconName } = useComponentIcons(props)
 
@@ -177,17 +184,15 @@ defineExpose({
 <template>
   <Primitive :as="as" :class="ui.root({ class: [props.ui?.root, props.class] })">
     <input
-      :id="id"
       ref="inputRef"
       :type="type"
       :value="modelValue"
-      :name="name"
       :placeholder="placeholder"
       :class="ui.base({ class: props.ui?.base })"
-      :disabled="disabled"
+      :disabled="isDisabled"
       :required="required"
       :autocomplete="autocomplete"
-      v-bind="{ ...$attrs, ...ariaAttrs }"
+      v-bind="{ ...$attrs, ...controlProps }"
       @input="onInput"
       @blur="onBlur"
       @change="onChange"
