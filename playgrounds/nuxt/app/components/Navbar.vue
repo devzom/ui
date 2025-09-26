@@ -5,7 +5,12 @@ import { upperName } from '../utils'
 const route = useRoute()
 const router = useRouter()
 
-const title = computed(() => upperName(route.path.split('/').pop() as string))
+defineProps<{
+  to?: string
+}>()
+
+const name = computed(() => route.path.split('/').pop() as string)
+const title = computed(() => upperName(name.value))
 
 const components = inject<{ to: string, label: string }[]>('components')
 
@@ -23,13 +28,14 @@ defineShortcuts({
 
 <template>
   <UDashboardNavbar :title="title" class="absolute top-0 inset-x-0 z-5 bg-default">
-    <template #trailing>
+    <template #leading>
       <UFieldGroup size="xs">
         <UButton
           icon="i-lucide-chevron-left"
           color="neutral"
           variant="outline"
           :disabled="index === 0"
+          class="ring-default"
           @click="navigate(index - 1)"
         />
         <UButton
@@ -37,9 +43,22 @@ defineShortcuts({
           color="neutral"
           variant="outline"
           :disabled="index === (components?.length ?? 0) - 1"
+          class="ring-default"
           @click="navigate(index + 1)"
         />
       </UFieldGroup>
+    </template>
+
+    <template #trailing>
+      <slot name="trailing">
+        <UButton
+          icon="i-lucide-external-link"
+          :to="to || `https://ui.nuxt.com/docs/components/${name}`"
+          color="neutral"
+          variant="ghost"
+          size="xs"
+        />
+      </slot>
     </template>
 
     <template #right>
