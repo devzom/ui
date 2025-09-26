@@ -20,6 +20,9 @@ importers:
       '@ai-sdk/vue':
         specifier: ^2.0.51
         version: 2.0.51(vue@3.5.21(typescript@5.8.3))(zod@4.1.11)
+      '@formwerk/core':
+        specifier: https://pkg.pr.new/formwerkjs/formwerk/@formwerk/core@205
+        version: https://pkg.pr.new/formwerkjs/formwerk/@formwerk/core@205(vue@3.5.21(typescript@5.8.3))
       '@iconify/vue':
         specifier: ^5.0.0
         version: 5.0.0(vue@3.5.21(typescript@5.8.3))
@@ -825,6 +828,16 @@ packages:
 
   '@floating-ui/vue@1.1.7':
     resolution: {integrity: sha512-idmAtbAIigGXN2SI5gItiXYBYtNfDTP9yIiObxgu13dgtG7ARCHlNfnR29GxP4LI4o13oiwsJ8wVgghj1lNqcw==}
+
+  '@formwerk/core@https://pkg.pr.new/formwerkjs/formwerk/@formwerk/core@205':
+    resolution: {tarball: https://pkg.pr.new/formwerkjs/formwerk/@formwerk/core@205}
+    version: 0.11.6
+    peerDependencies:
+      vue: '>=3.5.0'
+
+  '@formwerk/devtools@https://pkg.pr.new/formwerkjs/formwerk/@formwerk/devtools@57c8b75b6be3b06b4fecefc1c6117ce1377dfd5d':
+    resolution: {tarball: https://pkg.pr.new/formwerkjs/formwerk/@formwerk/devtools@57c8b75b6be3b06b4fecefc1c6117ce1377dfd5d}
+    version: 0.11.6
 
   '@ghostery/adblocker-content@2.11.6':
     resolution: {integrity: sha512-K+hJR27fYpRGoUQnza2p0BmN86htN1ASoRxF73mAdf1CNDSyfPNCNlpoKt83Z9CbYBdEglXOWItazB9hRMs7gw==}
@@ -2091,6 +2104,9 @@ packages:
   '@standard-schema/spec@1.0.0':
     resolution: {integrity: sha512-m2bOd0f2RT9k8QJx1JN85cZYyH1RqFBdlwtkSlf4tBDYLCiiZnv1fIIwacK6cqwXavOydf0NPToMQgpKq+dVlA==}
 
+  '@standard-schema/utils@0.3.0':
+    resolution: {integrity: sha512-e7Mew686owMaPJVNNLs55PUvgz371nKgwsc4vxE49zsODpJEnxgxRo2y/OKrqueavXgZNMDVj3DdHFlaSAeU8g==}
+
   '@stylistic/eslint-plugin@5.2.3':
     resolution: {integrity: sha512-oY7GVkJGVMI5benlBDCaRrSC1qPasafyv5dOBLLv5MTilMGnErKhO6ziEfodDDIZbo5QxPUNW360VudJOFODMw==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
@@ -2612,6 +2628,9 @@ packages:
   '@vue/devtools-api@6.6.4':
     resolution: {integrity: sha512-sGhTPMuXqZ1rVOk32RylztWkfXTRhuS7vgAKv0zjqk8gbsHkJ7xfFf+jbySxt7tWObEJwyKaHMikV/WGDiQm8g==}
 
+  '@vue/devtools-api@8.0.2':
+    resolution: {integrity: sha512-RdwsaYoSTumwZ7XOt5yIPP1/T4O0bTs+c5XaEjmUB6f9x+FvDSL9AekxW1vuhK1lmA9TfewpXVt2r5LIax3LHw==}
+
   '@vue/devtools-core@7.7.7':
     resolution: {integrity: sha512-9z9TLbfC+AjAi1PQyWX+OErjIaJmdFlbDHcD+cAMYKY6Bh5VlsAtCeGyRMrXwIlMEQPukvnWt3gZBLwTAIMKzQ==}
     peerDependencies:
@@ -2620,8 +2639,14 @@ packages:
   '@vue/devtools-kit@7.7.7':
     resolution: {integrity: sha512-wgoZtxcTta65cnZ1Q6MbAfePVFxfM+gq0saaeytoph7nEa7yMXoi6sCPy4ufO111B9msnw0VOWjPEFCXuAKRHA==}
 
+  '@vue/devtools-kit@8.0.2':
+    resolution: {integrity: sha512-yjZKdEmhJzQqbOh4KFBfTOQjDPMrjjBNCnHBvnTGJX+YLAqoUtY2J+cg7BE+EA8KUv8LprECq04ts75wCoIGWA==}
+
   '@vue/devtools-shared@7.7.7':
     resolution: {integrity: sha512-+udSj47aRl5aKb0memBvcUG9koarqnxNM5yjuREvqwK6T3ap4mn3Zqqc17QrBFTqSMjr3HK1cvStEZpMDpfdyw==}
+
+  '@vue/devtools-shared@8.0.2':
+    resolution: {integrity: sha512-mLU0QVdy5Lp40PMGSixDw/Kbd6v5dkQXltd2r+mdVQV7iUog2NlZuLxFZApFZ/mObUBDhoCpf0T3zF2FWWdeHw==}
 
   '@vue/language-core@3.0.7':
     resolution: {integrity: sha512-0sqqyqJ0Gn33JH3TdIsZLCZZ8Gr4kwlg8iYOnOrDDkJKSjFurlQY/bEFQx5zs7SX2C/bjMkmPYq/NiyY1fTOkw==}
@@ -7729,6 +7754,23 @@ snapshots:
       - '@vue/composition-api'
       - vue
 
+  '@formwerk/core@https://pkg.pr.new/formwerkjs/formwerk/@formwerk/core@205(vue@3.5.21(typescript@5.8.3))':
+    dependencies:
+      '@formwerk/devtools': https://pkg.pr.new/formwerkjs/formwerk/@formwerk/devtools@57c8b75b6be3b06b4fecefc1c6117ce1377dfd5d
+      '@internationalized/date': 3.9.0
+      '@standard-schema/spec': 1.0.0
+      '@standard-schema/utils': 0.3.0
+      klona: 2.0.6
+      type-fest: 4.41.0
+      vue: 3.5.21(typescript@5.8.3)
+
+  '@formwerk/devtools@https://pkg.pr.new/formwerkjs/formwerk/@formwerk/devtools@57c8b75b6be3b06b4fecefc1c6117ce1377dfd5d':
+    dependencies:
+      '@vue/devtools-api': 8.0.2
+      '@vue/devtools-kit': 8.0.2
+      klona: 2.0.6
+      type-fest: 4.41.0
+
   '@ghostery/adblocker-content@2.11.6':
     dependencies:
       '@ghostery/adblocker-extended-selectors': 2.11.6
@@ -9234,6 +9276,8 @@ snapshots:
 
   '@standard-schema/spec@1.0.0': {}
 
+  '@standard-schema/utils@0.3.0': {}
+
   '@stylistic/eslint-plugin@5.2.3(eslint@9.36.0(jiti@2.5.1))':
     dependencies:
       '@eslint-community/eslint-utils': 4.9.0(eslint@9.36.0(jiti@2.5.1))
@@ -9772,6 +9816,10 @@ snapshots:
 
   '@vue/devtools-api@6.6.4': {}
 
+  '@vue/devtools-api@8.0.2':
+    dependencies:
+      '@vue/devtools-kit': 8.0.2
+
   '@vue/devtools-core@7.7.7(vite@7.1.7(@types/node@24.0.7)(jiti@2.5.1)(lightningcss@1.30.1)(terser@5.43.1)(yaml@2.8.0))(vue@3.5.21(typescript@5.8.3))':
     dependencies:
       '@vue/devtools-kit': 7.7.7
@@ -9794,7 +9842,21 @@ snapshots:
       speakingurl: 14.0.1
       superjson: 2.2.2
 
+  '@vue/devtools-kit@8.0.2':
+    dependencies:
+      '@vue/devtools-shared': 8.0.2
+      birpc: 2.6.1
+      hookable: 5.5.3
+      mitt: 3.0.1
+      perfect-debounce: 2.0.0
+      speakingurl: 14.0.1
+      superjson: 2.2.2
+
   '@vue/devtools-shared@7.7.7':
+    dependencies:
+      rfdc: 1.4.1
+
+  '@vue/devtools-shared@8.0.2':
     dependencies:
       rfdc: 1.4.1
 
