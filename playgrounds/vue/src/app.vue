@@ -58,7 +58,7 @@ provide('components', components)
         </template>
       </UDashboardPanel>
 
-      <UDashboardSearch :groups="groups" />
+      <UDashboardSearch :groups="groups" :fuse="{ resultLimit: 100 }" />
     </UDashboardGroup>
   </UApp>
 </template>

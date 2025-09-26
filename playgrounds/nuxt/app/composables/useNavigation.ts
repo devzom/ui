@@ -3,41 +3,65 @@ import { upperName } from '../utils'
 const components = [
   'accordion',
   'alert',
+  'auth-form',
   'avatar',
   'badge',
+  'banner',
+  'blog-post',
   'breadcrumb',
   'button',
-  'card',
   'calendar',
+  'card',
   'carousel',
-  'checkbox',
+  'changelog-version',
   'checkbox-group',
+  'checkbox',
   'chip',
   'collapsible',
+  'color-mode',
   'color-picker',
-  'context-menu',
   'command-palette',
+  'content-navigation',
+  'content-surround',
+  'content-toc',
+  'context-menu',
   'drawer',
   'dropdown-menu',
+  'error',
   'field-group',
   'file-upload',
-  'form',
+  'footer',
   'form-field',
-  'input',
+  'form',
+  'header',
   'input-menu',
   'input-number',
   'input-tags',
+  'input',
   'kbd',
   'link',
+  'locale',
+  'marquee',
   'modal',
   'navigation-menu',
+  'page-anchors',
+  'page-card',
+  'page-cta',
+  'page-feature',
+  'page-header',
+  'page-hero',
+  'page-links',
+  'page-logos',
+  'page-section',
   'pagination',
   'pin-input',
   'popover',
+  'pricing-plan',
+  'pricing-table',
   'progress',
   'radio-group',
-  'select',
   'select-menu',
+  'select',
   'separator',
   'shortcuts',
   'skeleton',
@@ -45,18 +69,39 @@ const components = [
   'slider',
   'stepper',
   'switch',
-  'tabs',
   'table',
+  'tabs',
   'textarea',
   'timeline',
   'toast',
   'tooltip',
-  'tree'
+  'tree',
+  'user'
 ].map(component => ({ label: upperName(component), icon: 'i-lucide-box', to: `/components/${component}` }))
 
 export const useNavigation = () => {
+  const appConfig = useAppConfig()
+
   const items = [{ label: 'Home', icon: 'i-lucide-home', to: '/' }, { label: 'Chat', icon: 'i-lucide-message-circle', to: '/chat' }]
-  const groups = [{ id: 'links', items }, { id: 'components', label: 'Components', items: components }]
+  const groups = computed(() => [
+    { id: 'links', items },
+    { id: 'components', label: 'Components', items: components },
+    {
+      id: 'dir',
+      label: 'Direction',
+      items: [{
+        label: 'LTR',
+        icon: 'i-lucide-arrow-right',
+        active: appConfig.dir === 'ltr',
+        onSelect: () => appConfig.dir = 'ltr'
+      }, {
+        label: 'RTL',
+        icon: 'i-lucide-arrow-left',
+        active: appConfig.dir === 'rtl',
+        onSelect: () => appConfig.dir = 'rtl'
+      }]
+    }
+  ])
 
   return {
     components,
