@@ -21,9 +21,9 @@ const components = [
   'color-mode',
   'color-picker',
   'command-palette',
-  'content-navigation',
-  'content-surround',
-  'content-toc',
+  'content/content-navigation',
+  'content/content-surround',
+  'content/content-toc',
   'context-menu',
   'drawer',
   'dropdown-menu',
@@ -77,7 +77,7 @@ const components = [
   'tooltip',
   'tree',
   'user'
-].map(component => ({ label: upperName(component), icon: 'i-lucide-box', to: `/components/${component}` }))
+].map(component => ({ label: upperName(component.split('/').pop() as string), icon: 'i-lucide-box', to: `/components/${component}` }))
 
 export const useNavigation = () => {
   const appConfig = useAppConfig()
