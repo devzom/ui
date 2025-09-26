@@ -14,6 +14,11 @@ const index = computed(() => components?.findIndex(component => component.to ===
 function navigate(index: number) {
   router.push(components?.[index]?.to as string)
 }
+
+defineShortcuts({
+  j: () => navigate(index.value + 1),
+  k: () => navigate(index.value - 1)
+})
 </script>
 
 <template>
