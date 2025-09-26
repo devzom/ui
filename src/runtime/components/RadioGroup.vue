@@ -87,9 +87,10 @@ export interface RadioGroupSlots<T extends RadioGroupItem[] = RadioGroupItem[]> 
 </script>
 
 <script setup lang="ts" generic="T extends RadioGroupItem[], VK extends GetItemKeys<T> = 'value'">
-import { computed, useId } from 'vue'
+import { computed } from 'vue'
 import { RadioGroupRoot, RadioGroupItem as RRadioGroupItem, RadioGroupIndicator, Label, useForwardPropsEmits } from 'reka-ui'
 import { reactivePick } from '@vueuse/core'
+import { useCustomControl } from '@formwerk/core'
 import { useAppConfig } from '#imports'
 import { useFormField } from '../composables/useFormField'
 import { get } from '../utils'
@@ -108,8 +109,13 @@ const appConfig = useAppConfig() as RadioGroup['AppConfig']
 
 const rootProps = useForwardPropsEmits(reactivePick(props, 'as', 'loop', 'required'), emits)
 
-const { emitFormChange, emitFormInput, color, name, size, id: _id, disabled, ariaAttrs } = useFormField<RadioGroupProps<T>>(props, { bind: false })
-const id = _id.value ?? useId()
+const { emitFormChange, emitFormInput, color, name, size, disabled } = useFormField<RadioGroupProps<T>>(props, { bind: false })
+const { controlProps, controlId } = useCustomControl({
+  name,
+  disabled,
+  required: props.required,
+  controlType: 'URadioGroup'
+})
 
 const ui = computed(() => tv({ extend: tv(theme), ...(appConfig.ui?.radioGroup || {}) })({
   size: size.value,
@@ -124,7 +130,7 @@ const ui = computed(() => tv({ extend: tv(theme), ...(appConfig.ui?.radioGroup |
 function normalizeItem(item: any) {
   if (item === null) {
     return {
-      id: `${id}:null`,
+      id: `${controlId}:null`,
       value: undefined,
       label: undefined
     }
@@ -132,7 +138,7 @@ function normalizeItem(item: any) {
 
   if (typeof item === 'string' || typeof item === 'number' || typeof item === 'bigint') {
     return {
-      id: `${id}:${item}`,
+      id: `${controlId}:${item}`,
       value: String(item),
       label: String(item)
     }
@@ -147,7 +153,7 @@ function normalizeItem(item: any) {
     value,
     label,
     description,
-    id: `${id}:${value}`
+    id: `${controlId}:${value}`
   }
 }
 
@@ -170,7 +176,7 @@ function onUpdate(value: any) {
 
 <template>
   <RadioGroupRoot
-    :id="id"
+    :id="`${controlId}-group`"
     v-bind="rootProps"
     :model-value="(modelValue as Exclude<RadioGroupItem, boolean> | Exclude<RadioGroupItem, boolean>[])"
     :default-value="(defaultValue as Exclude<RadioGroupItem, boolean> | Exclude<RadioGroupItem, boolean>[])"
@@ -180,7 +186,7 @@ function onUpdate(value: any) {
     :class="ui.root({ class: [props.ui?.root, props.class] })"
     @update:model-value="onUpdate"
   >
-    <fieldset :class="ui.fieldset({ class: props.ui?.fieldset })" v-bind="ariaAttrs">
+    <fieldset :class="ui.fieldset({ class: props.ui?.fieldset })" v-bind="controlProps">
       <legend v-if="legend || !!slots.legend" :class="ui.legend({ class: props.ui?.legend })">
         <slot name="legend">
           {{ legend }}

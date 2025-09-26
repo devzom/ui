@@ -67,6 +67,7 @@ export interface InputTagsSlots<T extends InputTagItem = InputTagItem> {
 import { computed, ref, onMounted, toRaw } from 'vue'
 import { TagsInputRoot, TagsInputItem, TagsInputItemText, TagsInputItemDelete, TagsInputInput, useForwardPropsEmits } from 'reka-ui'
 import { reactivePick } from '@vueuse/core'
+import { useCustomControl } from '@formwerk/core'
 import { useAppConfig } from '#imports'
 import { useFieldGroup } from '../composables/useFieldGroup'
 import { useComponentIcons } from '../composables/useComponentIcons'
@@ -88,7 +89,13 @@ const appConfig = useAppConfig() as InputTags['AppConfig']
 
 const rootProps = useForwardPropsEmits(reactivePick(props, 'as', 'addOnPaste', 'addOnTab', 'addOnBlur', 'duplicate', 'delimiter', 'max', 'convertValue', 'displayValue', 'required'), emits)
 
-const { emitFormBlur, emitFormFocus, emitFormChange, emitFormInput, size: formGroupSize, color, id, name, highlight, disabled, ariaAttrs } = useFormField<InputTagsProps>(props)
+const { emitFormBlur, emitFormFocus, emitFormChange, emitFormInput, size: formGroupSize, color, name, highlight, disabled } = useFormField<InputTagsProps>(props)
+const { controlProps } = useCustomControl({
+  name,
+  disabled,
+  required: props.required,
+  controlType: 'UInputTags'
+})
 const { orientation, size: fieldGroupSize } = useFieldGroup<InputTagsProps>(props)
 const { isLeading, isTrailing, leadingIconName, trailingIconName } = useComponentIcons(props)
 
@@ -180,7 +187,7 @@ defineExpose({
 
     <TagsInputInput
       ref="inputRef"
-      v-bind="{ ...$attrs, ...ariaAttrs }"
+      v-bind="{ ...$attrs, ...controlProps }"
       :placeholder="placeholder"
       :max-length="maxLength"
       :class="ui.input({ class: props.ui?.input })"

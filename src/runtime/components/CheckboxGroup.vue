@@ -77,9 +77,10 @@ export interface CheckboxGroupSlots<T extends CheckboxGroupItem[] = CheckboxGrou
 </script>
 
 <script setup lang="ts" generic="T extends CheckboxGroupItem[], VK extends GetItemKeys<T> = 'value'">
-import { computed, useId } from 'vue'
+import { computed } from 'vue'
 import { CheckboxGroupRoot, useForwardProps, useForwardPropsEmits } from 'reka-ui'
 import { reactivePick } from '@vueuse/core'
+import { useCustomControl } from '@formwerk/core'
 import { useAppConfig } from '#imports'
 import { useFormField } from '../composables/useFormField'
 import { get, omit } from '../utils'
@@ -101,8 +102,13 @@ const rootProps = useForwardPropsEmits(reactivePick(props, 'as', 'modelValue', '
 const checkboxProps = useForwardProps(reactivePick(props, 'variant', 'indicator', 'icon'))
 const getProxySlots = () => omit(slots, ['legend'])
 
-const { emitFormChange, emitFormInput, color, name, size, id: _id, disabled, ariaAttrs } = useFormField<CheckboxGroupProps<T>>(props, { bind: false })
-const id = _id.value ?? useId()
+const { emitFormChange, emitFormInput, color, name, size, disabled } = useFormField<CheckboxGroupProps<T>>(props, { bind: false })
+const { controlProps, controlId } = useCustomControl({
+  name,
+  disabled,
+  required: props.required,
+  controlType: 'UInputMenu'
+})
 
 const ui = computed(() => tv({ extend: theme, ...(appConfig.ui?.checkboxGroup || {}) })({
   size: size.value,
@@ -115,7 +121,7 @@ const ui = computed(() => tv({ extend: theme, ...(appConfig.ui?.checkboxGroup ||
 function normalizeItem(item: any) {
   if (item === null) {
     return {
-      id: `${id}:null`,
+      id: `${controlId}:null`,
       value: undefined,
       label: undefined
     }
@@ -123,7 +129,7 @@ function normalizeItem(item: any) {
 
   if (typeof item === 'string' || typeof item === 'number') {
     return {
-      id: `${id}:${item}`,
+      id: `${controlId}:${item}`,
       value: String(item),
       label: String(item)
     }
@@ -138,7 +144,7 @@ function normalizeItem(item: any) {
     value,
     label,
     description,
-    id: `${id}:${value}`
+    id: `${controlId}:${value}`
   }
 }
 
@@ -161,14 +167,14 @@ function onUpdate(value: any) {
 <!-- eslint-disable vue/no-template-shadow -->
 <template>
   <CheckboxGroupRoot
-    :id="id"
+    :id="controlId"
     v-bind="rootProps"
     :name="name"
     :disabled="disabled"
     :class="ui.root({ class: [props.ui?.root, props.class] })"
     @update:model-value="onUpdate"
   >
-    <fieldset :class="ui.fieldset({ class: props.ui?.fieldset })" v-bind="ariaAttrs">
+    <fieldset :class="ui.fieldset({ class: props.ui?.fieldset })" v-bind="controlProps">
       <legend v-if="legend || !!slots.legend" :class="ui.legend({ class: props.ui?.legend })">
         <slot name="legend">
           {{ legend }}

@@ -47,6 +47,7 @@ export interface SliderEmits {
 import { computed } from 'vue'
 import { SliderRoot, SliderRange, SliderTrack, SliderThumb, useForwardPropsEmits } from 'reka-ui'
 import { reactivePick } from '@vueuse/core'
+import { useCustomControl } from '@formwerk/core'
 import { useAppConfig } from '#imports'
 import { useFormField } from '../composables/useFormField'
 import { tv } from '../utils/tv'
@@ -66,7 +67,12 @@ const appConfig = useAppConfig() as Slider['AppConfig']
 
 const rootProps = useForwardPropsEmits(reactivePick(props, 'as', 'orientation', 'min', 'max', 'step', 'minStepsBetweenThumbs', 'inverted'), emits)
 
-const { id, emitFormChange, emitFormInput, size, color, name, disabled, ariaAttrs } = useFormField<SliderProps>(props)
+const { emitFormChange, emitFormInput, size, color, name, disabled } = useFormField<SliderProps>(props)
+const { controlProps } = useCustomControl({
+  name,
+  disabled,
+  controlType: 'USlider'
+})
 
 const defaultSliderValue = computed(() => {
   if (typeof props.defaultValue === 'number') {
@@ -106,8 +112,7 @@ function onChange(value: any) {
 
 <template>
   <SliderRoot
-    v-bind="{ ...rootProps, ...ariaAttrs }"
-    :id="id"
+    v-bind="{ ...rootProps, ...controlProps }"
     v-model="sliderValue"
     :name="name"
     :disabled="disabled"

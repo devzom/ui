@@ -59,9 +59,10 @@ export interface CheckboxSlots {
 </script>
 
 <script setup lang="ts">
-import { computed, useId } from 'vue'
+import { computed } from 'vue'
 import { Primitive, CheckboxRoot, CheckboxIndicator, Label, useForwardProps } from 'reka-ui'
 import { reactivePick } from '@vueuse/core'
+import { useCustomControl } from '@formwerk/core'
 import { useAppConfig } from '#imports'
 import { useFormField } from '../composables/useFormField'
 import { tv } from '../utils/tv'
@@ -79,8 +80,13 @@ const appConfig = useAppConfig() as Checkbox['AppConfig']
 
 const rootProps = useForwardProps(reactivePick(props, 'required', 'value', 'defaultValue'))
 
-const { id: _id, emitFormChange, emitFormInput, size, color, name, disabled, ariaAttrs } = useFormField<CheckboxProps>(props)
-const id = _id.value ?? useId()
+const { emitFormChange, emitFormInput, size, color, name, disabled } = useFormField<CheckboxProps>(props)
+const { controlProps, field: { isDisabled } } = useCustomControl<boolean>({
+  name,
+  disabled,
+  required: props.required,
+  controlType: 'UCheckbox'
+})
 
 const ui = computed(() => tv({ extend: tv(theme), ...(appConfig.ui?.checkbox || {}) })({
   size: size.value,
@@ -103,13 +109,12 @@ function onUpdate(value: any) {
 <!-- eslint-disable vue/no-template-shadow -->
 <template>
   <Primitive :as="(!variant || variant === 'list') ? as : Label" :class="ui.root({ class: [props.ui?.root, props.class] })">
+    <pre>{{ name }}</pre>
     <div :class="ui.container({ class: props.ui?.container })">
       <CheckboxRoot
-        :id="id"
-        v-bind="{ ...rootProps, ...$attrs, ...ariaAttrs }"
+        v-bind="{ ...rootProps, ...$attrs, ...controlProps }"
         v-model="modelValue"
-        :name="name"
-        :disabled="disabled"
+        :disabled="isDisabled"
         :class="ui.base({ class: props.ui?.base })"
         @update:model-value="onUpdate"
       >

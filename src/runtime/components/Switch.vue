@@ -56,9 +56,10 @@ export interface SwitchSlots {
 </script>
 
 <script setup lang="ts">
-import { computed, useId } from 'vue'
+import { computed } from 'vue'
 import { Primitive, SwitchRoot, SwitchThumb, useForwardProps, Label } from 'reka-ui'
 import { reactivePick } from '@vueuse/core'
+import { useCustomControl } from '@formwerk/core'
 import { useAppConfig } from '#imports'
 import { useFormField } from '../composables/useFormField'
 import { tv } from '../utils/tv'
@@ -76,8 +77,13 @@ const appConfig = useAppConfig() as Switch['AppConfig']
 
 const rootProps = useForwardProps(reactivePick(props, 'required', 'value', 'defaultValue'))
 
-const { id: _id, emitFormChange, emitFormInput, size, color, name, disabled, ariaAttrs } = useFormField<SwitchProps>(props)
-const id = _id.value ?? useId()
+const { emitFormChange, emitFormInput, size, color, name, disabled } = useFormField<SwitchProps>(props)
+const { controlProps } = useCustomControl({
+  name,
+  disabled,
+  required: props.required,
+  controlType: 'UInputMenu'
+})
 
 const ui = computed(() => tv({ extend: tv(theme), ...(appConfig.ui?.switch || {}) })({
   size: size.value,
@@ -100,8 +106,7 @@ function onUpdate(value: any) {
   <Primitive :as="as" :class="ui.root({ class: [props.ui?.root, props.class] })">
     <div :class="ui.container({ class: props.ui?.container })">
       <SwitchRoot
-        :id="id"
-        v-bind="{ ...rootProps, ...$attrs, ...ariaAttrs }"
+        v-bind="{ ...rootProps, ...$attrs, ...controlProps }"
         v-model="modelValue"
         :name="name"
         :disabled="disabled || loading"

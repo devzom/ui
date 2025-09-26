@@ -178,6 +178,7 @@ import { ComboboxRoot, ComboboxArrow, ComboboxAnchor, ComboboxInput, ComboboxTri
 import { defu } from 'defu'
 import { isEqual } from 'ohash/utils'
 import { reactivePick, createReusableTemplate } from '@vueuse/core'
+import { useCustomControl } from '@formwerk/core'
 import { useAppConfig } from '#imports'
 import { useFieldGroup } from '../composables/useFieldGroup'
 import { useComponentIcons } from '../composables/useComponentIcons'
@@ -214,7 +215,13 @@ const portalProps = usePortal(toRef(() => props.portal))
 const contentProps = toRef(() => defu(props.content, { side: 'bottom', sideOffset: 8, collisionPadding: 8, position: 'popper' }) as ComboboxContentProps)
 const arrowProps = toRef(() => props.arrow as ComboboxArrowProps)
 
-const { emitFormBlur, emitFormFocus, emitFormChange, emitFormInput, size: formGroupSize, color, id, name, highlight, disabled, ariaAttrs } = useFormField<InputProps>(props)
+const { emitFormBlur, emitFormFocus, emitFormChange, emitFormInput, size: formGroupSize, color, name, highlight, disabled } = useFormField<InputProps>(props)
+const { controlProps } = useCustomControl({
+  name,
+  disabled,
+  required: props.required,
+  controlType: 'UInputMenu'
+})
 const { orientation, size: fieldGroupSize } = useFieldGroup<InputProps>(props)
 const { isLeading, isTrailing, leadingIconName, trailingIconName } = useComponentIcons(toRef(() => defu(props, { trailingIcon: appConfig.ui.icons.chevronDown })))
 
@@ -457,9 +464,8 @@ defineExpose({
 
         <ComboboxInput v-model="searchTerm" as-child>
           <TagsInputInput
-            :id="id"
             ref="inputRef"
-            v-bind="{ ...$attrs, ...ariaAttrs }"
+            v-bind="{ ...$attrs, ...controlProps }"
             :placeholder="placeholder"
             :class="ui.tagsInput({ class: props.ui?.tagsInput })"
             @keydown.enter.prevent
@@ -469,10 +475,9 @@ defineExpose({
 
       <ComboboxInput
         v-else
-        :id="id"
         ref="inputRef"
         :display-value="displayValue"
-        v-bind="{ ...$attrs, ...ariaAttrs }"
+        v-bind="{ ...$attrs, ...controlProps }"
         :type="type"
         :placeholder="placeholder"
         :required="required"

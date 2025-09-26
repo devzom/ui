@@ -126,6 +126,7 @@ export interface FileUploadSlots<M extends boolean = false> {
 import { computed, watch } from 'vue'
 import { Primitive } from 'reka-ui'
 import { createReusableTemplate } from '@vueuse/core'
+import { useCustomControl } from '@formwerk/core'
 import { useAppConfig, useLocale } from '#imports'
 import { useFormField } from '../composables/useFormField'
 import { useFileUpload } from '../composables/useFileUpload'
@@ -163,7 +164,13 @@ const { isDragging, open, inputRef, dropzoneRef } = useFileUpload({
   dropzone: props.dropzone,
   onUpdate
 })
-const { emitFormInput, emitFormChange, id, name, disabled, ariaAttrs } = useFormField<FileUploadProps>(props)
+const { emitFormInput, emitFormChange, size: formFieldSize, highlight, color, name, disabled } = useFormField<FileUploadProps>(props)
+const { controlProps } = useCustomControl<File[] | File>({
+  name,
+  disabled,
+  required: props.required,
+  controlType: 'UFileUpload'
+})
 
 const variant = computed(() => props.multiple ? 'area' : props.variant)
 const layout = computed(() => props.variant === 'button' && !props.multiple ? 'grid' : props.layout)
@@ -181,14 +188,14 @@ const position = computed(() => {
 const ui = computed(() => tv({ extend: tv(theme), ...(appConfig.ui?.fileUpload || {}) })({
   dropzone: props.dropzone,
   interactive: props.interactive,
-  color: props.color,
-  size: props.size,
+  color: color.value,
+  size: formFieldSize.value || props.size,
   variant: variant.value,
   layout: layout.value,
   position: position.value,
   multiple: props.multiple,
-  highlight: props.highlight,
-  disabled: props.disabled
+  highlight: highlight.value,
+  disabled: disabled.value
 }))
 
 function createObjectUrl(file: File): string {
@@ -363,7 +370,6 @@ defineExpose({
     </slot>
 
     <input
-      :id="id"
       ref="inputRef"
       type="file"
       :name="name"
@@ -371,7 +377,7 @@ defineExpose({
       :multiple="(multiple as boolean)"
       :required="required"
       :disabled="disabled"
-      v-bind="{ ...$attrs, ...ariaAttrs }"
+      v-bind="{ ...$attrs, ...controlProps }"
       class="sr-only"
       tabindex="-1"
     >

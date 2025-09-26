@@ -66,6 +66,7 @@ export interface TextareaSlots {
 import { ref, computed, onMounted, nextTick, watch } from 'vue'
 import { Primitive } from 'reka-ui'
 import { useVModel } from '@vueuse/core'
+import { useCustomControl } from '@formwerk/core'
 import { useAppConfig } from '#imports'
 import { useComponentIcons } from '../composables/useComponentIcons'
 import { useFormField } from '../composables/useFormField'
@@ -89,7 +90,14 @@ const modelValue = useVModel<TextareaProps<T>, 'modelValue', 'update:modelValue'
 
 const appConfig = useAppConfig() as Textarea['AppConfig']
 
-const { emitFormFocus, emitFormBlur, emitFormInput, emitFormChange, size, color, id, name, highlight, disabled, ariaAttrs } = useFormField<TextareaProps<T>>(props, { deferInputValidation: true })
+const { emitFormFocus, emitFormBlur, emitFormInput, emitFormChange, size, color, name, highlight, disabled } = useFormField<TextareaProps<T>>(props, { deferInputValidation: true })
+const { controlProps } = useCustomControl({
+  name,
+  disabled,
+  required: props.required,
+  controlType: 'UInputMenu'
+})
+
 const { isLeading, isTrailing, leadingIconName, trailingIconName } = useComponentIcons(props)
 
 const ui = computed(() => tv({ extend: tv(theme), ...(appConfig.ui?.textarea || {}) })({
@@ -206,7 +214,6 @@ defineExpose({
 <template>
   <Primitive :as="as" :class="ui.root({ class: [props.ui?.root, props.class] })">
     <textarea
-      :id="id"
       ref="textareaRef"
       :value="modelValue"
       :name="name"
@@ -215,7 +222,7 @@ defineExpose({
       :class="ui.base({ class: props.ui?.base })"
       :disabled="disabled"
       :required="required"
-      v-bind="{ ...$attrs, ...ariaAttrs }"
+      v-bind="{ ...$attrs, ...controlProps }"
       @input="onInput"
       @blur="onBlur"
       @change="onChange"

@@ -52,6 +52,7 @@ import type { ComponentPublicInstance } from 'vue'
 import { ref, computed, onMounted } from 'vue'
 import { PinInputInput, PinInputRoot, useForwardPropsEmits } from 'reka-ui'
 import { reactivePick } from '@vueuse/core'
+import { useCustomControl } from '@formwerk/core'
 import { useAppConfig } from '#imports'
 import { useFormField } from '../composables/useFormField'
 import { looseToNumber } from '../utils'
@@ -68,7 +69,13 @@ const appConfig = useAppConfig() as PinInput['AppConfig']
 
 const rootProps = useForwardPropsEmits(reactivePick(props, 'disabled', 'id', 'mask', 'name', 'otp', 'required', 'type'), emits)
 
-const { emitFormInput, emitFormFocus, emitFormChange, emitFormBlur, size, color, id, name, highlight, disabled, ariaAttrs } = useFormField<PinInputProps>(props)
+const { emitFormInput, emitFormFocus, emitFormChange, emitFormBlur, size, color, name, highlight, disabled } = useFormField<PinInputProps>(props)
+const { controlProps, field: { isDisabled } } = useCustomControl({
+  name,
+  disabled,
+  required: props.required,
+  controlType: 'UPinInput'
+})
 
 const ui = computed(() => tv({ extend: tv(theme), ...(appConfig.ui?.pinInput || {}) })({
   color: color.value,
@@ -113,8 +120,7 @@ defineExpose({
 
 <template>
   <PinInputRoot
-    v-bind="{ ...rootProps, ...ariaAttrs }"
-    :id="id"
+    v-bind="{ ...rootProps, ...controlProps }"
     :name="name"
     :placeholder="placeholder"
     :model-value="(modelValue as PinInputValue<T>)"
@@ -129,7 +135,7 @@ defineExpose({
       :ref="el => (inputsRef[index] = el as ComponentPublicInstance)"
       :index="index"
       :class="ui.base({ class: props.ui?.base })"
-      :disabled="disabled"
+      :disabled="isDisabled"
       @blur="onBlur"
       @focus="emitFormFocus"
     />

@@ -80,6 +80,7 @@ export interface InputNumberSlots {
 import { onMounted, ref, computed } from 'vue'
 import { NumberFieldRoot, NumberFieldInput, NumberFieldDecrement, NumberFieldIncrement, useForwardPropsEmits } from 'reka-ui'
 import { reactivePick, useVModel } from '@vueuse/core'
+import { useCustomControl } from '@formwerk/core'
 import { useAppConfig } from '#imports'
 import { useFieldGroup } from '../composables/useFieldGroup'
 import { useFormField } from '../composables/useFormField'
@@ -104,7 +105,13 @@ const appConfig = useAppConfig() as InputNumber['AppConfig']
 
 const rootProps = useForwardPropsEmits(reactivePick(props, 'as', 'defaultValue', 'min', 'max', 'step', 'stepSnapping', 'formatOptions', 'disableWheelChange', 'invertWheelChange', 'readonly'), emits)
 
-const { emitFormBlur, emitFormFocus, emitFormChange, emitFormInput, id, color, size: formGroupSize, name, highlight, disabled, ariaAttrs } = useFormField<InputNumberProps>(props)
+const { emitFormBlur, emitFormFocus, emitFormChange, emitFormInput, color, size: formGroupSize, name, highlight, disabled } = useFormField<InputNumberProps>(props)
+const { controlProps } = useCustomControl({
+  name,
+  disabled,
+  required: props.required,
+  controlType: 'UInputNumber'
+})
 const { orientation, size: fieldGroupSize } = useFieldGroup<InputNumberProps>(props)
 
 const locale = computed(() => props.locale || codeLocale.value)
@@ -171,7 +178,7 @@ defineExpose({
     @update:model-value="onUpdate"
   >
     <NumberFieldInput
-      v-bind="{ ...$attrs, ...ariaAttrs }"
+      v-bind="{ ...$attrs, ...controlProps }"
       ref="inputRef"
       :placeholder="placeholder"
       :required="required"
