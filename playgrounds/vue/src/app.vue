@@ -20,7 +20,7 @@ useHead({
   }
 })
 
-const { components, groups, items } = useNavigation(true)
+const { components, groups, items } = useNavigation()
 
 provide('components', components)
 </script>
