@@ -1,22 +1,32 @@
 <script setup lang="ts">
 import { reactive } from 'vue'
+import { useHead } from '@unhead/vue'
 import { useRoute } from 'vue-router'
 
 const route = useRoute()
 const appConfig = useAppConfig()
-const { components, groups, items } = useNavigation()
 
+appConfig.dir = ref('ltr')
 appConfig.toaster = reactive({
   position: 'bottom-right' as const,
   expand: true,
   duration: 5000
 })
 
+useHead({
+  title: 'Nuxt UI - Playground',
+  htmlAttrs: {
+    dir: computed(() => appConfig.dir as 'ltr' | 'rtl')
+  }
+})
+
+const { components, groups, items } = useNavigation()
+
 provide('components', components)
 </script>
 
 <template>
-  <UApp :toaster="appConfig.toaster">
+  <UApp :toaster="appConfig.toaster" :dir="appConfig.dir">
     <UDashboardGroup unit="rem" storage="local">
       <UDashboardSidebar class="bg-elevated/25">
         <template #header>

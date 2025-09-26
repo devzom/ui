@@ -1,17 +1,21 @@
 <script setup lang="ts">
 const route = useRoute()
 const appConfig = useAppConfig()
+
 const { components, groups, items } = useNavigation()
 
 useHead({
-  title: 'Nuxt UI - Playground'
+  title: 'Nuxt UI - Playground',
+  htmlAttrs: {
+    dir: computed(() => appConfig.dir as 'ltr' | 'rtl')
+  }
 })
 
 provide('components', components)
 </script>
 
 <template>
-  <UApp :toaster="appConfig.toaster">
+  <UApp :toaster="appConfig.toaster" :dir="appConfig.dir">
     <UDashboardGroup unit="rem">
       <UDashboardSidebar class="bg-elevated/25">
         <template #header>
